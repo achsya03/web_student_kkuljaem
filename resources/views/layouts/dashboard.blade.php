@@ -18,10 +18,10 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 
 
-  <link href="{{asset('assets/vendor/fontawesome/css/fontawesome.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/light.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/regular.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/light.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/regular.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" />
 
   @yield('css')
 </head>
@@ -31,7 +31,7 @@
     <div class="container d-flex align-items-center">
       <h1 class="logo mr-auto my-auto">
         <a href="/">
-          <img src="{{asset('assets/img/Logo.png')}}" alt="" srcset="" /></a>
+          <img src="/assets/img/Logo.png" alt="" srcset="" /></a>
       </h1>
       <form action="{{route('dashboard.search')}}" method="POST" style="width: 500px;">
         <div class="input-group border rounded-pill my-1 mr-4 bg-white py-2">
@@ -141,7 +141,7 @@
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="#">
-            <img class="img-profile rounded-circle" src="{{asset('assets/img/profile.png')}}">
+            <img class="img-profile rounded-circle" src="/assets/img/profile.png">
           </a>
         </li>
       </ul>
@@ -162,7 +162,7 @@
         </div>
       </div>
       <div class="col-lg-4 justify-content-center">
-        <img src="Assets/img/Logo2.png" alt="" srcset="">
+        <img src="/assets/img/Logo2.png" alt="" srcset="">
       </div>
       <div class="col-lg-4 justify-content-center">
         <h4 class="copyright">Copyright 2021</h4>
@@ -184,7 +184,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-  <script src="{{asset('assets/js/player.js')}}"></script>
+  <script src="/assets/js/player.js"></script>
 
   <script>
     $(document).ready(function () {
