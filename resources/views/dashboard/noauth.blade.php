@@ -195,7 +195,7 @@
                 </div>
             </div>
             <div class="col-lg-4 justify-content-center">
-                <img src="Assets/img/Logo2.png" alt="" srcset="">
+                <img src="assets/img/Logo2.png" alt="" srcset="">
             </div>
             <div class="col-lg-4 justify-content-center">
                 <h4 class="copyright">Copyright 2021</h4>

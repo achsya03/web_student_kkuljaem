@@ -14,7 +14,6 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'asset_url' => 'http://localhost/public',
 
     "base_api_url" => env('BASE_API_URL', 'https://floating-harbor-93486.herokuapp.com'),
 
@@ -55,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://https://12bc-36-68-15-134.ngrok.io'),
 
-    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', 'https://12bc-36-68-15-134.ngrok.io'),
 
     /*
     |--------------------------------------------------------------------------
