@@ -105,7 +105,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     
                     <video id='my-video' controls controlsList="nodownload" preload='auto' >
-                        <source src='{{ $data->video[0]->url_video }}/preview' type='video/mp4'>
+                        <source src='{{ $data->video[0]->url_video }}' type='video/mp4'>
                     
                       </video>
                     {{-- <iframe src="{{ $data->video[0]->url_video }}#toolbar=0" gesture="media"
