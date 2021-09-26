@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://https://12bc-36-68-15-134.ngrok.io'),
+    'url' => env('APP_URL', 'https://web-student-kkuljaem-fbbob.ondigitalocean.app/'),
 
-    'asset_url' => env('ASSET_URL', 'https://12bc-36-68-15-134.ngrok.io'),
+    'asset_url' => env('ASSET_URL', 'https://web-student-kkuljaem-fbbob.ondigitalocean.app/'),
 
     /*
     |--------------------------------------------------------------------------
