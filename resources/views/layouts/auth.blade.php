@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>@yield('title')</title>
-  <link rel="icon" href="{{asset('assets/img/Logo.png')}}" type="image/gif">
+  <link rel="icon" href="/assets/img/Logo.png" type="image/gif">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
 
@@ -18,11 +18,11 @@
     integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/fontawesome.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/light.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/regular.min.css')}}" rel="stylesheet" />
-  <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet" />
+  <link href="/assets/css/style.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/light.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/regular.min.css" rel="stylesheet" />
+  <link href="/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -30,7 +30,7 @@
     <div class="container d-flex align-items-center">
         <h1 class="logo mr-auto my-auto">
         <a href="/">
-            <img src="{{asset('assets/img/Logo.png')}}" alt="" srcset="" /></a>
+            <img src="/assets/img/Logo.png" alt="" srcset="" /></a>
         </h1>
         <nav class="navbar-menu navbar-expand-sm">
         <ul class="navbar-nav ml-auto">
@@ -56,7 +56,7 @@
             </div>
             </div>
             <div class="col-lg-4 justify-content-center">
-            <img src="{{asset('assets/img/Logo2.png')}}" alt="" srcset="">
+            <img src="/assets/img/Logo2.png" alt="" srcset="">
             </div>
             <div class="col-lg-4 justify-content-center">
             <h4 class="copyright">Copyright {{date('Y')}}</h4>
