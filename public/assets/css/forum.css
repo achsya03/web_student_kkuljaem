@@ -1,0 +1,139 @@
+        /* Bukan Member Premium */
+        
+        .top-menu {
+            font-size: 26px;
+            line-height: 32px;
+            letter-spacing: -0.5px;
+        }
+        
+        .top-menu a {
+            color: #5E5648;
+            text-decoration: none;
+            border-bottom: 4px solid #F8F2EE;
+        }
+        
+        .top-menu a:hover {
+            color: #3A372F;
+            border-bottom: 4px solid #EF9C23;
+        }
+        
+        .top-menu a.active {
+            color: #3A372F;
+            border-bottom: 4px solid #EF9C23;
+        }
+        
+        img.banner-promo {
+            width: 100%;
+            height: 215px;
+        }
+        
+        .hastag .img-hastag img {
+            width: 360px;
+            height: 170px;
+        }
+        
+        .hastag .text-hastag a {
+            font-size: 21px;
+            padding: 7px;
+            background: #EF9C23;
+            border-radius: 5px;
+            margin-right: 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .comment-forum {
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px #FFE2C2;
+            border-radius: 5px;
+        }
+        
+        .profile-forum {
+            width: 50%;
+        }
+        
+        .profile-forum h6 {
+            color: #3A372F;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .comment-forum .profile-forum p {
+            color: #C4C4C4;
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: -5px;
+        }
+        
+        .comment-forum h5 {
+            color: #33312E;
+            font-weight: 600;
+            font-size: 21px;
+            line-height: 32px;
+        }
+        
+        .comment-forum .text-tag {
+            color: #EF9C23;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        
+        .comment-forum p {
+            color: #33312E;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        
+        .comment-forum .img-comment {
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.16));
+            border-radius: 10px;
+            margin-right: 5px;
+        }
+        
+        .comment-forum .like-comment i {
+            color: #5E5648;
+            font-size: 20px;
+        }
+        
+        .comment-forum .like-comment p {
+            color: #5E5648;
+            font-size: 16px;
+        }
+        /* End Bukan Member Premium */
+        /* Buat Postingan */
+        
+        .form-pengisian {
+            height: 422px;
+            left: 216px;
+            top: 123px;
+            background: #FFF9F0;
+            box-shadow: 0px 4px 4px #FFE2C2;
+            border-radius: 10px;
+            margin-bottom: 80px;
+        }
+        
+        .form-pengisian input,
+        .form-pengisian select,
+        .form-pengisian textarea {
+            border-radius: 12px;
+        }
+        
+        .form-pengisian .tambah-gambar img {
+            width: 75px;
+            height: 75px;
+            border: 1px solid #FFBA55;
+            border-radius: 10px;
+        }
+        
+        .btn-posting {
+            width: 142px;
+            height: 45px;
+            color: white;
+            background: #EF9C23;
+            border: 1px solid #EF9C23;
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+            border-radius: 13px;
+        }
+        /* End Buat Postingan */
