@@ -18,12 +18,8 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 
 
-  <link href="/assets/vendor/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
-  <link href="/assets/vendor/fontawesome/css/light.min.css" rel="stylesheet" />
-  <link href="/assets/vendor/fontawesome/css/regular.min.css" rel="stylesheet" />
-  <link href="/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" />
 
-  @yield('css')
+  
 </head>
 
 <body >

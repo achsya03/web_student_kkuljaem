@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('css')
-    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
+    <link href="/assets/css/home.css" rel="stylesheet" />
 @endsection
 
 @section('title')
@@ -220,7 +220,7 @@
                         @foreach ($data->theme as $index => $theme)
                         @if($index < 3)
                         <button class="topik-tag" href="#"
-                            style="background-image: url({{ asset('assets/img/topik-tag.png)') }};">
+                            style="background-image: /assets/img/topik-tag.png;">
                             <h3 class="text-white">{{$theme->topik}}</h3>
                         </button>
                         @else
@@ -240,13 +240,13 @@
             <div class="profil-comentar">
                 <div class="row">
                     <div class="col-lg-1">
-                        <img src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
+                        <img src="/assets/img/profile-1.png" alt="Profile">
                     </div>
                     <div class="col-lg-10">
                         <h5>{{$item->nama_pengirim}} 
                             @if ($account->status_member == 'Non-Member')
                             @else
-                            <img src="{{ asset('assets/img/crown_user.png') }}" alt="Profile">
+                            <img src="/assets/img/crown_user.png" alt="Profile">
                             @endif</h5>
                         <h6>{{ date('d m Y - H.i', strtotime($item->tgl_post)) }}</h6>
                     </div>
@@ -288,10 +288,10 @@
             button{{ $nok++ }}.addEventListener("click", function () {
                 if (audio{{ $nod++ }}.paused) {
                     audio{{ $noe++ }}.play();
-                    button{{ $nof++ }}.innerHTML = "<img src=\"Assets/img/IconPause.png\" width=\"40px\" height=\"40px\">";
+                    button{{ $nof++ }}.innerHTML = "<img src=\"/assets/img/IconPause.png\" width=\"40px\" height=\"40px\">";
                 } else {
                     audio{{ $nog++ }}.pause();
-                    button{{ $noh++ }}.innerHTML = "<img src=\"Assets/img/IconPlay.png\" width=\"40px\" height=\"40px\">";
+                    button{{ $noh++ }}.innerHTML = "<img src=\"/assets/img/IconPlay.png\" width=\"40px\" height=\"40px\">";
                 }
             });
         });
