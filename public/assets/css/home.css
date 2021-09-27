@@ -164,6 +164,21 @@ h6 {
   background-color: #fff;
   border: none;
   border-radius: 20px;
+  box-shadow: 0px 2px 6px #c4c4c4;
+  transition: all 0.3s ease 0s;
+  outline: none;
+}
+.btn-word:hover {
+  width: 100%;
+  height: 80px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
   box-shadow: 0px 2px 6px #ef9c23;
   transition: all 0.3s ease 0s;
   outline: none;
@@ -319,8 +334,17 @@ li.slick-active button:before {
 }
 
 .komentar {
-  margin: 20px 0px 10px -10px;
-  box-shadow: 0px 1px 0px 0px #a9a9a9;
+  margin: 30px 0px 10px -10px;
+  border: 50%;
+  border-radius: 20px;
+  box-shadow: 1px 2px 4px 0px #a9a9a9;
+  background-color: #ffffff;
+}
+.komentar:hover {
+  margin: 30px 0px 10px -10px;
+  border: 50%;
+  border-radius: 20px;
+  box-shadow: 1px 2px 4px 0px #ef9c23;
   background-color: #ffffff;
 }
 .komentar .profil-comentar{
@@ -407,46 +431,6 @@ li.slick-active button:before {
 }
 
 #button-sound1 {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
-
-#button-sound2 {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
-#button-sound3 {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
-#button-sound4 {
   background-image: url("/Assets/img/IconPlay.png");
   background-size: 40px;
   margin-top: 10px;

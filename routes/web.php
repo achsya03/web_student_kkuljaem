@@ -17,22 +17,24 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
+    // Home
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
-// Home
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-
-// Search
-
-
-// Auth
-Route::get('/login', [AuthController::class, 'login'])->name('login.index');
-Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
-Route::get('/register', [AuthController::class, 'register'])->name('register.index');
-Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
-Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+    // Search
 
 
-Route::group(['middleware' => 'authtoken'], function () {
+    // Auth
+    Route::get('/login', [AuthController::class, 'login'])->name('login.index');
+    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
+    Route::get('/register', [AuthController::class, 'register'])->name('register.index');
+    Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
+    Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+
+});
+
+
+Route::group(['middleware' => 'authtoken', 'cors', 'checkHTTPS'], function () {
     // Kelas
     Route::group(['prefix' => 'class'], function () {
         Route::get('/', [ClassController::class, 'index'])->name('class.index');

@@ -40,20 +40,16 @@ class DashboardController extends Controller
             try {
                 
                 $url = ApiEndpoint::$home;
-                $populer = ApiEndpoint::$populer;
                 $response = $this->client->getWithAuth($url);
                 $responseApi = new ResponseApi($response);
-                $responsepopuler = $this->client->getWithAuth($populer);
-                $responseApipopuler = new ResponseApi($responsepopuler);
                 
                 if ($responseApi->message == StatusApiConstant::$failed) {
                     return redirect()->back()->withErrors($responseApi->getInfo());
                 } elseif ($responseApi->message == StatusApiConstant::$success) {
                     $account = $responseApi->getAccount();
                     $data = $responseApi->getData();
-                    $populer = $responseApipopuler->getData();
                     
-                    return view('dashboard.index', compact('data','account','populer'));
+                    return view('dashboard.index', compact('data','account'));
                 }
             } catch (\Exception $th) {
                 return redirect()->back()->withErrors($th->getMessage());

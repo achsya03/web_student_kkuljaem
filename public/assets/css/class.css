@@ -344,47 +344,8 @@ li.slick-active button:before {
   color: #c4c4c4;
 }
 
-#button-sound {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
 
 #button-sound1 {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
-#button-sound2 {
-  background-image: url("/Assets/img/IconPlay.png");
-  background-size: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
-  width: 40px;
-  height: 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: 0;
-  border-radius: 50%;
-  background-color: transparent;
-}
-#button-sound3 {
   background-image: url("/Assets/img/IconPlay.png");
   background-size: 40px;
   margin-top: 10px;

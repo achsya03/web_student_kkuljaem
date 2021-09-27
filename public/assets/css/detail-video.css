@@ -126,7 +126,18 @@
             }
             
             .comment-qna {
-                border-bottom: 2px solid #C4C4C4;
+                margin: 30px 0px 10px -10px;
+                border: 50%;
+                border-radius: 20px;
+                box-shadow: 1px 2px 4px 0px #a9a9a9;
+                background-color: #ffffff;
+            }
+            .comment-qna:hover {
+                margin: 30px 0px 10px -10px;
+                border: 50%;
+                border-radius: 20px;
+                box-shadow: 1px 2px 4px 0px #EF9C23;
+                background-color: #ffffff;
             }
             
             .comment-qna .profile-qna p {

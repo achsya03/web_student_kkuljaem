@@ -1,17 +1,17 @@
-$(document ).ready(function() {
-    let button1 = document.getElementById("button-sound1");
-    let audio1 = document.getElementById("player-sound1");
+// $(document ).ready(function() {
+//     let button1 = document.getElementById("button-sound1");
+//     let audio1 = document.getElementById("player-sound1");
     
-    button1.addEventListener("click", function(){
-      if(audio1.paused){
-        audio1.play();
-        button1.innerHTML = "<img src=\"Assets/img/IconPause.png\" width=\"40px\" height=\"40px\">";
-      } else {
-        audio1.pause();
-        button1.innerHTML = "<img src=\"Assets/img/IconPlay.png\" width=\"40px\" height=\"40px\">";
-      }
-    });
-});
+//     button1.addEventListener("click", function(){
+//       if(audio1.paused){
+//         audio1.play();
+//         button1.innerHTML = "<img src=\"Assets/img/IconPause.png\" width=\"40px\" height=\"40px\">";
+//       } else {
+//         audio1.pause();
+//         button1.innerHTML = "<img src=\"Assets/img/IconPlay.png\" width=\"40px\" height=\"40px\">";
+//       }
+//     });
+// });
 
 // $(document ).ready(function() {
 //     var button2 = document.getElementById("button-sound");

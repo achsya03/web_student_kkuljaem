@@ -9,17 +9,17 @@
     <div class="row">
       <div class="col-lg-7 justify-content-center slider">
         <div class="col-lg-12 mx-auto banner">
-          <img src="/assets/img/Property1.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property1.png" height="auto" alt="" srcset="">
           <h1>Metode Belajar Yang Seru</h1>
           <p>Belajar tidak harus menegangkan dan menyulitkan</p>
         </div>
         <div class="col-lg-12 mx-auto banner justify-content-center">
-          <img src="/assets/img/Property2.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property2.png" height="auto" alt="" srcset="">
           <h1>Asah Kemampuanmu</h1>
           <p>Belajar Bahasa Korea makin seru dengan berbagai fitur di dalam satu aplikasi</p>
         </div>
         <div class="col-lg-12 mx-auto banner">
-          <img src="/assets/img/Property3.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property3.png" height="auto" alt="" srcset="">
           <h1>Mari Mulai Semua</h1>
           <p>bergabung lah dengan komunitas belajar bahasa Korea No. 1 Indonesia</p>
         </div>
@@ -36,7 +36,7 @@
                   </div>
             </div>
         @endif
-        <form action="" method="POST">
+        <form action="" method="POST" autocomplete="off">
             {{-- {{route('login.process')}} --}}
           @csrf
           <div class="form-group">

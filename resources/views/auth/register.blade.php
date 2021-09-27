@@ -9,17 +9,17 @@
     <div class="row">
       <div class="col-lg-7 justify-content-center slider">
         <div class="col-lg-12 mx-auto banner">
-          <img src="/assets/img/Property1.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property1.png" height="auto" alt="" srcset="">
           <h1>Metode Belajar Yang Seru</h1>
           <p>Belajar tidak harus menegangkan dan menyulitkan</p>
         </div>
         <div class="col-lg-12 mx-auto banner justify-content-center">
-          <img src="/assets/img/Property2.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property2.png" height="auto" alt="" srcset="">
           <h1>Asah Kemampuanmu</h1>
           <p>Belajar Bahasa Korea makin seru dengan berbagai fitur di dalam satu aplikasi</p>
         </div>
         <div class="col-lg-12 mx-auto banner">
-          <img src="/assets/img/Property3.png" height="auto" alt="" srcset="">
+          <img src="assets/img/Property3.png" height="auto" alt="" srcset="">
           <h1>Mari Mulai Semua</h1>
           <p>bergabung lah dengan komunitas belajar bahasa Korea No. 1 Indonesia</p>
         </div>
@@ -34,7 +34,7 @@
               {!! implode('', $errors->all('<h2>:message</h2>')) !!}
             </div>
         @endif
-        <form action="{{route('register.process')}}" method="POST">
+        <form action="{{route('register.process')}}" method="POST" autocomplete="off">
           @csrf
           <div class="form-group">
             <label for="InputEmail">Email</label>
@@ -54,7 +54,7 @@
               <span id="mybutton1" onclick=change()"><i class="fas fa-eye" ></i></span>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <input class="form-check-input" type="checkbox" value="1" id="syarat">
             <label class="form-check-label" for="defaultCheck1">
                 Saya menyetujui <span><a href="http://"> syarat dan ketentuan </a></span> 
                 yang berlaku
@@ -66,4 +66,5 @@
     </div></div>
     
 @endsection
+
 

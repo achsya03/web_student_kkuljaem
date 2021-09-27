@@ -11,8 +11,6 @@ class ApiEndpoint
     // Home
     public static $homeone                      = "/api/home/web";
     public static $home                         = "/api/home";
-    public static $word                         = "/api/home/word";
-    public static $populer                      = "/api/forum/latest?token=0001";
 
     // Search
     public static $search                       = '/api/home/search';

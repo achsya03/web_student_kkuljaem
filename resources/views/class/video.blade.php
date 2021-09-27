@@ -22,7 +22,10 @@
                         <!-- List Nilai Kami -->
                         <div class="tab-pane fade show active">
                             <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe>
+                                <video id='my-video' controls controlsList="nodownload" preload='auto'>
+                                    <source src="{{ $class->url_video }}" type='video/mp4'>
+                                </video>
+                                {{-- <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe> --}}
                             </div>
                         </div>                        
                     </div>
@@ -50,7 +53,7 @@
                                 <div class="d-flex ml-3 flex-column">
                                     <h6 class="font-weight-bold">{{ $item->judul }}</h6>
                                     @if ($item->type=='video')
-                                    <p>{{ $item->jml_latihan }} Latihan {{ $item->jml_latijml_shadowinghan }} Shadowing</p>
+                                    <p>{{ $item->jml_latihan }} Latihan {{ $item->jml_shadowing }} Shadowing</p>
                                     @else
                                     <p>{{ $item->jml_soal }} Soal</p>
                                     @endif 
@@ -122,8 +125,6 @@
             </div>
 
             @foreach ($qna as $tanya)
-                
-            
             <div class="comment-qna p-4 ">
                 <!-- profile and hamburger -->
                 <div class="d-flex justify-content-between mb-1 ">

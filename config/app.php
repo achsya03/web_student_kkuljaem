@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://web-student-kkuljaem-fbbob.ondigitalocean.app/'),
+    'url' => env('APP_URL', 'https://3804-125-166-1-161.ngrok.io '),
 
-    'asset_url' => env('ASSET_URL', 'https://web-student-kkuljaem-fbbob.ondigitalocean.app/'),
+    'asset_url' => 'https://3804-125-166-1-161.ngrok.io',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
 
         /*
          * Package Service Providers...
