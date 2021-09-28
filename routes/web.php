@@ -43,6 +43,7 @@ Route::group(['middleware' => 'authtoken', 'cors', 'checkHTTPS'], function () {
         Route::get('/kategori/{id}', [ClassController::class, 'kategori'])->name('class.kategori');
         Route::get('/mentor/{id}', [ClassController::class, 'mentor'])->name('class.mentor');
         Route::get('/video/{id}', [ClassController::class, 'video'])->name('class.video');
+        Route::get('/quiz/{id}', [ClassController::class, 'quiz'])->name('class.quiz');
     });
     // Route::get('/search', [DashboardController::class, 'search'])->name('dashboard.search');
     Route::post('/search', [DashboardController::class, 'search'])->name('dashboard.search');

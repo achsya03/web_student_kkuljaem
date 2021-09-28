@@ -54,9 +54,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://3804-125-166-1-161.ngrok.io '),
+    'url' => env('APP_URL', 'https://'.$_SERVER['SERVER_NAME']),
 
-    'asset_url' => 'https://3804-125-166-1-161.ngrok.io',
+    'asset_url' => env('APP_URL', 'https://'.$_SERVER['SERVER_NAME']),
 
     /*
     |--------------------------------------------------------------------------

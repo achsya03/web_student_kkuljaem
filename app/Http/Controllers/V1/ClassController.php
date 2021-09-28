@@ -139,8 +139,8 @@ class ClassController extends Controller
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($responseApi->message == StatusApiConstant::$success) {
                 $quiz = $responseApi->getData();
-                // dd($quiz);
-                return view('class.video', compact('class','quiz'));
+                dd($quiz);
+                return view('class.quiz', compact('quiz'));
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());
