@@ -53,10 +53,11 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
+    // 'url' => env('APP_URL', 'http://localhost'),
 
-    'url' => env('APP_URL', 'https://'.$_SERVER['SERVER_NAME']),
+    'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('APP_URL', 'https://'.$_SERVER['SERVER_NAME']),
+    'asset_url' => env('ASSET_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +165,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...

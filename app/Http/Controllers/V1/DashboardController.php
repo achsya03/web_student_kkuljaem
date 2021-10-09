@@ -46,9 +46,10 @@ class DashboardController extends Controller
                 if ($responseApi->message == StatusApiConstant::$failed) {
                     return redirect()->back()->withErrors($responseApi->getInfo());
                 } elseif ($responseApi->message == StatusApiConstant::$success) {
+                    
                     $account = $responseApi->getAccount();
                     $data = $responseApi->getData();
-                    
+                    // dd($data);
                     return view('dashboard.index', compact('data','account'));
                 }
             } catch (\Exception $th) {

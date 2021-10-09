@@ -29,7 +29,7 @@ class QuizController extends Controller
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($responseApi->message == StatusApiConstant::$success) {
                 $qna = $responseApi->getData();
-                return view('qna.index', compact('qna'));
+                return view('quiz.index', compact('qna'));
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());

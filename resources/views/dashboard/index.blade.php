@@ -1,14 +1,6 @@
-@extends('layouts.dashboard')
-
-@section('css')
-    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
-@endsection
-
-@section('title')
-Kkuljaem Korea | Home
-@endsection
-
-@section('content')
+@extends('layouts.dashboard') @section('css')
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" /> @endsection @section('title') Kkuljaem Korea |
+    Home @endsection @section('content')
 
     <!-- hero-dashboard -->
     <div id="hero-dashboard" class="container">
@@ -17,7 +9,7 @@ Kkuljaem Korea | Home
                 @foreach ($data->banner as $item)
 
                     <div class="">
-                      <button type=" button" class="btn col-lg-12 mx-auto banner"
+                <button type=" button" class="btn col-lg-12 mx-auto banner"
                         id="btn-market{{ $item->banner_uuid }}" data-toggle="modal"
                         data-target="#banner-market{{ $item->banner_uuid }}">
                         <img src="{{ $item->url_web }}" height="auto" alt="" srcset="" /></button>
@@ -44,7 +36,8 @@ Kkuljaem Korea | Home
                     <h2 class="px-4">{{ $item->judul_banner }}</h2>
                     <p class="px-4">{{ $item->deskripsi }}</p>
                     <button class="btn-gabung" width="300px"
-                        onclick="window.location='{{ URL::route('class.index') }}'"> Cek Selengkapnya </button>
+                        onclick="window.location='{{ URL::route('class.index') }}'"> Cek
+                        Selengkapnya </button>
                 </div>
             </div>
         </div>
@@ -64,29 +57,28 @@ Kkuljaem Korea | Home
             </div>
             <div class="col-lg-4 button-video">
                 <div class="button-pelajaran">
-                    @foreach ($data->word as $item)
-                        <div class="list-button-video">
-                            <button id="btn-voice{{ $item->kata_uuid }}" data-toggle="modal"
-                                data-target="#voice-kata{{ $item->kata_uuid }}" class="btn-word">
-                                <div class="row">
-                                    <div class="col-lg-8 word-korea justify-content-center">
-                                        <p>{{ $item->hangeul }}</p>
-                                        <h1>({{ $item->pelafalan }})</h1>
+                    <div class="hangeul-scroll">
+                        @foreach ($data->word as $item)
+                            <div class="list-button-video">
+                                <button id="btn-voice{{ $item->kata_uuid }}" data-toggle="modal"
+                                    data-target="#voice-kata{{ $item->kata_uuid }}" class="btn-word">
+                                    <div class="row">
+                                        <div class="col-lg-8 word-korea justify-content-center">
+                                            <p>{{ $item->hangeul }}</p>
+                                            <h1>({{ $item->pelafalan }})</h1>
 
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div>
-                                            <div id="button-sound1"></div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div>
+                                                <div id="button-sound1"></div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </button>
-                        </div>
-
-                    @endforeach
+                                </button>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -108,6 +100,7 @@ Kkuljaem Korea | Home
                                     <div>
                                         <audio id="player-sound{{ $item->kata_uuid }}">
                                             <source src="{{ $item->url_pengucapan }}" type="audio/mp3">
+                                            <source src="{{ $item->url_pengucapan }}" type="audio/mp4">
                                         </audio>
                                         <div id="button-sound{{ $item->kata_uuid }}" class="mt-2">
                                             <img src="{{ asset('assets/img/IconPlay.png') }}" width='40px' height='40px'>
@@ -129,7 +122,7 @@ Kkuljaem Korea | Home
 
     <div id="hero-kelas" class="container mt-3">
         <div class="tittle-kelas">
-            <h3><a href="#"> Kelas Pilihan </a></h3>
+            <h3 class="font-weight-bold"><a href="#"> Kelas Pilihan </a></h3>
             <p>Kelas terbaik yang direkomendasikan</p>
         </div>
         <div class="kelas-utama">
@@ -138,19 +131,19 @@ Kkuljaem Korea | Home
                     @foreach ($data->class as $item)
                         <button class="kelas">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <img class="gambar-kelas mt-3" src="{{ $item->url_web }}" width="273px"
-                                        height="158px">
+                                <div class="col-lg-4 ">
+                                    <img class="gambar-kelas mx-auto" src="{{ $item->url_web }}" width="160px"
+                                        height="160px">
                                 </div>
-                                <div class="col-lg-6 py-4 text-left">
-                                    <div class="nama-kelas">
-                                        <h5>{{ $item->nama_kelas }}</h5>
+                                <div class="col-lg-6 py-4 text-left deskripsi">
+                                    <div class="nama-kelas ">
+                                        <h5 class="font-weight-bold">{{ $item->nama_kelas }}</h5>
                                     </div>
                                     <div class="nama-guru">
-                                        <h5>{{ $item->nama_mentor ?? '-' }} <i class="fas fa-check-circle"></i></h5>
+                                        <h6>{{ $item->nama_mentor ?? '-' }} <i class="fas fa-check-circle"></i></h6>
                                     </div>
-                                    <div class="jumlah-materi mt-5">
-                                        <h5>{{ $item->jml_materi }} Materi</h5>
+                                    <div class="jumlah-materi">
+                                        <h6>{{ $item->jml_materi }} Materi</h6>
                                     </div>
                                 </div>
                             </div>
@@ -168,41 +161,47 @@ Kkuljaem Korea | Home
 
     <div id="hero-kelas" class="container mt-3">
         <div class="tittle-kelas">
-            <h3><a href="#"> Forum Populer </a></h3>
+            <h3><a href="#"> Diskusi Populer </a></h3>
             <p>Berbagai topik seru untuk kamu baca</p>
         </div>
-        <div class="kelas-utama">
-            <div class="pilihan-kelas">
-                <div class="card-deck">
-                    @foreach ($data->theme as $index => $theme)
-                        @if ($index < 3)
-                            <button class="topik-tag" href="#"
-                                style="background-image: url({{ asset('assets/img/topik-tag.png)') }};">
-                                <h3 class="text-white">{{ $theme->topik }}</h3>
-                            </button>
-                        @else
-                        @endif
-                    @endforeach
+        <div class="container">
+            <div class="kelas-utama">
+                <div class="pilihan-kelas">
+                    <div class="card-deck">
+                        @foreach ($data->theme as $index => $theme)
+                            @if ($index == 0) <button class="topik-tag" href="#"
+                                    style="background-image: url({{ asset('assets/img/tag-makanan.jpg)') }};">
+                                    <h3 class="text-white">#{{ $theme->topik }}</h3>
+                                </button>
+                            @elseif ($index == 1)
+                                <button class="topik-tag" href="#"
+                                    style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }};">
+                                    <h3 class="text-white">#{{ $theme->topik }}</h3>
+                                </button>
+                            @elseif ($index == 2)
+                                <button class="topik-tag" href="#"
+                                    style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }};">
+                                    <h3 class="text-white">#{{ $theme->topik }}</h3>
+                                </button>
+                            @endif
+                        @endforeach
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
     <div id="hero-comment" class="container mt-3">
         @foreach ($data->post as $item)
 
-
             <div class="komentar">
                 <div class="profil-comentar">
                     <div class="row">
                         <div class="col-lg-1">
-                            <img src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
+                            <img class="rounded-circle" src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
                         </div>
                         <div class="col-lg-10">
-                            <h5>{{ $item->nama_pengirim }}
-                                @if ($account->status_member == 'Non-Member')
-                                @else
+                        <h5>{{ $item->nama_pengirim }} @if ($account->status_member == 'Non-Member') @else
                                     <img src="{{ asset('assets/img/crown_user.png') }}" alt="Profile">
                                 @endif
                             </h5>
@@ -214,12 +213,13 @@ Kkuljaem Korea | Home
                 <h6><a href="#">#LifeStyle</a></h6>
                 <p>{{ $item->deskripsi }}</p>
                 @if (@!isset($item->gambar))
-
                 @else
                     <div class="pict-comentar">
                         <div class="card-deck">
-                            <img class="rounded" src="{{ $item->gambar->url_gambar ?? '' }}" width="150px"
-                                height="120px" alt="">
+                            @foreach ($item->gambar as $gambaritem)
+                                <img class="rounded" src="{{ $gambaritem->url_gambar }}" width="150px"
+                                    height="120px" alt="">
+                            @endforeach
                         </div>
                     </div>
                 @endif
@@ -235,7 +235,8 @@ Kkuljaem Korea | Home
         @endforeach
     </div>
     <div class="lainnya mt-3 mb-3" width="100%">
-        <center><button type='button' class='btn btn-lainnya text-center py-2 my-1'> Lainnya </button>
+        <center><button type='button' onclick="window.location='{{ URL::route('forum.index') }}'"
+                class='btn btn-lainnya text-center py-2 my-1'> Lainnya </button>
         </center>
     </div>
 

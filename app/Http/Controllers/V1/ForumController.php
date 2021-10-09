@@ -36,7 +36,7 @@ class ForumController extends Controller
                     $forums = $responseApi->getData()->forum;
                     $themes = $responseApi->getData()->theme;
                     $account = $responseApi->getAccount();
-                    // dd($themes);
+                    // dd($forums);
                     return view('forum.index', compact('forums','themes','forum_user','account'));
                 }
            
@@ -63,6 +63,177 @@ class ForumController extends Controller
         }
         
     }
+    public function create_post(Request $request)
+    {
+        //  dd($request->all());
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumpost.'?token='.$request->theme;
+            // dd(json_encode($request->all()));
+           
+            $response = $clientService->post($url, $request->all());
+            $responseApi = new ResponseApi($response);
+            
 
-   
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.index');
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+    public function topik($id) {
+        
+        try {
+            $responsetheme = $this->client->getWithAuth($this->apiEndpoint::$forum);
+            $response = $this->client->getWithAuth($this->apiEndpoint::$forumtopik.'?token='.$id);
+            $responseApi = new ResponseApi($response);
+            $responseApitheme = new ResponseApi($responsetheme);
+            
+            if ($responseApi->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($responseApi->message == StatusApiConstant::$success) {
+                $data = $responseApi->getData();
+                $account = $responseApi->getAccount();
+                $themes = $responseApitheme->getData()->theme;
+                return view('forum.topik', compact('data','id','themes','account'));
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+    public function detail($id) {
+        
+        try {
+            $response = $this->client->getWithAuth($this->apiEndpoint::$forumdetail.'?token='.$id);
+            $responseApi = new ResponseApi($response);
+
+           
+            
+            if ($responseApi->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($responseApi->message == StatusApiConstant::$success) {
+                $forum = $responseApi->getData();
+                $account = $responseApi->getAccount();
+                return view('forum.detail', compact('forum','id','account'));
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
+    public function delete($id) {
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumpost.'?token='.$id;
+            
+           
+            $response = $clientService->delete($url);
+            $responseApi = new ResponseApi($response);
+            
+                
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.index');
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
+    public function delete_comment(Request $request) {
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumcomment.'?token='.$request->id;
+            
+           
+            $response = $clientService->delete($url);
+            $responseApi = new ResponseApi($response);
+            
+                
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.detail',$request->detail_id);
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
+    public function create_comment(Request $request)
+    {
+        //  dd($request->all());
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumcomment.'?token='.$request->id;
+            // dd(json_encode($request->all()));
+           
+            $response = $clientService->post($url, $request->all());
+            $responseApi = new ResponseApi($response);
+            
+
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.detail',$request->id);
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
+    public function like_post($id)
+    {
+        // dd($request->all());
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumlike.'?token='.$id;
+            // dd(json_encode($request->all()));
+            $response = $clientService->post_like($url);
+            $responseApi = new ResponseApi($response);
+        // dd($responseApi);
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.index');
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+    public function unlike_post($id)
+    {
+        // dd($request->all());
+        
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forumlike.'?token='.$id;
+            $response = $clientService->delete($url);
+            $responseApi = new ResponseApi($response);
+
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+               
+                return redirect()->route('forum.index');
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
 }

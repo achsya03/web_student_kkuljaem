@@ -22,11 +22,11 @@
                         <div class="card-deck">
                             @foreach($class->class as $children)
                             <button class="kelas">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <img  class="gambar-kelas" src="{{$children->url_web}}" width="273px" height="158px" srcset="">
+                                <div class="row py-4">
+                                    <div class="col-lg-4">
+                                        <img  class="gambar-kelas" src="{{$children->url_web}}" width="160px" height="160px" srcset="">
                                     </div>
-                                    <div class="col-lg-6 py-6 text-left">
+                                    <div class="col-lg-6 py-6 text-left deskripsi">
                                         <div class="nama-kelas">
                                             <a href="{{route('class.detail', $children->class_uuid)}}" style="text-decoration: none; color: black">
                                             <h5>{{$children->class_nama}}</h5></a>
@@ -35,7 +35,7 @@
                                             <h5>{{$children->mentor_nama ?? '-'}} <i class="fas fa-check-circle"></i></h5>
                                             
                                         </div>
-                                        <div class="jumlah-materi mt-5">
+                                        <div class="jumlah-materi">
                                             <h5>{{$children->jml_materi}}</h5>
                                         </div>
                                     </div>

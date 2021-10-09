@@ -64,12 +64,13 @@
 
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-forum" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="container">
             <div id="hasil-pencarian" class="container my-1">
 
                 <h3>Hasil Pencarian untuk {{ Request::get('keyword') }} ({{ $data->jml_forum }})</h3>
             </div>
             @if ($data->jml_forum==0)
-            <div id="hero-comment" class="container mt-3">
+            <div id="hero-comment" class="container my-4" style="height: 500px">
               <div class="pict-kosong">
                 <center><img src="{{ asset('assets/img/NoItem.png') }}" > </center>
               </div>
@@ -111,6 +112,7 @@
                 </center>
             </div>
             @endif
+        </div>
         </div>
         <div class="tab-pane fade" id="pills-qna" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div id="hasil-pencarian" class="container my-1">

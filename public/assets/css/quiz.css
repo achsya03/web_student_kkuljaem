@@ -16,15 +16,11 @@ body {
 
 /* Main Intro */
 
-.content-main {
-    margin-top: 80px;
-}
-
 h2.text-title {
     font-size: 41px;
     font-weight: 700;
     line-height: 112%;
-    width: 483px;
+    width: 500px;
     color: #3C3A36;
 }
 
@@ -37,11 +33,10 @@ h2.text-title {
     letter-spacing: -0.5px;
 }
 
-.btn-start {
+.btn-start, .btn-start:hover {
     font-family: Rubik;
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 326px;
     height: 56px;
     padding: 16px 32px;
@@ -67,18 +62,19 @@ h2.text-title {
 .question-p {
     font-size: 21px;
     line-height: 32px;
+    text-align: center;
 }
 
 .card-answer {
     width: 457px;
-    height: 65px;
+    height: auto;
 }
 
-.card-answer:hover {
+.card-answer:hover:not([disabled]) {
     background-color: #FFBA55;
 }
 
-.card-answer:active {
+.card-answer:active:not([disabled]) {
     background-color: #FFBA55;
 }
 
@@ -166,7 +162,7 @@ h2.text-title {
 
 .modal-content {
     width: 583px;
-    height: 516px;
+    height: 540px;
     padding: 54px 120px;
 }
 

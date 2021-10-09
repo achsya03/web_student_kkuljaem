@@ -13,6 +13,7 @@ class ResponseApi
         $this->info = $response->info ?? null;
         $this->data = $response->data ?? null;
         $this->account = $response->account ?? null;
+        $this->error = $response->error ?? null;
     }
 
     public function getMessage()
@@ -31,7 +32,10 @@ class ResponseApi
     public function getAccount() {
         return $this->account;
     }
-
+    public function getError()
+    {
+        return $this->error;
+    }
     public function getDataArray() {
         return json_decode(json_encode($this->data), true);
     }

@@ -44,9 +44,26 @@ class Client
                 'form_params' => $data,
                 "headers" => [
                     'Accept' => 'application/json',
-                                
+                    'authorization'=> 'Bearer ' .session()->get('bearer_token')             
                 ]
             ]);
+            // dd($response);
+            return json_decode($response->getBody()->getContents());
+        } catch (Exception $th) {
+            throw new Exception($th->getMessage());
+        }
+    }
+    public function post_like($url)
+    {
+        try {
+            $response = $this->client->request('POST', $this->endpoint . $url, [
+                
+                "headers" => [
+                    'Accept' => 'application/json',
+                    'authorization'=> 'Bearer ' .session()->get('bearer_token')             
+                ]
+            ]);
+            // dd($response);
             return json_decode($response->getBody()->getContents());
         } catch (Exception $th) {
             throw new Exception($th->getMessage());
@@ -79,7 +96,14 @@ class Client
 
     public function delete($url)
     {
-        $response = $this->client->request('DELETE', $this->endpoint . $url);
+        $response = $this->client->request('DELETE', $this->endpoint . $url, [
+            
+            "headers" => [
+                'Accept' => 'application/json',
+                'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
+                'authorization'=> 'Bearer ' .session()->get('bearer_token')              
+            ]
+        ]);
         return json_decode($response->getBody()->getContents());
     }
 }
