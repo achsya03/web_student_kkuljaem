@@ -154,12 +154,20 @@
         .form-pengisian select {
             height: 56px;
         }
+
+        .form-pengisian .tambah-gambar label {
+            background: #EF9C23;
+            color: white;
+            padding: 12px 6px;
+            border-radius: 10px;
+        }
+
         
         .form-pengisian .tambah-gambar img {
-            width: 75px;
-            height: 75px;
+            width: 85px;
+            height: 85px;
             border: 1px solid #FFBA55;
-            border-radius: 10px;
+            border-radius: 13px;
         }
         
         .btn-posting {

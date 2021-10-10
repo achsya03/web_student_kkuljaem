@@ -5,7 +5,7 @@ namespace App\Constants;
 class ApiEndpoint
 {
     // Auth
-    public static $loginProcess                 = "/api/auth/login";
+    public static $loginProcess                 = "/api/auth/login?role=student";
     public static $registerProcess              = "/api/auth/register";
     public static $changePassword               = "/api/auth/change-password";
     public static $forgetPassword               = "/api/auth/forget-password";
@@ -17,6 +17,7 @@ class ApiEndpoint
     public static $update_profil                = "/api/user/update";
     public static $update_password              = "/api/user/change-password";
     public static $histori                      = "/api/user/subs";
+    
     // Home
     public static $homeone                      = "/api/home/web";
     public static $home                         = "/api/home";

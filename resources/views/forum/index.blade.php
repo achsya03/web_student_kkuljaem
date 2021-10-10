@@ -83,6 +83,12 @@
                                             style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
                                             <h3 class="text-white">#{{ $theme->judul }}</h3>
                                         </a>
+                                    @elseif ($index > 2)
+                                        <div class="d-flex mt-4">
+                                            <h5 class="text-hastag"><a
+                                                    href="{{ route('forum.topik', $theme->theme_uuid) }}">{{ $theme->judul }}</a>
+                                            </h5>
+                                        </div>
                                     @endif
 
                                 @endforeach
@@ -92,16 +98,11 @@
                     </div>
 
                 </div>
-                @foreach ($themes as $index => $theme)
-                    @if ($index > 2)
-                        <div class="d-flex mt-4">
-                            <h5 class=" text-hastag"><a href="">#04 Kpop</a></h5>
-                            <h5 class=" text-hastag"><a href="">#05 Kdrama</a></h5>
-                            <h5 class=" text-hastag"><a href="">More</a></h5>
-                        </div>
+                {{-- @foreach ($themes as $index => $theme)
+                    
                     @else
                     @endif
-                @endforeach
+                @endforeach --}}
             </div>
 
 
@@ -201,7 +202,7 @@
         </div>
         @endforeach
         <!-- pagination -->
-        <nav aria-label="
+                                    <nav aria-label="
                                         Page navigation example pt-5">
                                     <ul class="pagination justify-content-center">
                                         <li class="page-item"><a class="page-link page-prev-next" href="#">Prev</a>
@@ -262,21 +263,23 @@
                                                             <div class="input-group">
                                                                 <div
                                                                     class="tambah-gambar d-flex flex-column align-items-center">
+
                                                                     <input type="file" id="photo" name="post_image[]"
-                                                                        onchange="loadFile(event)">
+                                                                        onchange="loadFile(event)" hidden />
+                                                                    <label for="photo">+ Gambar</label>
+
                                                                     {{-- <label for="photo" class="btn-choose text-center">Choose File</label> --}}
                                                                     <img src="{{ asset('assets/img/plus-foto.png') }}"
                                                                         class="btn-add" id="output" width="100px"
                                                                         height="100px" />
                                                                 </div>
-                                                            </div>
-                                                            <div class="clone invisible">
+                                                                
+                                                                <div class="clone invisible">
                                                                 <div class="input-group">
                                                                     <div
                                                                         class="tambah-gambar d-flex flex-column align-items-center">
                                                                         <input type="file" id="photo" name="post_image[]"
                                                                             onchange="loadFile(event)">
-                                                                        {{-- <label for="photo" class="btn-choose text-center">Choose File</label> --}}
                                                                         <div class="input-group-append">
                                                                             <button type="button"
                                                                                 class="btn btn-outline-danger btn-remove">
@@ -286,10 +289,15 @@
                                                                             {{-- <img src="{{ asset('assets/img/plus-foto.png') }}" class="btn-remove" id="output"
                                                 width="100px" height="100px" /> --}}
                                                                         </div>
+                                                                        
                                                                     </div>
                                                                 </div>
 
                                                             </div>
+
+                                                            </div>
+
+                                                            
 
                                                         </div>
                                                     </div>
