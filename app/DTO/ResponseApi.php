@@ -14,6 +14,8 @@ class ResponseApi
         $this->data = $response->data ?? null;
         $this->account = $response->account ?? null;
         $this->error = $response->error ?? null;
+        $this->forum_pagination = $response->forum_pagination ?? null;
+        $this->max_page = $response->max_page ?? null;
     }
 
     public function getMessage()
@@ -35,6 +37,14 @@ class ResponseApi
     public function getError()
     {
         return $this->error;
+    }
+    public function getForumPagination()
+    {
+        return $this->forum_pagination;
+    }
+    public function getMaxPage()
+    {
+        return $this->max_page;
     }
     public function getDataArray() {
         return json_decode(json_encode($this->data), true);

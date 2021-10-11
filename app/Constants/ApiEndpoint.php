@@ -17,7 +17,6 @@ class ApiEndpoint
     public static $update_profil                = "/api/user/update";
     public static $update_password              = "/api/user/change-password";
     public static $histori                      = "/api/user/subs";
-    
     // Home
     public static $homeone                      = "/api/home/web";
     public static $home                         = "/api/home";

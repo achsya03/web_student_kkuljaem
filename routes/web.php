@@ -32,7 +32,6 @@ Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register.index');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
     Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
-    Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
 
 });
 
@@ -78,6 +77,7 @@ Route::group(['middleware' => 'authtoken', 'cors', 'checkHTTPS'], function () {
     
     Route::group(['prefix' => 'forum'], function () {
         Route::get('/', [ForumController::class, 'index'])->name('forum.index');
+        Route::get('/get_comments', [ForumController::class, 'get_comments'])->name('forum._comments');
         Route::get('/topik/{id}', [ForumController::class, 'topik'])->name('forum.topik');
         Route::get('/detail/{id}', [ForumController::class, 'detail'])->name('forum.detail');
         Route::post('/create_post', [ForumController::class, 'create_post'])->name('forum.create_post');
@@ -106,4 +106,6 @@ Route::group(['middleware' => 'authtoken', 'cors', 'checkHTTPS'], function () {
 
     
 });
+
+// Route::resource('forums', ForumController::class)->only(['index']);
 

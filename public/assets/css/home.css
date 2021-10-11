@@ -492,6 +492,9 @@ li.slick-active button:before {
 .fa-search {
     color: gray;
 }
+.form-control:focus{
+    box-shadow: none;
+}
 
 #button-sound1 {
     background-image: url("/Assets/img/IconPlay.png");

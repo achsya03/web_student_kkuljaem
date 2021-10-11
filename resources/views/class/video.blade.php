@@ -22,9 +22,13 @@
                             <!-- List Nilai Kami -->
                             <div class="tab-pane fade show active">
                                 <div class="embed-responsive embed-responsive-16by9">
-                                    <video id='my-video' controls controlsList="nodownload" preload='auto'>
-                                        <source src="{{ $class->url_video }}" type='video/mp4'>
-                                    </video>
+                                    <div class="plyr__video-embed" id="player">
+                                        <iframe src="{{ $class->url_video }}"
+                                            allowfullscreen
+                                            allowtransparency
+                                            allow="autoplay">
+                                        </iframe>
+                                    </div>
                                     {{-- <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe> --}}
                                 </div>
                             </div>

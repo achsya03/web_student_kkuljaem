@@ -14,4 +14,4 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .vue();
 
-mix.browserSync('https://7524-180-252-88-121.ap.ngrok.io');
+mix.browserSync('https://e0b7-180-252-88-121.ap.ngrok.io');

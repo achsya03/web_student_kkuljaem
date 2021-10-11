@@ -50,9 +50,13 @@
         <div class="row">
             <div class="col-lg-8 video">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <video id='my-video' controls controlsList="nodownload" preload='auto'>
-                        <source src='{{ $data->video[0]->url_video }}' type='video/mp4'>
-                    </video>
+                    <div class="plyr__video-embed" id="player">
+                        <iframe src="{{ $data->video[0]->url_video }}"
+                            allowfullscreen
+                            allowtransparency
+                            allow="autoplay">
+                        </iframe>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 button-video">

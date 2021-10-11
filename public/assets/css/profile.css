@@ -288,12 +288,12 @@
     color: #993E3E;
     display: flex;
     justify-content: center;
-    width: 274px;
+    width: 284px;
     padding: 16px 32px;
     border: 1px solid #F8F2EE;
-    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
-    margin-left: 57px;
+    margin-left: 30px;
     margin-top: -82px;
 }
 
@@ -478,15 +478,4 @@
 
 .fa-search {
     color: gray;
-}
-
-button.list-group-item-action.logout{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 16px 32px 16px 42px;
-    border: 1px solid #F8F2EE;
-    box-shadow: 0px 2px 3px rgb(0 0 0 / 16%);
-    border-radius: 13px;
-    margin-bottom: 16px;
 }

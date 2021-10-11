@@ -115,363 +115,212 @@
             </div>
             <!-- End Title Forum Comment -->
 
-            <!-- <forum-component :data='@json($forums)'></forum-component> -->
-
             <!-- Comment Forum -->
-            @foreach ($forums as $index => $forum)
-                <div class="container mb-2">
-                    <div class="comment-forum p-4 ">
-                        <div class="d-flex justify-content-between mb-1 ">
-                            <div class="profile-forum">
-                                <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar " class="float-left mr-3 ">
-                                <div class="d-flex flex-column mt-2 ">
-                                <h6>{{ $forum->nama_pengirim }} @if ($account->status_member == 'Non-Member') @else
-                                            <img src="{{ asset('assets/img/crown_user.png') }}" alt="Crown">
-                                        @endif
-                                        <p class="mt-2">{{ date('d m Y - H.i', strtotime($forum->tgl_post)) }}
-                                        </p>
+            <section class="comments">
+                @include('forum._comments')
+            </section>
 
-                                </div>
-                            </div>
-                            <!-- hamburger dot -->
-                            <div class="dropdown show hamburger-dot ">
-                                <a class="btn dropdown" href="#" id="deletedropdowm" role="button" data-toggle="dropdown">
-                                    <img src="{{ asset('assets/img/3dot.png') }}" alt="">
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="delete">
-                                    @if ($forum->nama_pengirim == $account->nama)
-                                        <a class="dropdown-item d-flex text-center"
-                                            href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                            <h6 class="mx-auto my-auto">Delete</h6>
-                                        </a>
-                                        <a class="dropdown-item d-flex text-center"
-                                            href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                            <h6 class="mx-auto my-auto">Laporkan</h6>
-                                        </a>
-                                    @else
-                                        <a class="dropdown-item d-flex text-center"
-                                            href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                            <h6 class="mx-auto my-auto">Laporkan</h6>
-                                        </a>
-                                    @endif
-                                </div>
-                            </div>
-                            <!-- end hamburger dot -->
-                        </div>
-                        <h5>{{ $forum->judul }}</h5>
-                        <h6 class="text-tag ">{{ $forum->tema }}</h6>
-                        <p>{{ $forum->deskripsi }}
-                        </p>
-                        @if (@!isset($forum->gambar))
-                        @else
-                            <div class="card-deck">
-                                <div class="d-flex ">
-                                    @foreach ($forum->gambar as $gambaritem)
-                                        <a><img src="{{ $gambaritem->url_gambar }}" alt="No Image"
-                                                class="img-comment mx-2"></a>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                        @endif
-                        <div class="d-flex mt-3 like-comment ">
-                            @if ($forum->user_like == 'True')
-                                <a href="{{ route('forum.unlike_post', $forum->post_uuid) }}"
-                                    style="text-decoration: none" class="btn">
-                                    <i class="fas fa-heart active"></i>
-                                </a>
-                            @elseif($forum->user_like=='False')
-                                <a href="{{ route('forum.like_post', $forum->post_uuid) }}" style="text-decoration: none"
-                                    class="btn">
-                                    <i class="far fa-heart"></i>
-                                </a>
-                            @endif
-                            <p class="mr-4 mt-2 ">{{ $forum->jml_like }} Suka</p>
-
-                            <a href="{{ route('forum.detail', $forum->post_uuid) }}" style="text-decoration: none"
-                                class="btn">
-                                <div class="d-flex">
-                                    <i class="far fa-comment-alt fa-flip-horizontal mr-2"></i>
-                                    <p class="">{{ $forum->jml_komen }} Comments</p>
-                        </div>
-                    </a>
-
-
-                </div>
-            </div>
         </div>
-        @endforeach
-        <!-- pagination -->
-                                    <nav aria-label="
-                                        Page navigation example pt-5">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item"><a class="page-link page-prev-next" href="#">Prev</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">11</a></li>
-                                        <li class="page-item"><a class="page-link page-number active" href="#">12</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">13</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">15</a></li>
-                                        <li class="page-item"><a class="page-link page-prev-next" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                    </nav>
-                                    <!-- End Pagination -->
+        <div class="tab-pane fade show" id="pills-postingan" role="tabpanel" aria-labelledby="pills-postingan-tab">
+            <div class="container">
+                <div class="form-pengisian mt-3 p-4">
+                    <h4 class="font-weight-bold">Buat Postingan Baru</h4>
+                    <form enctype="multipart/form-data" class="form theme-form pb-5 f1"
+                        action="{{ route('forum.create_post') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <input type="text" required name="judul" class="form-control" id=""
+                                        placeholder="Masukkan judul postingan">
                                 </div>
-                                <div class="tab-pane fade show" id="pills-postingan" role="tabpanel"
-                                    aria-labelledby="pills-postingan-tab">
-                                    <div class="container">
-                                        <div class="form-pengisian mt-3 p-4">
-                                            <h4 class="font-weight-bold">Buat Postingan Baru</h4>
-                                            <form enctype="multipart/form-data" class="form theme-form pb-5 f1"
-                                                action="{{ route('forum.create_post') }}" method="POST">
-                                                @csrf
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <div class="form-group">
-                                                            <input type="text" required name="judul" class="form-control"
-                                                                id="" placeholder="Masukkan judul postingan">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-group">
-                                                            <select id="inputtag" name="theme" class="form-control">
-                                                                @foreach ($themes as $index => $theme)
-                                                                    <option value="{{ $theme->theme_uuid }}">
-                                                                        {{ $theme->judul }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <textarea class="form-control mb-2" id="text-area-postingan"
-                                                                name="deskripsi" rows="5"
-                                                                placeholder="Masukkan isi dari postingan"></textarea>
-                                                            <small id="chars"></small><small> huruf</small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex justify-content-between">
-                                                    <div class="row">
-                                                        <div class="form-group increment">
-                                                            <div class="input-group">
-                                                                <div
-                                                                    class="tambah-gambar d-flex flex-column align-items-center">
-
-                                                                    <input type="file" id="photo" name="post_image[]"
-                                                                        onchange="loadFile(event)" hidden />
-                                                                    <label for="photo">+ Gambar</label>
-
-                                                                    {{-- <label for="photo" class="btn-choose text-center">Choose File</label> --}}
-                                                                    <img src="{{ asset('assets/img/plus-foto.png') }}"
-                                                                        class="btn-add" id="output" width="100px"
-                                                                        height="100px" />
-                                                                </div>
-                                                                
-                                                                <div class="clone invisible">
-                                                                <div class="input-group">
-                                                                    <div
-                                                                        class="tambah-gambar d-flex flex-column align-items-center">
-                                                                        <input type="file" id="photo" name="post_image[]"
-                                                                            onchange="loadFile(event)">
-                                                                        <div class="input-group-append">
-                                                                            <button type="button"
-                                                                                class="btn btn-outline-danger btn-remove">
-                                                                                <i class="fas fa-minus-square"></i>
-
-                                                                            </button>
-                                                                            {{-- <img src="{{ asset('assets/img/plus-foto.png') }}" class="btn-remove" id="output"
-                                                width="100px" height="100px" /> --}}
-                                                                        </div>
-                                                                        
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-                                                            </div>
-
-                                                            
-
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-posting mt-auto">Posting</button>
-                                                </div>
-                                            </form>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <select id="inputtag" name="theme" class="form-control">
+                                        @foreach ($themes as $index => $theme)
+                                            <option value="{{ $theme->theme_uuid }}">
+                                                {{ $theme->judul }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control mb-2" id="text-area-postingan" name="deskripsi" rows="5"
+                                        placeholder="Masukkan isi dari postingan"></textarea>
+                                    <small id="chars"></small><small> huruf</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="row">
+                                <div class="form-group increment">
+                                    <div class="input-group">
+                                        <div class="tambah-gambar d-flex flex-column align-items-center">
+                                            <input type="file" id="photo" name="post_image[]" onchange="loadFile(event)">
+                                            {{-- <label for="photo" class="btn-choose text-center">Choose File</label> --}}
+                                            <img src="{{ asset('assets/img/plus-foto.png') }}" class="btn-add"
+                                                id="output" width="100px" height="100px" />
                                         </div>
                                     </div>
-                                    @foreach ($forum_user as $index)
-                                        <div class="container mb-2">
-                                            <div class="comment-forum p-4 ">
-                                                <div class="d-flex justify-content-between mb-1 ">
-                                                    <div class="profile-forum">
-                                                        <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar "
-                                                            class="float-left mr-3 ">
-                                                        <div class="d-flex flex-column mt-2 ">
-                                                            <h6>{{ $index->nama_pengirim }} @if ($account->status_member == 'Non-Member')
-                                                                @else
-                                                                    <img src="{{ asset('assets/img/crown_user.png') }}"
-                                                                        alt="Crown">
-                                                                @endif
-                                                            </h6>
-                                                            <p class="mt-2">
-                                                                {{ date('d m Y - H.i', strtotime($index->tgl_post)) }}
-                                                            </p>
+                                    <div class="clone invisible">
+                                        <div class="input-group">
+                                            <div class="tambah-gambar d-flex flex-column align-items-center">
+                                                <input type="file" id="photo" name="post_image[]"
+                                                    onchange="loadFile(event)">
+                                                {{-- <label for="photo" class="btn-choose text-center">Choose File</label> --}}
+                                                <div class="input-group-append">
+                                                    <button type="button" class="btn btn-outline-danger btn-remove">
+                                                        <i class="fas fa-minus-square"></i>
 
-                                                        </div>
-                                                    </div>
-                                                    <!-- hamburger dot -->
-                                                    <div class="dropdown hamburger-dot ">
-                                                        <a class="btn dropdown" href="#" id="deletedropdowm"
-                                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <img src="{{ asset('assets/img/3dot.png') }}" alt="">
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-right"
-                                                            aria-labelledby="delete">
-                                                            @if ($index->nama_pengirim == $account->nama)
-                                                                <a class="dropdown-item d-flex text-center"
-                                                                    href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                                                    <h6 class="mx-auto my-auto">Delete</h6>
-                                                                </a>
-                                                                <a class="dropdown-item d-flex text-center"
-                                                                    href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                                                    <h6 class="mx-auto my-auto">Laporkan</h6>
-                                                                </a>
-                                                            @else
-                                                                <a class="dropdown-item d-flex text-center"
-                                                                    href="{{ route('forum.delete', $forum->post_uuid) }}">
-                                                                    <h6 class="mx-auto my-auto">Laporkan</h6>
-                                                                </a>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <!-- end hamburger dot -->
-                                                </div>
-                                                <h5>{{ $index->judul }}</h5>
-                                                <h6 class="text-tag ">{{ $index->tema }}</h6>
-                                                <p>{{ $index->deskripsi }}</p>
-                                                @if (@!isset($index->gambar))
-                                                @else
-                                                    <div class="card-deck">
-                                                        <div class="d-flex ">
-                                                            @foreach ($index->gambar as $gambaritem)
-                                                                <a><img src="{{ $gambaritem->url_gambar }}"
-                                                                        alt="No Image" class="img-comment mx-2"></a>
-                                                            @endforeach
-                                                        </div>
-                                                    </div>
-
-                                                @endif
-                                                <div class="d-flex mt-3 like-comment ">
-                                                    @if ($index->user_like == 'True')
-                                                        <a href="{{ route('forum.unlike_post', $index->post_uuid) }}"
-                                                            style="text-decoration: none" class="btn">
-                                                            <i class="fas fa-heart active"></i>
-                                                        </a>
-                                                    @elseif($index->user_like=='False')
-                                                        <a href="{{ route('forum.like_post', $index->post_uuid) }}"
-                                                            style="text-decoration: none" class="btn">
-                                                            <i class="far fa-heart"></i>
-                                                        </a>
-                                                    @endif
-                                                    <p class="mr-4 my-auto ">{{ $index->jml_like }} Suka</p>
-                                                    <i class="far fa-comment-alt fa-flip-horizontal mr-2 my-auto "></i>
-                                                    <a href="{{ route('forum.detail', $index->post_uuid) }}"
-                                                        style="text-decoration: none">
-                                                        <p class="my-auto ">{{ $index->jml_komen }} Comments</p>
-                                                    </a>
+                                                    </button>
+                                                    {{-- <img src="{{ asset('assets/img/plus-foto.png') }}"
+                                                class="btn-remove" id="output"
+                                                width="100px" height="100px" /> --}}
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+
+                                    </div>
+
                                 </div>
-                                <!-- pagination -->
-                                <nav aria-label="Page navigation example pt-5">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item"><a class="page-link page-prev-next" href="#">Prev</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">11</a></li>
-                                        <li class="page-item"><a class="page-link page-number active" href="#">12</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">13</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link page-number" href="#">15</a></li>
-                                        <li class="page-item"><a class="page-link page-prev-next" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                                <!-- End Pagination -->
+                            </div>
+                            <button type="submit" class="btn btn-posting mt-auto">Posting</button>
                         </div>
+                    </form>
 
+                </div>
+                <!-- Title Forum Comment -->
+                <div class="container mt-5 mb-2 pt-4">
+                    <h4 class="font-weight-bold ">Posting Saya ({{ $forum_user_count }})</h4>
+                </div>
+                <!-- End Title Forum Comment -->
+                <section class="posts">
+                    @include('forum._postings')
+                </section>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('page-js')
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+        var loadFil = function(event) {
+            var output = document.getElementById('outpu');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+    </script>
+    <script>
+        window.action = "submit"
+        jQuery(document).ready(function() {
+            jQuery(".btn-add").click(function() {
+                let markup = jQuery(".invisible").html();
+                jQuery(".increment").append(markup);
+            });
+            jQuery("body").on("click", ".btn-remove", function() {
+                jQuery(this).parents(".input-group").remove();
+            })
+        })
+    </script>
+    <script>
+        (function($) {
+            $.fn.extend({
+                limiter: function(limit, elem) {
+                    $(this).on("keyup focus", function() {
+                        setCount(this, elem);
+                    });
 
+                    function setCount(src, elem) {
+                        var chars = src.value.length;
+                        if (chars > limit) {
+                            src.value = src.value.substr(0, limit);
+                            chars = limit;
+                        }
+                        elem.html(limit - chars);
+                    }
+                    setCount($(this)[0], elem);
+                }
+            });
+        })(jQuery);
 
+        var elem = $("#chars");
+        $("#text-area-postingan").limiter(200, elem);
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('body').on('click', '.pagination-forum a', function(e) {
+                e.preventDefault();
 
+                $('#comment').remove();
+                $('#overlay').fadeIn();
+                var url = $(this).attr('href');
+                let page = $(this).data('page');
+                getArticles(url, page);
+                window.history.pushState("", "", url);
+            });
 
+            function getArticles(url, page) {
+                console.log("https:" + url);
+                // $.ajax({
+                //     url: url
+                // });
+                $.ajax({
+                    url: url,
+                    data: {
+                        page: page,
+                        parent: 'comments'
+                    }
+                }).done(function(data) {
+                    // console.log(data);
+                    $('#overlay').fadeOut();
+                    $('.comments').html(data);
+                }).fail(function() {
+                    alert('Data could not be loaded.');
+                });
+            }
 
-                    @endsection
-                    @section('page-js')
-                        <script>
-                            var loadFile = function(event) {
-                                var output = document.getElementById('output');
-                                output.src = URL.createObjectURL(event.target.files[0]);
-                                output.onload = function() {
-                                    URL.revokeObjectURL(output.src) // free memory
-                                }
-                            };
-                            var loadFil = function(event) {
-                                var output = document.getElementById('outpu');
-                                output.src = URL.createObjectURL(event.target.files[0]);
-                                output.onload = function() {
-                                    URL.revokeObjectURL(output.src) // free memory
-                                }
-                            };
-                        </script>
-                        <script>
-                            window.action = "submit"
-                            jQuery(document).ready(function() {
-                                jQuery(".btn-add").click(function() {
-                                    let markup = jQuery(".invisible").html();
-                                    jQuery(".increment").append(markup);
-                                });
-                                jQuery("body").on("click", ".btn-remove", function() {
-                                    jQuery(this).parents(".input-group").remove();
-                                })
-                            })
-                        </script>
-                        <script>
-                            // Text Counter
+            //hanlde pagination user post forum
+            $('body').on('click', '.pagination-user a', function(e) {
+                e.preventDefault();
 
-                            (function($) {
-                                $.fn.extend({
-                                    limiter: function(limit, elem) {
-                                        $(this).on("keyup focus", function() {
-                                            setCount(this, elem);
-                                        });
+                $('#post').remove();
+                $('.overlay-user').fadeIn();
+                var url = $(this).attr('href');
+                let page = $(this).data('page');
+                getPosts(url, page);
+                window.history.pushState("", "", url);
+            });
 
-                                        function setCount(src, elem) {
-                                            var chars = src.value.length;
-                                            if (chars > limit) {
-                                                src.value = src.value.substr(0, limit);
-                                                chars = limit;
-                                            }
-                                            elem.html(limit - chars);
-                                        }
-                                        setCount($(this)[0], elem);
-                                    }
-                                });
-                            })(jQuery);
-
-                            var elem = $("#chars");
-                            $("#text-area-postingan").limiter(200, elem);
-                        </script>
-                        <script src="{{ mix('js/app.js') }}"></script>
-                    @endsection
+            function getPosts(url, page) {
+                console.log("https:" + url);
+                // $.ajax({
+                //     url: url
+                // });
+                $.ajax({
+                    url: url,
+                    data: {
+                        page_user: page,
+                        parent: 'posts'
+                    }
+                }).done(function(data) {
+                    $('#overlay').fadeOut();
+                    $('.posts').html(data);
+                }).fail(function() {
+                    alert('Data could not be loaded.');
+                });
+            }
+        });
+    </script>
+@endsection
