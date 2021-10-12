@@ -32,6 +32,7 @@ Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register.index');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
     Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+    Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
 
 });
 

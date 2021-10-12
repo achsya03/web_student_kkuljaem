@@ -9,13 +9,13 @@
     left: 0px;
     top: 0px;
     /* Ink/White */
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 10px;
 }
 
 .detail-video .menu-detail-video a:hover {
-    background: #FFF9F0;
-    box-shadow: 0px 4px 4px #FFE2C2;
+    background: #fff9f0;
+    box-shadow: 0px 4px 4px #ffe2c2;
     border-radius: 10px;
 }
 
@@ -33,7 +33,7 @@
 .menu-detail-video .list-video .play-pause {
     height: 40px;
     width: 40px;
-    background: #EF9C23;
+    background: #ef9c23;
     color: white;
     border: none;
 }
@@ -74,12 +74,12 @@
     font-weight: 600;
     font-size: 26px;
     letter-spacing: -0.5px;
-    color: #3A372F;
+    color: #3a372f;
 }
 
 .card-kelas .nama-kelas h6 {
     font-size: 16px;
-    color: #5E5648;
+    color: #5e5648;
 }
 
 .card-kelas .nama-kelas .img-bluecheck {
@@ -90,7 +90,7 @@
 
 .card-kelas .nama-kelas p {
     font-size: 16px;
-    color: #C4C4C4;
+    color: #c4c4c4;
 }
 
 .btn-lainnya {
@@ -99,8 +99,8 @@
     margin-top: 30px;
     width: 326px;
     height: 56px;
-    background: #EF9C23;
-    border: 1px solid #EF9C23;
+    background: #ef9c23;
+    border: 1px solid #ef9c23;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
     border-radius: 13px;
 }
@@ -113,7 +113,7 @@
 .hastag .text-hastag a {
     font-size: 21px;
     padding: 7px;
-    background: #EF9C23;
+    background: #ef9c23;
     border-radius: 5px;
     margin-right: 20px;
     color: white;
@@ -121,14 +121,14 @@
 }
 
 .comment-forum {
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 2px;
-    border-bottom: 2px solid #C4C4C4;
+    border-bottom: 2px solid #c4c4c4;
 }
 
 .comment-forum:hover {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px #FFE2C2;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px #ffe2c2;
     border-radius: 5px;
     border-bottom: 2px solid transparent;
 }
@@ -138,33 +138,33 @@
 }
 
 .profile-forum h6 {
-    color: #3A372F;
+    color: #3a372f;
     font-size: 18px;
     font-weight: 600;
 }
 
 .comment-forum .profile-forum p {
-    color: #C4C4C4;
+    color: #c4c4c4;
     font-size: 16px;
     line-height: 24px;
     margin-top: -5px;
 }
 
 .comment-forum h5 {
-    color: #33312E;
+    color: #33312e;
     font-weight: 600;
     font-size: 21px;
     line-height: 32px;
 }
 
 .comment-forum .text-tag {
-    color: #EF9C23;
+    color: #ef9c23;
     font-size: 16px;
     line-height: 24px;
 }
 
 .comment-forum p {
-    color: #33312E;
+    color: #33312e;
     font-size: 18px;
     line-height: 24px;
 }
@@ -178,12 +178,12 @@
 }
 
 .comment-forum .like-comment i {
-    color: #5E5648;
+    color: #5e5648;
     font-size: 20px;
 }
 
 .comment-forum .like-comment p {
-    color: #5E5648;
+    color: #5e5648;
     font-size: 16px;
 }
 
@@ -192,24 +192,22 @@
     margin-right: 5px;
 }
 
-
 /* End Home Profile */
-
 
 /* Akun Awal */
 
 .nav .nav-link.top-menu {
     font-size: 26px;
     letter-spacing: -0.5px;
-    color: #5E5648;
+    color: #5e5648;
     text-decoration: none;
-    border-bottom: 4px solid #F8F2EE;
+    border-bottom: 4px solid #f8f2ee;
     padding: 0;
 }
 
 .nav .nav-link.top-menu:hover {
-    color: #3A372F;
-    border-bottom: 4px solid #EF9C23;
+    color: #3a372f;
+    border-bottom: 4px solid #ef9c23;
     text-decoration: cone;
 }
 
@@ -217,10 +215,9 @@
     padding: 0;
     border-radius: 0;
     background-color: white;
-    color: #3A372F;
-    border-bottom: 4px solid #EF9C23;
+    color: #3a372f;
+    border-bottom: 4px solid #ef9c23;
 }
-
 
 /* Bagian Akun Pengguna */
 
@@ -230,37 +227,37 @@
 }
 
 .alert-profile {
-    background: #FFB5B5;
-    color: #993E3E;
+    background: #ffb5b5;
+    color: #993e3e;
     border-radius: 10px;
-    Height: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
 }
 
 .alert-profile-premium {
-    background: #ABEF8A;
-    color: #4A6F3A;
+    background: #abef8a;
+    color: #4a6f3a;
     border-radius: 10px;
-    Height: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
 }
 
 .pengaturan-akun {
-    border-top: 1px solid #F8F2EE;
+    border-top: 1px solid #f8f2ee;
     padding-top: 40px;
 }
 
 .pengaturan-akun .title {
     font-size: 18px;
     letter-spacing: -0.1px;
-    color: #9E9789;
+    color: #9e9789;
 }
 
 .pengaturan-akun .left {
     padding: 0 25px 0 60px;
-    border-right: 1px solid #F8F2EE;
+    border-right: 1px solid #f8f2ee;
 }
 
 .pengaturan-akun .left a {
@@ -268,7 +265,7 @@
     flex-direction: row;
     align-items: center;
     padding: 16px 32px 16px 42px;
-    border: 1px solid #F8F2EE;
+    border: 1px solid #f8f2ee;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
     border-radius: 13px;
     margin-bottom: 16px;
@@ -276,21 +273,21 @@
 
 .pengaturan-akun .left a:hover,
 .pengaturan-akun .left a.active {
-    background: #FFBA55;
-    border: 1px solid #EF9C23;
-    box-shadow: 0px 4px 4px #FFE2C2;
+    background: #ffba55;
+    border: 1px solid #ef9c23;
+    box-shadow: 0px 4px 4px #ffe2c2;
     color: white;
     border-radius: 13px;
     text-shadow: 2px 2px 0px rgba(239, 130, 18, 0.5);
 }
 
 .pengaturan-akun .left-keluar a {
-    color: #993E3E;
+    color: #993e3e;
     display: flex;
     justify-content: center;
     width: 284px;
     padding: 16px 32px;
-    border: 1px solid #F8F2EE;
+    border: 1px solid #f8f2ee;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     margin-left: 30px;
@@ -299,9 +296,9 @@
 
 .pengaturan-akun .left-keluar a:hover,
 .pengaturan-akun .left-keluar a.active {
-    background: #FFBA55;
-    border: 1px solid #EF9C23;
-    box-shadow: 0px 4px 4px #FFE2C2;
+    background: #ffba55;
+    border: 1px solid #ef9c23;
+    box-shadow: 0px 4px 4px #ffe2c2;
     color: white;
     border-radius: 13px;
     text-shadow: 2px 2px 0px rgba(239, 130, 18, 0.5);
@@ -319,13 +316,13 @@
 .pengaturan-akun .right .form-control:not(textarea) {
     padding: 16px;
     height: 56px;
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
     border-radius: 12px;
 }
 
 .pengaturan-akun .right textarea {
     height: 112px;
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
     border-radius: 12px;
     resize: none;
 }
@@ -336,14 +333,14 @@
     margin-top: 30px;
     width: 326px;
     height: 56px;
-    background: #EF9C23;
-    border: 1px solid #EF9C23;
+    background: #ef9c23;
+    border: 1px solid #ef9c23;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
     border-radius: 13px;
 }
 
 .pengaturan-akun #list-langganan .card {
-    border: 1px solid #F8F2EE;
+    border: 1px solid #f8f2ee;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px;
 }
@@ -354,8 +351,8 @@
 }
 
 .pengaturan-akun #list-langganan .card .card-header:active {
-    background: #FFF9F0;
-    border: 1px solid #FFBA55;
+    background: #fff9f0;
+    border: 1px solid #ffba55;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.06);
     border-radius: 10px 10px 0px 0px;
 }
@@ -372,19 +369,37 @@
 .pengaturan-akun #list-langganan .status {
     border-radius: 10px;
     padding: 5px 10px;
-    color: #6F4C20;
+    color: #6f4c20;
 }
 
 .pengaturan-akun #list-langganan .status-warning {
-    background: #FFBA55;
+    background: #ffba55;
 }
 
 .pengaturan-akun #list-langganan .status-success {
-    background: #ABEF8A;
+    background: #abef8a;
 }
 
 .pengaturan-akun #list-langganan .status-danger {
-    background: #FFB5B5;
+    background: #ffb5b5;
+}
+.pengaturan-akun-keluar .left-keluar {
+    color: #993e3e;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 58.2422px;
+    padding: 16px 32px;
+    border: 1px solid #f8f2ee;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    margin-left: 75px;
+    margin-top: -82px;
+    align-items: center;
+}
+.pengaturan-akun-keluar .left-keluar .list-group button.list-group-item-action {
+    background: none;
+    border: none;
 }
 
 #list-langganan .title {
@@ -404,13 +419,12 @@
     font-weight: bold;
 }
 
-
 /* Bagian Lain-lain */
 
 #lain-lain .banner-promo {
     width: 100%;
     height: 220px;
-    filter: drop-shadow(0px 4px 4px #FFE2C2);
+    filter: drop-shadow(0px 4px 4px #ffe2c2);
     border-radius: 10px;
 }
 
@@ -428,24 +442,24 @@
 .tab-pane .title {
     font-size: 21px;
     letter-spacing: -0.5px;
-    color: #3A372F;
+    color: #3a372f;
 }
 
 .tab-pane .title-2 {
     font-size: 18px;
     letter-spacing: -0.5px;
-    color: #3A372F;
+    color: #3a372f;
 }
 
 .tab-pane .paragraph p {
     font-size: 16px;
-    color: #3A372F;
+    color: #3a372f;
 }
 
 .tab-pane .paragraph .testimoni {
     padding: 20px;
-    background: #FFFFFF;
-    border: 2px solid #EF9C23;
+    background: #ffffff;
+    border: 2px solid #ef9c23;
     box-sizing: border-box;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.16);
     border-radius: 10px;
@@ -454,12 +468,12 @@
 
 .tab-pane .paragraph .testimoni .p-testimoni {
     font-size: 18px;
-    color: #3A372F;
+    color: #3a372f;
     letter-spacing: -0.1px;
 }
 
 .tab-pane .paragraph .testimoni .line-testimoni {
-    border-bottom: 3px solid #EF9C23;
+    border-bottom: 3px solid #ef9c23;
     border-top: none;
     width: 74px;
     padding: 0;
@@ -467,12 +481,10 @@
 
 .tab-pane .paragraph .testimoni .detail-user {
     font-size: 16px;
-    color: #5E5648;
+    color: #5e5648;
 }
 
-
 /* End Bagian Lain-lain */
-
 
 /* End Akun Awal */
 
