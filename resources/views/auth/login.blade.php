@@ -36,6 +36,16 @@ Kkuljaem Korea | Login
                   </div>
             </div>
         @endif
+        @if(!empty(session()->get( 'status' )))
+
+        <div class="notifikasi-login">
+              <div class="notifikasi-login2">
+                <h2>Password berhasil dirubah.</h2><br/>
+                <h5><a href="{{route('login.index')}}">Masuk</a></h5>
+              </div>
+        </div>
+
+        @endif
         <form action="{{route('login.process')}}" method="POST" autocomplete="off">
           @csrf
           <div class="form-group">

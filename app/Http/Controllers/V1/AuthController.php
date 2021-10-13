@@ -64,9 +64,9 @@ class AuthController extends Controller
         return view('auth.forgot');
     }
 
-    public function changePassword()
+    public function changePassword(Request $request)
     {
-        return view('auth.change-password');
+        return view('auth.change-password')->with( ['token'=>$request->token] );
     }
 
     public function forgotProcess(Request $request)
@@ -106,6 +106,7 @@ class AuthController extends Controller
                 'password' => $request->password,
                 'password_confirmation' => $request->confirm_password
             ];
+            dd($data);
 
             //$data = json_encode($data);
             
@@ -116,7 +117,7 @@ class AuthController extends Controller
             if ($response->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($response->message == StatusApiConstant::$success) {
-                return redirect()->route('changePass.index')->with( ['status'=>'password-changed'] );
+                return redirect()->route('login.index')->with( ['status'=>'password-changed'] );
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());

@@ -36,21 +36,13 @@
                   </div>
             </div>
         @endif
-        @if(!empty(session()->get( 'status' )))
-
-            <div class="notifikasi-login">
-                  <div class="notifikasi-login2">
-                    <h2>Email Berhasil Dikirim. Silakan Lakukan Pengecekan Pada Kotak Masuk.</h2><br/>
-                    <h5><a href="{{route('login.index')}}">Masuk</a></h5>
-                  </div>
-            </div>
-          
-        @endif
+       
         @if(empty(session()->get( 'status' )))
         <form action="{{route('changePass.process')}}" method="POST" autocomplete="off">
             {{-- {{route('login.process')}} --}}
           @csrf
           <div class="form-group">
+              <input type="hidden" name="token" id="token" class="form-control" disabled required="" value="{{ session()->get( 'token' ) }}">
             <label for="InputEmail">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Masukkan password baru Anda" required=""
               autofocus="">
