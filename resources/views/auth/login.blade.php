@@ -40,8 +40,7 @@ Kkuljaem Korea | Login
 
         <div class="notifikasi-login">
               <div class="notifikasi-login2">
-                <h2>Password berhasil dirubah.</h2><br/>
-                <h5><a href="{{route('login.index')}}">Masuk</a></h5>
+                <h2>Email Berhasil Dikonfirmasi.</h2><br/>
               </div>
         </div>
 

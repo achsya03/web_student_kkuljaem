@@ -107,7 +107,7 @@ class AuthController extends Controller
                 'password' => $request->password,
                 'password_confirmation' => $request->confirm_password
             ];
-            dd($data);
+            //dd($data);
 
             //$data = json_encode($data);
             
