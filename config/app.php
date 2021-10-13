@@ -164,7 +164,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        //jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
+        jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
         //Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
