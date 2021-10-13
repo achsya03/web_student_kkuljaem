@@ -42,7 +42,7 @@
             {{-- {{route('login.process')}} --}}
           @csrf
           <div class="form-group">
-              <input type="hidden" name="token" id="token" class="form-control" disabled required="" value="{{ session()->get( 'token' ) }}">
+              <input type="hidden" name="token1" id="token1" class="form-control" disabled required="" value="{{ $token1 }}">
             <label for="InputEmail">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Masukkan password baru Anda" required=""
               autofocus="">
@@ -55,6 +55,7 @@
           <button type="submit" class="btn-login">Ubah Password</button>
         </form>
         @endif
+        <h5><a href="{{route('login.index')}}">Masuk</a></h5>
       </div>
     </div>
   </div>

@@ -66,7 +66,8 @@ class AuthController extends Controller
 
     public function changePassword(Request $request)
     {
-        return view('auth.change-password')->with( ['token'=>$request->token] );
+        $token = $request->token;
+        return view('auth.change-password')->with( ['token1'=>'$token'] );
     }
 
     public function forgotProcess(Request $request)
