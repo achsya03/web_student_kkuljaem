@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
+Route::group(['middleware' => 'cors'], function () {
     // Home
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -32,6 +32,9 @@ Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register.index');
     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
     Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+    Route::post('/forgot', [AuthController::class, 'forgotProcess'])->name('forgot.process');
+    Route::get('/change-password', [AuthController::class, 'changePassword'])->name('changePass.index');
+    Route::post('/change-password', [AuthController::class, 'changePasswordProcess'])->name('changePass.process');
     Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
 
 });

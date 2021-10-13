@@ -26,8 +26,8 @@
       </div>
       <div class="col-lg-5 justify-content-center log-in">
         <div class="title-bar">
-          <h2>Lupa kata sandi</h2>
-          <p>Masukan email anda dan kami akan mengirimkan email pemulihan.</p>
+          <h2>Mengubah kata sandi</h2>
+          <p>Masukan password baru anda.</p>
         </div>
         @if ($errors->any())
             <div class="notifikasi-login">
@@ -40,21 +40,29 @@
 
             <div class="notifikasi-login">
                   <div class="notifikasi-login2">
-                    <h2>Email Berhasil Dikirim. Silakan Lakukan Pengecekan Pada Kotak Masuk.</h2>
+                    <h2>Email Berhasil Dikirim. Silakan Lakukan Pengecekan Pada Kotak Masuk.</h2><br/>
+                    <h5><a href="{{route('login.index')}}">Masuk</a></h5>
                   </div>
             </div>
+          
         @endif
-        <form action="{{route('forgot.process')}}" method="POST" autocomplete="off">
+        @if(empty(session()->get( 'status' )))
+        <form action="{{route('changePass.process')}}" method="POST" autocomplete="off">
             {{-- {{route('login.process')}} --}}
           @csrf
           <div class="form-group">
-            <label for="InputEmail">Email</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukkan email Anda" required=""
+            <label for="InputEmail">Password</label>
+            <input type="email" name="password" id="inputPassword" class="form-control" placeholder="Masukkan password baru Anda" required=""
               autofocus="">
-          </div>
-          <button type="submit" class="btn-login">Kirim Email Pemulihan</button>
+          </div><br/>
+          <div class="form-group">
+            <label for="InputEmail">Konfirmasi Password</label>
+            <input type="email" name="confirm_password" id="inputConfirmPassword" class="form-control" placeholder="Konfirmasi password baru Anda" required=""
+              autofocus="">
+          </div><br/>
+          <button type="submit" class="btn-login">Ubah Password</button>
         </form>
-        <h5><a href="{{route('login.index')}}">Masuk</a></h5>
+        @endif
       </div>
     </div>
   </div>

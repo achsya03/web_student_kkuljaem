@@ -55,9 +55,9 @@ return [
     */
     // 'url' => env('APP_URL', 'http://localhost'),
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost:8000'),
 
-    'asset_url' => env('ASSET_URL', 'http://localhost'),
+    'asset_url' => env('ASSET_URL', 'http://localhost:8000'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,8 +164,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //jeremykenedy\LaravelHttps\LaravelHttpsServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Package Service Providers...

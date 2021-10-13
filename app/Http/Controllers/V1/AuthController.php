@@ -64,6 +64,65 @@ class AuthController extends Controller
         return view('auth.forgot');
     }
 
+    public function changePassword()
+    {
+        return view('auth.change-password');
+    }
+
+    public function forgotProcess(Request $request)
+    {
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$forgetPassword;
+
+            $data = [
+                'email' => $request->email
+            ];
+
+            //$data = json_encode($data);
+            
+            $response = $clientService->post($url, $data);
+            //dd($response);
+            
+            $responseApi = new ResponseApi($response);
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+                return redirect()->route('forgot.index')->with( ['status'=>'email-sended'] );
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
+    public function changePasswordProcess(Request $request)
+    {
+        try {
+            $clientService = new Client;
+            $url = $this->apiEndpoint::$changePassword;
+
+            $data = [
+                'token' => $request->token,
+                'password' => $request->password,
+                'password_confirmation' => $request->confirm_password
+            ];
+
+            //$data = json_encode($data);
+            
+            $response = $clientService->post($url, $data);
+            //dd($response);
+            
+            $responseApi = new ResponseApi($response);
+            if ($response->message == StatusApiConstant::$failed) {
+                return redirect()->back()->withErrors($responseApi->getInfo());
+            } elseif ($response->message == StatusApiConstant::$success) {
+                return redirect()->route('changePass.index')->with( ['status'=>'password-changed'] );
+            }
+        } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+
     public function registerProcess(Request $request)
     {
         try {
