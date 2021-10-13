@@ -103,7 +103,7 @@ class AuthController extends Controller
             $url = $this->apiEndpoint::$changePassword;
 
             $data = [
-                'token' => $request->token,
+                'token' => $request->token1,
                 'password' => $request->password,
                 'password_confirmation' => $request->confirm_password
             ];
