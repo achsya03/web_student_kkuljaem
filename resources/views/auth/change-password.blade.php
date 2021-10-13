@@ -52,12 +52,12 @@
           @csrf
           <div class="form-group">
             <label for="InputEmail">Password</label>
-            <input type="email" name="password" id="inputPassword" class="form-control" placeholder="Masukkan password baru Anda" required=""
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Masukkan password baru Anda" required=""
               autofocus="">
           </div><br/>
           <div class="form-group">
             <label for="InputEmail">Konfirmasi Password</label>
-            <input type="email" name="confirm_password" id="inputConfirmPassword" class="form-control" placeholder="Konfirmasi password baru Anda" required=""
+            <input type="password" name="confirm_password" id="inputConfirmPassword" class="form-control" placeholder="Konfirmasi password baru Anda" required=""
               autofocus="">
           </div><br/>
           <button type="submit" class="btn-login">Ubah Password</button>

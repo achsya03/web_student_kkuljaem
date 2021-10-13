@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'cors'], function () {
+Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
     // Home
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
