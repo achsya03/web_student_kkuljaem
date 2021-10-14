@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('title')
-    {{env('APP_NAME')}} | Login
+    {{env('APP_NAME')}} | Lupa Password
 @endsection
 
 @section('content')
@@ -36,25 +36,17 @@
                   </div>
             </div>
         @endif
-        @if(!empty(session()->get( 'status' )))
-
-            <div class="notifikasi-login">
-                  <div class="notifikasi-login2">
-                    <h2>Email Berhasil Dikirim. Silakan Lakukan Pengecekan Pada Kotak Masuk.</h2>
-                  </div>
-            </div>
-        @endif
-        <form action="{{route('forgot.process')}}" method="POST" autocomplete="off">
-            {{-- {{route('login.process')}} --}}
+        <form action="{{route('forgot.forgotProcess')}}" method="POST" autocomplete="off">
+            
           @csrf
           <div class="form-group">
             <label for="InputEmail">Email</label>
-            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukkan email Anda" required=""
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Masukkan email Anda" required
               autofocus="">
           </div>
           <button type="submit" class="btn-login">Kirim Email Pemulihan</button>
         </form>
-        <h5><a href="{{route('login.index')}}">Masuk</a></h5>
+        <h5><a href="{{route('change-password.index')}}">Masuk</a></h5>
       </div>
     </div>
   </div>

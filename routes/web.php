@@ -19,28 +19,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'cors', 'checkHTTPS'], function () {
+Route::group(['middleware' => 'cors'], function () {
     // Home
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Search
 
 
-    // Auth
-    Route::get('/login', [AuthController::class, 'login'])->name('login.index');
-    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
-    Route::get('/register', [AuthController::class, 'register'])->name('register.index');
-    Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
-    Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
-    Route::post('/forgot', [AuthController::class, 'forgotProcess'])->name('forgot.process');
-    Route::get('/change-password', [AuthController::class, 'changePassword'])->name('changePass.index');
-    Route::post('/change-password', [AuthController::class, 'changePasswordProcess'])->name('changePass.process');
-    Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
+     // Auth
+     Route::get('/login', [AuthController::class, 'login'])->name('login.index');
+     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
+     Route::get('/register', [AuthController::class, 'register'])->name('register.index');
+     Route::get('/register-2', [AuthController::class, 'register_2'])->name('register.register-2'); 
+     Route::get('/register-3', [AuthController::class, 'register_3'])->name('register.register-3'); // berhasil verifikasi
+     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
+     Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+     Route::post('/forgotProcess', [AuthController::class, 'forgotProcess'])->name('forgot.forgotProcess');
+     Route::get('/change-success', [AuthController::class, 'change_success'])->name('change-success.index'); // Kata Sandi berhasil Diubah
+     Route::get('/change-password', [AuthController::class, 'change_password'])->name('change-password.index'); // Imput New Password
+     Route::post('/change-password-process', [AuthController::class, 'change_password_process'])->name('change-password.process');
+ 
 
 });
 
 
-Route::group(['middleware' => 'authtoken', 'cors', 'checkHTTPS'], function () {
+Route::group(['middleware' => 'authtoken', 'cors'], function () {
     // Kelas
     Route::group(['prefix' => 'class'], function () {
         Route::get('/', [ClassController::class, 'index'])->name('class.index');

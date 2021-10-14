@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1;
 
 use App\Constants\ApiEndpoint;
 use App\Constants\StatusApiConstant;
+use App\DTO\ForgetDTO;
 use App\DTO\LoginDTO;
 use App\DTO\RegisterDTO;
 use App\DTO\ResponseApi;
@@ -59,66 +60,59 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
+    public function register_2()
+    {
+        return view('auth.register-2');
+    }
+    public function register_3()
+    {
+        return view('auth.register-3');
+    }
+    public function change_success()
+    {
+        return view('auth.change-success');
+    }
+    public function change_password()
+    {
+        $token='';
+        return view('auth.change-password',compact('token'));
+    }
     public function forgot()
     {
         return view('auth.forgot');
-    }
-
-    public function changePassword(Request $request)
-    {
-        $token = $request->token;
-        return view('auth.change-password')->with( ['token1'=>$token] );
     }
 
     public function forgotProcess(Request $request)
     {
         try {
             $clientService = new Client;
-            $url = $this->apiEndpoint::$forgetPassword;
+            $url = $this->apiEndpoint::$forgetPassword;       
 
-            $data = [
-                'email' => $request->email
-            ];
-
-            //$data = json_encode($data);
-            
-            $response = $clientService->post($url, $data);
-            //dd($response);
+            $response = $clientService->post($url, $request->all());
             
             $responseApi = new ResponseApi($response);
+
             if ($response->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
-            } elseif ($response->message == StatusApiConstant::$success) {
-                return redirect()->route('forgot.index')->with( ['status'=>'email-sended'] );
+            } elseif ($response->message == StatusApiConstant::$success) {               
+                return redirect()->route('auth.forgot');
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());
         }
     }
-
-    public function changePasswordProcess(Request $request)
+    public function change_password_process(Request $request)
     {
         try {
             $clientService = new Client;
-            $url = $this->apiEndpoint::$changePassword;
-
-            $data = [
-                'token' => $request->token1,
-                'password' => $request->password,
-                'password_confirmation' => $request->confirm_password
-            ];
-            //dd($data);
-
-            //$data = json_encode($data);
-            
-            $response = $clientService->post($url, $data);
-            //dd($response);
-            
+            $url = $this->apiEndpoint::$changePassword.'?token='.$request->token;
+            $response = $clientService->put($url, $request->all());
             $responseApi = new ResponseApi($response);
+            // dd($response);
             if ($response->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
-            } elseif ($response->message == StatusApiConstant::$success) {
-                return redirect()->route('login.index')->with( ['status'=>'password-changed'] );
+            } elseif ($response->message == StatusApiConstant::$success) {               
+                return redirect()->route('change-success.index');
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());
@@ -142,7 +136,9 @@ class AuthController extends Controller
             if ($response->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($response->message == StatusApiConstant::$success) {
-                return redirect()->route('login.index')->withErrors($responseApi->getInfo());
+                return redirect()->route('register.register-2')
+                ->with('email', $request->email)
+                ->withErrors($responseApi->getInfo());
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());

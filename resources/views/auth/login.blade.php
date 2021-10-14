@@ -36,28 +36,6 @@ Kkuljaem Korea | Login
                   </div>
             </div>
         @endif
-        @if(!empty(session()->get( 'status' )))
-          @if(session()->get( 'status' ) == "password-changed")
-          <div class="notifikasi-login">
-                <div class="notifikasi-login2">
-                  <h2>Password Berhasil Dirubah.</h2><br/>
-                </div>
-          </div>
-          @elseif(session()->get( 'status' ) == "email-validate")
-          <div class="notifikasi-login">
-                <div class="notifikasi-login2">
-                  <h2>Email Berhasil Dikonfirmasi.</h2><br/>
-                </div>
-          </div>
-          @elseif(session()->get( 'status' ) == "error")
-          <div class="notifikasi-login">
-                <div class="notifikasi-login2">
-                  <h2>Terjadi Kesalahan, Mohon coba beberapa saat lagi.</h2><br/>
-                </div>
-          </div>
-          @endif
-
-        @endif
         <form action="{{route('login.process')}}" method="POST" autocomplete="off">
           @csrf
           <div class="form-group">

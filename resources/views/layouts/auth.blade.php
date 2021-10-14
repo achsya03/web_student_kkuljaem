@@ -15,11 +15,12 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" /> {{--
+    <link href="{{asset('assets/css/login-register.css')}}" rel="stylesheet" /> 
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" /> 
     <link href="{{asset('assets/vendor/fontawesome/css/fontawesome.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/vendor/fontawesome/css/light.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/vendor/fontawesome/css/regular.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet" /> --}}
+    <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
 </head>
@@ -45,20 +46,22 @@
 
     @yield('content')
 
-    <footer id="footer">
-        <div class="row">
-            <div class="col-lg-4 logo justify-content-center">
-                <div class="row">
-                    <i class="icon fab fa-instagram"></i>
-                    <i class="icon fab fa-youtube"></i>
-                    <i class="icon fas fa-globe-asia"></i>
+    <footer id="footer" class="mastfoot mt-auto">
+        <div class="inner">
+            <div class="d-flex">
+                <div class="col-4 logo justify-content-center">
+                    <div class="row">
+                        <i class="icon fab fa-instagram"></i>
+                        <i class="icon fab fa-youtube"></i>
+                        <i class="icon fas fa-globe-asia"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 justify-content-center">
-                <img src="{{asset('assets/img/Logo2.png')}}" alt="" srcset="">
-            </div>
-            <div class="col-lg-4 justify-content-center">
-                <h4 class="copyright">Copyright {{date('Y')}}</h4>
+                <div class="col-4 justify-content-center">
+                    <img src="{{ asset('assets/img/Logo2.png') }}" alt="" srcset="">
+                </div>
+                <div class="col-4 justify-content-center">
+                    <h4 class="copyright">Copyright 2021</h4>
+                </div>
             </div>
         </div>
     </footer>
@@ -79,19 +82,7 @@
             });
         });
     </script>
-    <script type="text/javascript">
-        function change() {
-            var x = document.getElementById('inputSandi').type;
-
-            if (x == 'password') {
-                document.getElementById('inputSandi').type = 'text';
-                document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
-            } else {
-                document.getElementById('inputSandi').type = 'password';
-                document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
-            }
-        }
-    </script>
+     @yield('page-js')
 </body>
 
 </html>

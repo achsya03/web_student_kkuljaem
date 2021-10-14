@@ -48,10 +48,10 @@
               <span id="mybutton" onclick="change()"><i class="fas fa-eye"></i></span>
           </div>
           <div class="form-group">
-            <label for="InputVerifSandi">Verifikasi Kata Sandi</label>
-            <input type="password" id="inputVerifSandi" name="password_confirmation" class="form-control" placeholder="Masukan ulang kata sandi"
+            <label for="InputSandi2">Verifikasi Kata Sandi</label>
+            <input type="password" id="inputSandi2" name="password2" class="form-control" placeholder="Masukan ulang kata sandi"
               required="" >
-              <span id="mybutton1" onclick=change()"><i class="fas fa-eye" ></i></span>
+              <span id="mybutton2" onclick="change2()"><i class="fas fa-eye" ></i></span>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="1" id="syarat">
@@ -66,5 +66,32 @@
     </div></div>
     
 @endsection
+@section('page-js')
+<script type="text/javascript">
+    function change() {
+        var x = document.getElementById('inputSandi').type;
 
+        if (x == 'password') {
+            document.getElementById('inputSandi').type = 'text';
+            document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            document.getElementById('inputSandi').type = 'password';
+            document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
+        }
+    }
+</script>
+<script type="text/javascript">
+    function change2() {
+        var x = document.getElementById('inputSandi2').type;
+
+        if (x == 'password') {
+            document.getElementById('inputSandi2').type = 'text';
+            document.getElementById('mybutton2').innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            document.getElementById('inputSandi2').type = 'password';
+            document.getElementById('mybutton2').innerHTML = '<i class="fas fa-eye"></i>';
+        }
+    }
+</script>
+@endsection
 

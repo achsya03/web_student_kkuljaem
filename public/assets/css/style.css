@@ -131,7 +131,7 @@ input[type="password"]::-ms-clear {
 .form-check .form-check-label span a {
   color: #ef9c23;
 }
-#mybutton1{
+#mybutton2{
   position: relative;
   left: 90%;
   top: -35px;
@@ -154,20 +154,10 @@ input[type="password"]::-ms-clear {
   width: 100%;
 }
 
-.notifikasi-login2 {
-  margin-bottom: 20px;
-  background-color:lightseagreen;
-  border: 50%;
-  border-radius: 15px;
-  height: auto;
-  color: #fff;
-  width: 100%;
-}
-
 .notifikasi-login h2 {
   padding: 18px;
   font-size: 18px;
-  color: #fff;
+  color: #993e3e;
   width: 100%;
 }
 
