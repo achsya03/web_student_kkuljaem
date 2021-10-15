@@ -72,9 +72,9 @@ class AuthController extends Controller
     {
         return view('auth.change-success');
     }
-    public function change_password()
+    public function change_password(Request $request)
     {
-        $token='';
+        $token=$request->token;
         return view('auth.change-password',compact('token'));
     }
     public function forgot()
