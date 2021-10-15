@@ -49,7 +49,7 @@
           </div>
           <div class="form-group">
             <label for="InputSandi2">Verifikasi Kata Sandi</label>
-            <input type="password" id="inputSandi2" name="password2" class="form-control" placeholder="Masukan ulang kata sandi"
+            <input type="password" id="inputSandi2" name="password_confirmation" class="form-control" placeholder="Masukan ulang kata sandi"
               required="" >
               <span id="mybutton2" onclick="change2()"><i class="fas fa-eye" ></i></span>
           </div>
