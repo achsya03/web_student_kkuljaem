@@ -106,7 +106,7 @@ class AuthController extends Controller
         try {
             $clientService = new Client;
             $url = $this->apiEndpoint::$changePassword.'?token='.$request->token;
-            $response = $clientService->put($url, $request->all());
+            $response = $clientService->post($url, $request->all());
             $responseApi = new ResponseApi($response);
             // dd($response);
             if ($response->message == StatusApiConstant::$failed) {
