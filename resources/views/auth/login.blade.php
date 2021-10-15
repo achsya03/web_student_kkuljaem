@@ -36,6 +36,13 @@ Kkuljaem Korea | Login
                   </div>
             </div>
         @endif
+        @isset($status)
+            <div class="notifikasi-login">
+                  <div class="notifikasi-login">
+                    <h2>Link Verifikasi Telah Digunakan Sebelumnya</h2>
+                  </div>
+            </div>
+        @endisset
         <form action="{{route('login.process')}}" method="POST" autocomplete="off">
           @csrf
           <div class="form-group">
