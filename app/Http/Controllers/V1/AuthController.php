@@ -95,7 +95,7 @@ class AuthController extends Controller
             if ($response->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($response->message == StatusApiConstant::$success) {               
-                return redirect()->route('change-success.index');
+                return redirect()->route('register.register-2');
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());
