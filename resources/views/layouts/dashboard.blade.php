@@ -21,14 +21,7 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
-
-    @yield('css')
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> @yield('css')
 </head>
 
 <body>
@@ -150,9 +143,24 @@
                     </div>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="{{ route('profil.index') }}">
+                    <a class="nav-link dropdown" href="#" id="deletedropdowm" role="button" data-toggle="dropdown">
                         <img class="img-profile rounded-circle" src="{{ asset('assets/img/profile.png') }}">
                     </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="delete">
+                            <a class="dropdown-item d-flex text-center"
+                                href="{{ route('profil.index') }}">
+                                <h6 class="mx-auto my-auto">Pengaturan</h6>
+                            </a>
+                            <div class="dropdown-item d-flex justify-content-center" href="#">
+                                <form action="{{ route('dashboard.noauth') }}" method="POST" >
+                                    @csrf
+                                    <h6 class="mx-auto my-auto text-center">Keluar</h6>
+                                </form>
+                            </div>
+                    </div>
+                    {{-- <a class="nav-link" href="{{ route('profil.index') }}">
+                        <img class="img-profile rounded-circle" src="{{ asset('assets/img/profile.png') }}">
+                    </a> --}}
                 </li>
             </ul>
         </div>

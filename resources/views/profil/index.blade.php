@@ -37,17 +37,17 @@
                     <!-- Profile and name -->
                     <div class="profile-akun d-flex justify-content-between align-items-center">
                         <div class="avatar-name">
-                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar " class="float-left mr-3 avatar">
+                            <img src="{{asset('assets/img/avatar.png')}}" alt="Avatar " class="float-left mr-3 avatar">
                             <div class="d-flex flex-column mt-4 ">
-                                <h5 class="font-weight-bold">{{ $profil->nama }}</h5>
-                                <p>{{ $profil->email }}</p>
+                                <h5 class="font-weight-bold">{{$profil->nama}}</h5>
+                                <p>{{$profil->email}}</p>
                             </div>
                         </div>
                         <div class="marker">
                             <h5 class="font-weight-bold">Akun Premium</h5>
                         </div>
                     </div>
-
+                    
                     <!-- Profile and name -->
                     <!-- alert -->
                     {{-- <div class="alert alert-profile-premium mt-4 mb-5" role="alert">
@@ -55,28 +55,28 @@
                     </div> --}}
                     <!-- end alert -->
 
-                    @if ($profil->tempat_lahir == '-' || $profil->tempat_lahir == null)
-                        <!-- alert -->
-                        <div class="alert alert-profile mt-4 mb-5" role="alert">
-                            <i class="far fa-user-circle ml-1 mr-3"></i> Tinggal selangkah lagi nih, ayo lengkapi profilmu
-                        </div>
-                        <!-- end alert -->
+                    @if ($profil->tempat_lahir == "-" || $profil->tempat_lahir == null)
+                         <!-- alert -->
+                    <div class="alert alert-profile mt-4 mb-5" role="alert">
+                        <i class="far fa-user-circle ml-1 mr-3"></i> Tinggal selangkah lagi nih, ayo lengkapi profilmu
+                    </div>
+                    <!-- end alert -->
                     @else
                     @endif
                     @if (session('success'))
 
-                        <div class="alert alert-profile-premium mt-4 mb-5" role="alert">
-                            <i class="far fa-user-circle ml-1 mr-3"></i> {{ session('success') }}
-                        </div>
+                    <div class="alert alert-profile-premium mt-4 mb-5" role="alert">
+                        <i class="far fa-user-circle ml-1 mr-3"></i> {{session('success')}}
+                    </div>
                     @endif
 
                     @if (session('failed'))
-                        <!-- alert -->
-                        <div class="alert alert-profile mt-4 mb-5" role="alert">
-                            <i class="far fa-user-circle ml-1 mr-3"></i> {{ session('failed') }}
-                        </div>
+                         <!-- alert -->
+                    <div class="alert alert-profile mt-4 mb-5" role="alert">
+                        <i class="far fa-user-circle ml-1 mr-3"></i> {{session('failed')}}
+                    </div>
                     @endif
-
+                  
                     <!-- Pengaturan Akun -->
                     <div class="container">
                         <div class="row pengaturan-akun">
@@ -92,7 +92,8 @@
                                     <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
                                         href="#list-langganan" role="tab" aria-controls="messages"><i
                                             class="fal fa-wallet mr-3"></i>Langganan</a>
-                                    <a class=" list-group-item-action" href="{{ route('pembayaran.index') }}"><i
+                                    <a class=" list-group-item-action"
+                                        href="{{ route('pembayaran.index') }}" ><i
                                             class="fal fa-wallet mr-3"></i>Pembayaran</a>
                                 </div>
                             </div>
@@ -101,54 +102,51 @@
                                     <!-- List Profile Saya -->
                                     <!-- Banner Promo -->
                                     {{-- @if ($account->status_member == 'Non-Member') --}}
-                                    <div class="banner">
-                                        <a href="">
-                                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" alt="Banner Promo"
-                                                class="banner-promo mb-3">
-                                        </a>
-                                    </div>
+                                        <div class="banner">
+                                            <a href="">
+                                                <img src="{{ asset('assets/img/Bannerpromo.png') }}" alt="Banner Promo"
+                                                    class="banner-promo mb-3">
+                                            </a>
+                                        </div>
 
                                     {{-- @else
 
                                     @endif --}}
                                     <!-- End Banner Promo -->
-
+                                   
                                     <div class="tab-pane fade show active" id="list-profile-saya" role="tabpanel"
                                         aria-labelledby="list-home-list">
 
                                         <form class="form theme-form pb-5 f1"
-                                            action="{{ route('profil.update_profil') }}" method="POST">
+                                        action="{{ route('profil.update_profil') }}" method="POST">
                                             @csrf
                                             <div class="form-group font-weight-bold">
                                                 <label for="nama">Nama</label>
-                                                <input type="text" class="form-control" id="nama" name="nama"
-                                                    value="{{ $profil->nama }}" placeholder="Your Text">
+                                                <input type="text" class="form-control" id="nama" name="nama" value="{{$profil->nama}}" placeholder="Your Text">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="jenis-kelamin">Jenis Kelamin</label>
                                                 <select class="form-control" name="jenis_kel" id="jenis-kelamin">
-                                                    <option value="laki" @if (old('jenis_kel', $profil->jenis_kel) == 'laki')
+                                                    <option value="laki" @if(old('jenis_kel', $profil->jenis_kel) == 'laki')
                                                         selected @endif>Laki-laki</option>
-                                                    <option value="perempuan" @if (old('jenis_kel', $profil->jenis_kel) == 'perempuan')
+                                                    <option value="perempuan" @if(old('jenis_kel', $profil->jenis_kel) == 'perempuan')
                                                         selected @endif>Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="tempat-lahir">Tempat Lahir</label>
-                                                <input type="text" name="tempat_lahir"
-                                                    value="{{ $profil->tempat_lahir }}" class="form-control"
-                                                    id="tempat-lahir" placeholder="Your Text">
+                                                <input type="text" name="tempat_lahir" value="{{$profil->tempat_lahir}}" class="form-control" id="tempat-lahir"
+                                                    placeholder="Your Text">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="tanggal-lahir">Tanggal Lahir</label>
-                                                <input type="date" name="tgl_lahir" class="form-control"
-                                                    id="tanggal-lahir" value="{{ $profil->tgl_lahir }}"
+                                                <input type="date" name="tgl_lahir" class="form-control" id="tanggal-lahir" value="{{$profil->tgl_lahir}}"
                                                     placeholder="DD/MM/YY">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="alamat">Alamat</label>
-                                                <textarea class="form-control" name="alamat" id="alamat" rows=""
-                                                    placeholder="Your Text">{{ $profil->alamat }}</textarea>
+                                                <textarea class="form-control" name="alamat" id="alamat" rows="" 
+                                                    placeholder="Your Text">{{$profil->alamat}}</textarea>
                                             </div>
                                             <div class="form-group d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-save ml-auto">Simpan</button>
@@ -160,23 +158,22 @@
                                     <div class="tab-pane fade" id="list-ubah-sandi" role="tabpanel"
                                         aria-labelledby="list-profile-list">
                                         <form class="form theme-form pb-5 f1"
-                                            action="{{ route('profil.change_password') }}" method="POST">
+                                        action="{{ route('profil.change_password') }}" method="POST">
                                             @csrf
-
+                                            
                                             <div class="form-group font-weight-bold">
                                                 <label for="sandi-baru">Kata Sandi Lama</label>
-                                                <input type="password" name="password_old" class="form-control"
-                                                    id="sandi-baru" placeholder="Masukkan kata sandi Lama Anda">
+                                                <input type="password" name="password_old" class="form-control" id="sandi-baru"
+                                                    placeholder="Masukkan kata sandi Lama Anda">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="sandi-baru">Kata Sandi Baru</label>
-                                                <input type="password" name="password" class="form-control"
-                                                    id="sandi-baru" placeholder="Masukkan kata sandi baru Anda">
+                                                <input type="password" name="password" class="form-control" id="sandi-baru"
+                                                    placeholder="Masukkan kata sandi baru Anda">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="konfirmasi-sandi">Konfirmasi Kata Sandi Baru</label>
-                                                <input type="password" name="password_confirmation" class="form-control"
-                                                    id="konfirmasi-sandi"
+                                                <input type="password" name="password_confirmation" class="form-control" id="konfirmasi-sandi"
                                                     placeholder="Masukkan Konfirmasi Kata Sandi Baru Anda">
                                             </div>
                                             <div class="form-group d-flex justify-content-end">
@@ -184,86 +181,69 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <!-- Langganan -->
-                                    <div class="tab-pane fade show" id="list-langganan" role="tabpanel"
-                                        aria-labelledby="list-messages-list">
+                                     <!-- Langganan -->
+                                     <div class="tab-pane fade show" id="list-langganan" role="tabpanel" aria-labelledby="list-messages-list">
                                         <h6 class="font-weight-bold my-4 title"> Langganan</h6>
                                         <div class="accordion" id="accordionHistory">
                                             @if ($histori == null)
-
+                                                
                                             @else
-                                                @foreach ($histori->subscription as $history)
-                                                    <div class="card mb-3">
-                                                        <div class="card-header" id="headingOne">
-                                                            <h2 class="mb-0">
-                                                                <button class="btn btn-link btn-block text-left"
-                                                                    type="button" data-toggle="collapse"
-                                                                    data-target="#collapseOne{{ $history->subs_uuid }}"
-                                                                    aria-expanded="true" aria-controls="collapseOne">
-                                                                    <div
-                                                                        class="d-flex justify-content-between align-items-center">
-                                                                        <div class="d-flex flex-column">
-                                                                            <p class="font-weight-bold mb-0">Paket
-                                                                                {{ $history->lama_paket }} Bulan</p>
-                                                                            <p>{{ date('d m Y - H.i', strtotime($history->tgl_subs)) }}
-                                                                            </p>
-                                                                        </div>
+                                            @foreach ($histori->subscription as $history)
+                                            <div class="card mb-3">
+                                                <div class="card-header" id="headingOne">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$history->subs_uuid}}" aria-expanded="true" aria-controls="collapseOne">
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                            <div class="d-flex flex-column">
+                                                                <p class="font-weight-bold mb-0">Paket {{$history->lama_paket}} Bulan</p>
+                                                                <p>{{ date('d m Y - H.i', strtotime($history->tgl_subs)) }}</p>
+                                                            </div>
+                                                            
+                                                            @if ($history->subs_status=="SUKSES")
+                                                            <p class="status status-success">Berhasil</p>
+                                                            @elseif($history->subs_status=="GAGAL")
+                                                            <p class="status status-danger">Gagal</p>
+                                                            @elseif($history->subs_status=="TUNGGU")
+                                                            <p class="status status-warning">Tunggu</p>
+                                                            @endif
+                                                           
+                                                            </div>
+                                                        </button>
+                                                    </h2>
+                                                </div>
 
-                                                                        @if ($history->subs_status == 'SUKSES')
-                                                                            <p class="status status-success">Berhasil</p>
-                                                                        @elseif($history->subs_status=="GAGAL")
-                                                                            <p class="status status-danger">Gagal</p>
-                                                                        @elseif($history->subs_status=="TUNGGU")
-                                                                            <p class="status status-warning">Tunggu</p>
-                                                                        @endif
-
-                                                                    </div>
-                                                                </button>
-                                                            </h2>
-                                                        </div>
-
-                                                        <div id="collapseOne{{ $history->subs_uuid }}"
-                                                            class="collapse show" aria-labelledby="headingOne"
-                                                            data-parent="#accordionHistory">
-
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col-6 detail-left">
-                                                                        <div class="d-flex flex-column">
-                                                                            <p class="mb-0 label-history">Label Pesanan</p>
-                                                                            <p class="detail-label-history">paket premium
-                                                                                {{ $history->lama_paket }} bulan</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-6 detail-right">
-                                                                        <div class="d-flex flex-column align-items-end">
-                                                                            <p class="mb-0 label-history">Periode Pesanan
-                                                                            </p>
-                                                                            <p class="detail-label-history">
-                                                                                {{ date('d m Y', strtotime($history->tgl_subs)) }}
-                                                                                -
-                                                                                {{ date('d m Y', strtotime($history->tgl_subs)) }}
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="d-flex flex-column align-items-end">
-                                                                            <p class="mb-0 label-history">Nominal</p>
-                                                                            <p class="detail-label-history">
-                                                                                {{ 'Rp ' . number_format($history->harga, 2, ',', '.') }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
+                                                <div id="collapseOne{{$history->subs_uuid}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionHistory">
+                    
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-6 detail-left">
+                                                                <div class="d-flex flex-column">
+                                                                    <p class="mb-0 label-history">Label Pesanan</p>
+                                                                    <p class="detail-label-history">paket premium {{$history->lama_paket}} bulan</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6 detail-right">
+                                                                <div class="d-flex flex-column align-items-end">
+                                                                    <p class="mb-0 label-history">Periode Pesanan</p>
+                                                                    <p class="detail-label-history">{{ date('d m Y', strtotime($history->tgl_subs)) }} - {{ date('d m Y', strtotime($history->tgl_subs)) }}</p>
+                                                                </div>
+                                                                <div class="d-flex flex-column align-items-end">
+                                                                    <p class="mb-0 label-history">Nominal</p>
+                                                                    <p class="detail-label-history">{{"Rp " . number_format($history->harga,2,',','.')}}</p>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @endforeach
+                                                </div>
+                                            </div>
+                                            @endforeach
                                             @endif
-
-
+                                            
+                                           
                                         </div>
                                     </div>
                                     <!-- End Langganan -->
-                                </div>
+                                   </div>
                             </div>
                         </div>
                     </div>
@@ -610,25 +590,23 @@
                                         </div>
                                     </div>
                                     <!-- End List Privacy & Policy -->
-                                    <!-- End Content Kanan -->
                                 </div>
                             </div>
-
-
+                            <!-- End Content Kanan -->
                             <!-- Button-Keluar -->
                             <div class="row pengaturan-akun-keluar">
-                                <div class="col-12 left-keluar align-items-content">
-                                    <div class="list-group font-weight-bold " id="list-tab" role="tablist">
-                                        <form action="{{ route('dashboard.noauth') }}" method="POST">
+                                <div class="col-12 left-keluar">
+                                    <div class="list-group font-weight-bold" id="list-tab" role="tablist">
+                                        <form  action="{{ route('dashboard.noauth') }}" method="POST" >
                                             @csrf
-                                            <button class="list-group-item-action" type="submit">Keluar</button>
+                                            <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
+                                            href="#list-keluar" role="tab" aria-controls="messages"><i
+                                                class="far fa-file-alt mr-3"></i>Keluar</a>
                                         </form>
-
                                     </div>
                                 </div>
-
-                                <!-- End Button-Keluar -->
                             </div>
+                            <!-- End Button-Keluar -->
 
                         </div>
                         <!-- End Pengaturan Lain-lain -->
