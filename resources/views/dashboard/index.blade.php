@@ -1,6 +1,9 @@
 @extends('layouts.dashboard') @section('css')
-    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" /> @endsection @section('title') Kkuljaem Korea |
-    Home @endsection @section('content')
+    <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
+@endsection
+@section('title') Kkuljaem Korea | Home
+@endsection
+@section('content')
 
     <!-- hero-dashboard -->
     <div id="hero-dashboard" class="container">
@@ -9,10 +12,9 @@
                 @foreach ($data->banner as $item)
 
                     <div class="">
-                <button type=" button" class="btn col-lg-12 mx-auto banner"
-                        id="btn-market{{ $item->banner_uuid }}" data-toggle="modal"
-                        data-target="#banner-market{{ $item->banner_uuid }}">
-                        <img src="{{ $item->url_web }}" height="auto" alt="" srcset="" /></button>
+                        <button type=" button" class="btn col-lg-12 mx-auto banner" id="btn-market{{ $item->banner_uuid }}"
+                            data-toggle="modal" data-target="#banner-market{{ $item->banner_uuid }}">
+                            <img src="{{ $item->url_web }}" height="auto" alt="" srcset="" /></button>
                     </div>
 
                 @endforeach
@@ -50,13 +52,15 @@
         <div class="row">
             <div class="col-lg-8 video">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <div class="plyr__video-embed" id="player">
-                        <iframe src="{{ $data->video[0]->url_video }}"
-                            allowfullscreen
+                    <div  class="plyr__video-embed" id="player">
+                        <iframe src="{{ $data->video[0]->url_video }}" allowfullscreen
                             allowtransparency
                             allow="autoplay">
                         </iframe>
                     </div>
+
+                    {{-- <iframe src="{{ $data->video[0]->url_video }}" allowfullscreen allowtransparency allow="autoplay">
+                        </iframe> --}}
                 </div>
             </div>
             <div class="col-lg-4 button-video">
