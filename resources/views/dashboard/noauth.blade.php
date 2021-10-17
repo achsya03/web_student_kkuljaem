@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
         integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
 
-    <link href="{{asset('assets/vendor/fontawesome/css/fontawesome.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/vendor/fontawesome/css/light.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/vendor/fontawesome/css/regular.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('assets/vendor/fontawesome/css/all.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
     <title>Kkuljaem Korea</title>
 </head>
 
@@ -108,15 +108,14 @@
             <div class="col-lg-8 video">
                 <div class="embed-responsive embed-responsive-16by9">
                     <div class="plyr__video-embed" id="player">
-                        <iframe src="{{ $data->video[0]->url_video }}"
-                            allowfullscreen
-                            allowtransparency
-                            allow="autoplay">
+                        <iframe
+                            src="{{ $data->video[0]->url_video }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                            allowfullscreen allowtransparency allow="autoplay">
                         </iframe>
                     </div>
                     {{-- <video id='my-video' controls controlsList="nodownload" preload='auto'>
                         <source src='{{ $data->video[0]->url_video }}' type='video/mp4'> --}}
-                    {{-- </video>  --}}
+                    {{-- </video> --}}
                 </div>
             </div>
             <div class="col-lg-4 button-video">
