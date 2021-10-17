@@ -35,7 +35,7 @@ class ProfilController extends Controller
             } elseif ($responseApi->message == StatusApiConstant::$success && $responseApiHistori->message == StatusApiConstant::$success) {
                 $profil = $responseApi->getData()->user;
                 $histori = $responseApiHistori->getData();
-                // dd($histori);
+                // dd($profil);
 
                 return view('profil.index', compact('profil', 'histori'));
             }

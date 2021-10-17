@@ -51,7 +51,7 @@
             <div class="col-lg-8 video">
                 <div class="embed-responsive embed-responsive-16by9">
                     <div class="plyr__video-embed" id="player">
-                        <iframe src="{{ $data->video[0]->url_video }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                        <iframe src="{{ $data->video[0]->url_video }}"
                             allowfullscreen
                             allowtransparency
                             allow="autoplay">
@@ -85,7 +85,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     @foreach ($data->word as $item)

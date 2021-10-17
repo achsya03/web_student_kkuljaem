@@ -11,6 +11,7 @@ use App\DTO\ResponseApi;
 use App\Http\Controllers\Controller;
 use App\Service\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -141,6 +142,15 @@ class AuthController extends Controller
                 ->withErrors($responseApi->getInfo());
             }
         } catch (\Exception $th) {
+            return redirect()->back()->withErrors($th->getMessage());
+        }
+    }
+    public function logout(Request $request)
+    {
+        try {
+            Cookie::queue(Cookie::forget('kkuljaem_korean_session'));
+            return redirect()->back();
+        } catch (\Throwable $th) {
             return redirect()->back()->withErrors($th->getMessage());
         }
     }

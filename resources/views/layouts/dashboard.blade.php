@@ -18,10 +18,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <!-- Docs styles -->
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> @yield('css')
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
+
+    @yield('css')
 </head>
 
 <body>
@@ -147,16 +154,15 @@
                         <img class="img-profile rounded-circle" src="{{ asset('assets/img/profile.png') }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="delete">
-                            <a class="dropdown-item d-flex text-center"
-                                href="{{ route('profil.index') }}">
-                                <h6 class="mx-auto my-auto">Pengaturan</h6>
-                            </a>
-                            <div class="dropdown-item d-flex justify-content-center" href="#">
-                                <form action="{{ route('dashboard.noauth') }}" method="POST" >
-                                    @csrf
-                                    <h6 class="mx-auto my-auto text-center">Keluar</h6>
-                                </form>
-                            </div>
+                        <a class="dropdown-item d-flex text-center" href="{{ route('profil.index') }}">
+                            <h6 class="mx-auto my-auto">Pengaturan</h6>
+                        </a>
+                        <div class="dropdown-item d-flex justify-content-center" href="#">
+                            {{-- <form action="{{ route('dashboard.noauth') }}" method="POST" >
+                                    @csrf --}}
+                            <h6 class="mx-auto my-auto text-center">Keluar</h6>
+                            {{-- </form> --}}
+                        </div>
                     </div>
                     {{-- <a class="nav-link" href="{{ route('profil.index') }}">
                         <img class="img-profile rounded-circle" src="{{ asset('assets/img/profile.png') }}">
@@ -204,6 +210,7 @@
         integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <script src="https://cdn.plyr.io/3.6.9/plyr.polyfilled.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="{{ asset('assets/js/player.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.js"></script>

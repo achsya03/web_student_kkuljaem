@@ -38,7 +38,8 @@ Route::group(['middleware' => 'cors'], function () {
      Route::get('/change-success', [AuthController::class, 'change_success'])->name('change-success.index'); // Kata Sandi berhasil Diubah
      Route::get('/change-password', [AuthController::class, 'change_password'])->name('change-password.index'); // Imput New Password
      Route::post('/change-password-process', [AuthController::class, 'change_password_process'])->name('change-password.process');
- 
+     Route::post('/logout', [AuthController::class, 'logout'])->name('dashboard.noauth');
+
 
 });
 
@@ -100,6 +101,7 @@ Route::group(['middleware' => 'authtoken', 'cors'], function () {
         Route::get('/', [ProfilController::class, 'index'])->name('profil.index');
         Route::post('/update_profil', [ProfilController::class, 'update'])->name('profil.update_profil');
         Route::post('/change_password', [ProfilController::class, 'change_password'])->name('profil.change_password');
+        Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
         
     });
     Route::group(['prefix' => 'pembayaran'], function () {
