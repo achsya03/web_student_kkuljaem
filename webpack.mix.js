@@ -15,3 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .vue();
 
 mix.browserSync('https://e0b7-180-252-88-121.ap.ngrok.io');
+
+mix.js('node_modules/videojs-youtube/dist/Youtube.min.js', 'public/js');
+mix.js('node_modules/video.js/dist/video.min.js', 'public/js');
+mix.js('node_modules/video.js/dist/video-js.min.css', 'public/css');
