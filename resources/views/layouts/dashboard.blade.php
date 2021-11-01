@@ -81,7 +81,7 @@
                     @php
                         
                         $response = new \GuzzleHttp\Client();
-                        $a = $response->request('GET', 'https://floating-harbor-93486.herokuapp.com/api/user/notification', [
+                        $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
                             'headers' => [
                                 'Accept' => 'application/json',
                                 'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
