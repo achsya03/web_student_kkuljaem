@@ -2,7 +2,7 @@
 @section('css')
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
 @endsection
-@section('title') Kkuljaem Korea | Home
+@section('title') Kkuljaem Korean | Home
 @endsection
 @section('content')
 
