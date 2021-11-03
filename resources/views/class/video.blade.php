@@ -21,18 +21,10 @@
                         <div class="tab-content" id="nav-tabContent">
                             <!-- List Nilai Kami -->
                             <div class="tab-pane fade show active">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <div class="plyr__video-embed" id="player">
-                                        {{-- <iframe src="{{ $class->url_video }}"
-                                            allowfullscreen
-                                            allowtransparency
-                                            allow="autoplay">
-                                        </iframe> --}}
-                                        <video id="vid1" class="video-js vjs-default-skin" controls width="760px"
-                                            height="400px"
-                                            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $class->url_video_mobile }}"}]}'>
-                                        </video>
-                                    </div>
+                                <div class="embed-responsive">
+                                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
+                                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $class->url_video_mobile }}"}]}'>
+                                    </video>
                                     {{-- <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe> --}}
                                 </div>
                             </div>
