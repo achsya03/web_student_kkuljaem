@@ -21,6 +21,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
 
+    <link href="{{ asset('assets/vendor/video.js/dist/video-js.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/video.js/dist/video-js.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
@@ -106,13 +109,16 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <div class="plyr__video-embed" id="player">
+                <div class="embed-responsive">
+                    {{-- <div class="plyr__video-embed" id="player">
                         <iframe
                             src="{{ $data->video[0]->url_video }}"
                             allowfullscreen allowtransparency allow="autoplay">
                         </iframe>
-                    </div>
+                    </div> --}}
+                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
+                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.google.com/watch?aaa=qwertyui&v=ggblIcjpuN4"}]}'>
+                    </video>
                     {{-- <video id='my-video' controls controlsList="nodownload" preload='auto'>
                         <source src='{{ $data->video[0]->url_video }}' type='video/mp4'> --}}
                     {{-- </video> --}}
@@ -195,17 +201,19 @@
     <footer id="footer" class="mastfoot mt-auto">
         <div class="inner">
             <div class="d-flex">
-                <div class="col-4 logo justify-content-center">
+                <div class="col-4 logo justify-content-center d-flex align-items-center">
                     <div class="row">
-                        <i class="icon fab fa-instagram"></i>
-                        <i class="icon fab fa-youtube"></i>
-                        <i class="icon fas fa-globe-asia"></i>
+                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i class="icon fab fa-instagram"></i></a> 
+                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i class="icon fab fa-youtube"></i></a> 
+                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i class="icon fas fa-globe-asia"></i></a> 
+                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i class="icon fab fa-tiktok"></i></a> 
+                        <a class="text-dark" href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i class="icon fab fa-whatsapp"></i></a> 
                     </div>
                 </div>
-                <div class="col-4 justify-content-center">
-                    <img src="{{ asset('assets/img/Logo2.png') }}" alt="" srcset="">
+                <div class="col-4 justify-content-center d-flex align-items-center">
+                    <img src="{{ asset('assets/img/Logo2.png') }}" width="100px" alt="" srcset="">
                 </div>
-                <div class="col-4 justify-content-center">
+                <div class="col-4 justify-content-center d-flex align-items-center">
                     <h4 class="copyright">Copyright 2021</h4>
                 </div>
             </div>
@@ -225,7 +233,8 @@
         integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/Plyr/plyr.js"></script>
+    <script src="{{ asset('assets/vendor/video.js/dist/video.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/videojs-youtube/dist/Youtube.min.js') }}"></script>
     @foreach ($data->word as $item)
         <script>
             $(document).ready(function() {

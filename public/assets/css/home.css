@@ -170,7 +170,7 @@ h6 {
 }
 
 .border-notif {
-    border-left: 5px solid #EF9C23;
+    border-left: 5px solid #ef9c23;
     padding-left: 15px;
 }
 
@@ -327,18 +327,18 @@ h6 {
     border-radius: 13px;
     color: #fff9f0;
     text-shadow: 2px 2px 0px rgba(239, 130, 18, 0.5);
-    font-weight:bold;
+    font-weight: bold;
 }
-.word-korea{
+.word-korea {
     white-space: nowrap;
-    width: 200px; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .word-korea p {
     text-align: left;
-    
+
     padding-left: 20px;
     margin: 5px 0px 0px 0px;
     font-size: 20px;
@@ -348,7 +348,7 @@ h6 {
     text-align: left;
     padding-left: 20px;
     font-size: 15px;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
 }
 
 .list-button-video {
@@ -524,7 +524,7 @@ li.slick-active button:before {
 .fa-search {
     color: gray;
 }
-.form-control:focus{
+.form-control:focus {
     box-shadow: none;
 }
 
@@ -563,3 +563,5 @@ li.slick-active button:before {
     font-weight: bold;
     color: #c4c4c4;
 }
+
+

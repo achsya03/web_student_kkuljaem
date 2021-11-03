@@ -189,17 +189,19 @@
     <footer id="footer" class="mastfoot mt-auto">
         <div class="inner">
             <div class="d-flex">
-                <div class="col-4 logo justify-content-center">
+                <div class="col-4 logo justify-content-center d-flex align-items-center">
                     <div class="row">
-                        <i class="icon fab fa-instagram"></i>
-                        <i class="icon fab fa-youtube"></i>
-                        <i class="icon fas fa-globe-asia"></i>
+                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i class="icon fab fa-instagram"></i></a> 
+                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i class="icon fab fa-youtube"></i></a> 
+                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i class="icon fas fa-globe-asia"></i></a> 
+                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i class="icon fab fa-tiktok"></i></a> 
+                        <a class="text-dark" href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i class="icon fab fa-whatsapp"></i></a> 
                     </div>
                 </div>
-                <div class="col-4 justify-content-center">
-                    <img src="{{ asset('assets/img/Logo2.png') }}" alt="" srcset="">
+                <div class="col-4 justify-content-center d-flex align-items-center">
+                    <img src="{{ asset('assets/img/Logo2.png') }}" width="100px" alt="" srcset="">
                 </div>
-                <div class="col-4 justify-content-center">
+                <div class="col-4 justify-content-center d-flex align-items-center">
                     <h4 class="copyright">Copyright 2021</h4>
                 </div>
             </div>
