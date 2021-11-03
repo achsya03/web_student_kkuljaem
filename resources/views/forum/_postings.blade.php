@@ -49,7 +49,7 @@
                 <!-- end hamburger dot -->
             </div>
             <h5>{{ $index->judul }}</h5>
-            <h6 class="text-tag ">{{ $index->tema }}</h6>
+            <h6 class="text-tag ">#{{ $index->tema }}</h6>
             <p>{{ $index->deskripsi }}</p>
             @if (@!isset($index->gambar))
             @else

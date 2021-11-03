@@ -20,13 +20,13 @@
                 <li class="nav-item">
                     <a class="nav-link active  " id="pills-jelajahi-tab" data-toggle="pill" href="#pills-jelajahi" role="tab"
                         aria-controls="pills-jelajahi" aria-selected="true">
-                        <h3 class="top-menu font-weight-bold active">Jelajahi</h3>
+                        <h3 class="top-menu font-weight-bold active">Untukmu</h3>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link ml-3" id="pills-postingan-tab" data-toggle="pill" href="#pills-postingan" role="tab"
                         aria-controls="pills-postingan" aria-selected="false">
-                        <h3 class="top-menu font-weight-bold">Postingan Saya</h3>
+                        <h3 class="top-menu font-weight-bold">Tulisanku</h3>
                     </a>
                 </li>
             </ul>
@@ -55,7 +55,8 @@
             <!-- Title Forum -->
             <div class="container mt-4">
                 <h4 class="font-weight-bold">Topik Terpopuler</h4>
-                <p class="">Bacaan terpopuler saat ini</p>
+                <p class="">Topik yang sedang ramai dibicarakan
+                </p>
         </div>
         <!-- End Title Forum -->
 
@@ -75,12 +76,12 @@
                                         </a>
                                     @elseif ($index == 1)
                                         <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag"
-                                            style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }}; text-decoration: none">
+                                            style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
                                             <h3 class="text-white">#{{ $theme->judul }}</h3>
                                         </a>
                                     @elseif ($index == 2)
                                         <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag"
-                                            style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
+                                            style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }}; text-decoration: none">
                                             <h3 class="text-white">#{{ $theme->judul }}</h3>
                                         </a>
                                     @elseif ($index > 2)
@@ -110,8 +111,8 @@
 
             <!-- Title Forum Comment -->
             <div class="container mt-5 pt-4">
-                <h4 class="font-weight-bold ">Forum Terpilih</h4>
-                <p class=" mb-4">Bacaan pilihan editor</p>
+                <h4 class="font-weight-bold ">Diskusi Untukmu</h4>
+                <p class=" mb-4">Bacaan menarik khusus untukmu</p>
             </div>
             <!-- End Title Forum Comment -->
 

@@ -23,11 +23,15 @@
                             <div class="tab-pane fade show active">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <div class="plyr__video-embed" id="player">
-                                        <iframe src="{{ $class->url_video }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                                        {{-- <iframe src="{{ $class->url_video }}"
                                             allowfullscreen
                                             allowtransparency
                                             allow="autoplay">
-                                        </iframe>
+                                        </iframe> --}}
+                                        <video id="vid1" class="video-js vjs-default-skin" controls width="760px"
+                                            height="400px"
+                                            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $class->url_video_mobile }}"}]}'>
+                                        </video>
                                     </div>
                                     {{-- <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe> --}}
                                 </div>
@@ -216,13 +220,11 @@
                                 @if ($tanya->nama_pengirim == $account->nama)
                                     <!-- hamburger dot -->
                                     <div class="dropdown hamburger-dot ">
-                                        <a class="btn dropdown" href="#" id="deletedropdowm"
-                                            role="button" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
+                                        <a class="btn dropdown" href="#" id="deletedropdowm" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <img src="{{ asset('assets/img/3dot.png') }}" alt="">
                                         </a>
-                                        <div class="qna-video dropdown-menu dropdown-menu-right"
-                                            aria-labelledby="delete">
+                                        <div class="qna-video dropdown-menu dropdown-menu-right" aria-labelledby="delete">
                                             <a class="dropdown-item d-flex text-center" href="#">
                                                 <h6 class="mx-auto my-auto">Delete</h6>
                                             </a>

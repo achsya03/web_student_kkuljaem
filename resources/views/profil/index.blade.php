@@ -289,19 +289,19 @@
                                 <div class="list-group font-weight-bold" id="list-tab" role="tablist">
                                     <a class=" list-group-item-action active" id="list-home-list" data-toggle="list"
                                         href="#list-nilai-kami" role="tab" aria-controls="home"><i
-                                            class="far fa-user-circle mr-3"></i> Nilai Kami</a>
+                                            class="far fa-user-circle mr-3"></i>Beri Penilaian</a>
                                     <a class=" list-group-item-action" id="list-profile-list" data-toggle="list"
                                         href="#list-keluhan" role="tab" aria-controls="profile"><i
-                                            class="fal fa-key mr-3"></i>Kirim Keluhan</a>
+                                            class="fal fa-key mr-3"></i>Beri Saran</a>
                                     <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
                                         href="#list-about" role="tab" aria-controls="messages"><i
-                                            class="far fa-question-circle mr-3"></i>About Kkuljaem</a>
+                                            class="far fa-question-circle mr-3"></i>Tentang Kami</a>
                                     <a class=" list-group-item-action " id="list-messages-list" data-toggle="list"
                                         href="#list-term-condition" role="tab" aria-controls="messages"><i
-                                            class="far fa-question-circle mr-3 "></i>Term & Condition</a>
+                                            class="far fa-question-circle mr-3 "></i>Syarat & Ketentuan</a>
                                     <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
                                         href="#list-privacy-policy" role="tab" aria-controls="messages"><i
-                                            class="far fa-file-alt mr-3"></i>Privacy & Policy</a>
+                                            class="far fa-file-alt mr-3"></i>Ketentuan Privasi</a>
 
                                 </div>
 
@@ -432,7 +432,7 @@
                                         aria-labelledby="list-messages-list">
                                         {!!$about->value!!}                                        
                                         <div class="paragraph my-4">
-                                            <h6 class="font-weight-bold title-2">Testimoni</h6>
+                                            <h6 class="font-weight-bold title-2">Tentang Kami</h6>
                                             @foreach ($testimoni as $testi)
                                             <div class="testimoni mb-3">
                                                 <p class="p-testimoni">"{{$testi->testimoni}}"
@@ -449,14 +449,14 @@
                                     <!-- List Term & Condition -->
                                     <div class="tab-pane fade show " id="list-term-condition" role="tabpanel"
                                         aria-labelledby="list-messages-list">
-                                        <h6 class="font-weight-bold my-4 title-main">Term & Condition</h6>                                       
+                                        <h6 class="font-weight-bold my-4 title-main">Syarat & Ketentuan</h6>                                       
                                         {!!$tnc->value!!}                                        
                                     </div>
                                     <!-- End List Term & Condition -->
                                     <!-- List Privacy & Policy -->
                                     <div class="tab-pane fade show" id="list-privacy-policy" role="tabpanel"
                                         aria-labelledby="list-messages-list">
-                                        <h6 class="font-weight-bold my-4 title-main">Privacy & Policy</h6>
+                                        <h6 class="font-weight-bold my-4 title-main">Ketentuan Privasi</h6>
                                         {!!$policy->value!!}                                        
                                     </div>
                                     <!-- End List Privacy & Policy -->

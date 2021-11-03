@@ -151,7 +151,7 @@
 
             <div id="hero-kelas" class="container">
                 <div class="tittle-kelas">
-                    <h3><a href="#"> Kelas Terakhir</a></h3>
+                    <h3><a href="#">Terakhir Belajar</a></h3>
                     <p>Lanjutkan belajarmu</p>
                 </div>
                 <div class="kelas-utama mb-3">
@@ -188,7 +188,7 @@
             </div>
             <div id="hero-kelas" class="container ">
                 <div class="tittle-kelas my-4">
-                    <h3><a href="#"> Kelas Yang Tersedia </a></h3>
+                    <h3><a href="#"> Kelas Lainnya </a></h3>
                     <p>Puluhan kelas yang bisa kamu ambil</p>
                 </div>
                 <div class="kelas-utama mb-3">

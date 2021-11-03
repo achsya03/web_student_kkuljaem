@@ -264,10 +264,6 @@ h6 {
 }
 
 .gambar-detail-kelas {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    object-fit: cover;
     border: 50%;
     border-radius: 15px;
 }
@@ -380,7 +376,7 @@ li.slick-active button:before {
 }
 
 #footer {
-    background-color: #f3f2f2;
+    background-color: #f8f9fa!important;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;

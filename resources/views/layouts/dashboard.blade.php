@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://www.youtube.com/iframe_api" async=""></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/yt.css') }}">
+
+    <link href="{{ asset('assets/vendor/video.js/dist/video-js.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/vendor/video.js/dist/video-js.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('assets/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
@@ -33,7 +35,7 @@
 </head>
 
 <body>
-    <header id="header" class="bg-light fixed-top">
+    <header id="header" class="bg-light fixed-top position-fixed">
         <div class="container d-flex align-items-center">
             <h1 class="logo mr-auto my-auto">
                 <a href="/">
@@ -81,7 +83,7 @@
                     @php
                         
                         $response = new \GuzzleHttp\Client();
-                        $a = $response->request('GET', 'https://floating-harbor-93486.herokuapp.com/api/user/notification', [
+                        $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
                             'headers' => [
                                 'Accept' => 'application/json',
                                 'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
@@ -106,53 +108,63 @@
                             </div>
                         </div>
                         <div class="notif-scroll">
-                            @foreach ($data->list_notif as $item)
-
-                                <form action="{{ route('read_notif', $item->uuid_notif) }}" method="POST" class="d-flex">
-                                    @csrf
-                                    <input type="hidden" name="id_target" value="{{ $item->uuid_target }}">
-                                    <input type="hidden" name="posisi" value="{{ $item->posisi }}">
-                                    <button type="submit" class="dropdown-item d-flex align-items-center px-0 ml-4">
-
-                                        @if ($item->status == 'unread')
-                                            <div class="mr-3 border-notif">
-
-                                                <div class="icon-circle">
-                                                    <i class="far fa-bell" style="color:#fff"></i>
-                                                </div>
-                                            </div>
-
-                                        @else
-                                            <div class="mr-3 non-border-notif">
-
-                                                {{-- sudahdibaca --}}
-                                                <div class="icon-read"">
-                                            <i class=" far fa-bell" style="color:#fff"></i>
-                                                </div>
-                                            </div>
-
-                                        @endif
-
-                                        <div>
-                                            <div class="small text-gray-500 font-weight-bold">{{ $item->judul }}
-                                            </div>
-                                            <h6 class="mb-0">{{ $item->deskripsi }}</h6>
-                                        </div>
-                                        <div>
-                                            <h6 class="p-3 mb-0">
-                                                {{ date('d m Y - H.i', strtotime($item->tgl_notif)) ?? '' }}
-                                            </h6>
-                                        </div>
-                                        
-                                    </button>
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <i class="far fa-trash ml-2 mr-5 btn-delete-notif"
-                                            onclick="window.location='{{ URL::route('delete_notif', $item->uuid_notif) }}'"
-                                            style="color:#ef9c23"></i>
+                            @if ($data->number_unread_notif == 0)
+                                <a class="dropdown-item d-flex align-items-center">
+                                    <div>
+                                        <h5 style="margin-right: 150px; margin-left:150px;">Tidak Ada Notifikasi</h5>
                                     </div>
-                                </form>
+                                </a>
+                            @else
+                                @foreach ($data->list_notif as $item)
 
-                            @endforeach
+                                    <form action="{{ route('read_notif', $item->uuid_notif) }}" method="POST"
+                                        class="d-flex">
+                                        @csrf
+                                        <input type="hidden" name="id_target" value="{{ $item->uuid_target }}">
+                                        <input type="hidden" name="posisi" value="{{ $item->posisi }}">
+                                        <button type="submit" class="dropdown-item d-flex align-items-center px-0 ml-4">
+
+                                            @if ($item->status == 'unread')
+                                                <div class="mr-3 border-notif">
+
+                                                    <div class="icon-circle">
+                                                        <i class="far fa-bell" style="color:#fff"></i>
+                                                    </div>
+                                                </div>
+
+                                            @else
+                                                <div class="mr-3 non-border-notif">
+
+                                                    {{-- sudahdibaca --}}
+                                                    <div class="icon-read"">
+                                        <i class="    far fa-bell" style="color:#fff"></i>
+                                                    </div>
+                                                </div>
+
+                                            @endif
+
+                                            <div>
+                                                <div class="small text-gray-500 font-weight-bold">{{ $item->judul }}
+                                                </div>
+                                                <h6 class="mb-0">{{ $item->deskripsi }}</h6>
+                                            </div>
+                                            <div>
+                                                <h6 class="p-3 mb-0">
+                                                    {{ date('d m Y - H.i', strtotime($item->tgl_notif)) ?? '' }}
+                                                </h6>
+                                            </div>
+
+                                        </button>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <i class="far fa-trash ml-2 mr-5 btn-delete-notif"
+                                                onclick="window.location='{{ URL::route('delete_notif', $item->uuid_notif) }}'"
+                                                style="color:#ef9c23"></i>
+                                        </div>
+                                    </form>
+
+                                @endforeach
+                            @endif
+
                         </div>
                     </div>
                 </li>
@@ -191,11 +203,17 @@
             <div class="d-flex">
                 <div class="col-4 logo justify-content-center d-flex align-items-center">
                     <div class="row">
-                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i class="icon fab fa-instagram"></i></a> 
-                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i class="icon fab fa-youtube"></i></a> 
-                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i class="icon fas fa-globe-asia"></i></a> 
-                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i class="icon fab fa-tiktok"></i></a> 
-                        <a class="text-dark" href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i class="icon fab fa-whatsapp"></i></a> 
+                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i
+                                class="icon fab fa-instagram"></i></a>
+                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i
+                                class="icon fab fa-youtube"></i></a>
+                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i
+                                class="icon fas fa-globe-asia"></i></a>
+                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i
+                                class="icon fab fa-tiktok"></i></a>
+                        <a class="text-dark"
+                            href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i
+                                class="icon fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-4 justify-content-center d-flex align-items-center">
@@ -207,6 +225,9 @@
             </div>
         </div>
     </footer>
+    <script src="{{ asset('assets/vendor/video.js/dist/video.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/videojs-youtube/dist/Youtube.min.js') }}"></script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

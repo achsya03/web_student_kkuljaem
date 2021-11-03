@@ -57,3 +57,18 @@ Kkuljaem Korea | Login
     </div>
   </div>
 @endsection
+@section('page-js')
+<script type="text/javascript">
+    function change() {
+        var x = document.getElementById('inputSandi').type;
+
+        if (x == 'password') {
+            document.getElementById('inputSandi').type = 'text';
+            document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+            document.getElementById('inputSandi').type = 'password';
+            document.getElementById('mybutton').innerHTML = '<i class="fas fa-eye"></i>';
+        }
+    }
+</script>
+@endsection

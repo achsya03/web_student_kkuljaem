@@ -283,7 +283,7 @@ li.slick-active button:before {
 
 #footer {
     position: relative;
-    background-color: #f3f2f2;
+    background-color: #f8f9fa!important;
     padding-top: 50px;
     padding-bottom: 50px;
     bottom: 0;

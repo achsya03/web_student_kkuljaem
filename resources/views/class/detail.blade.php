@@ -6,15 +6,14 @@
 @section('content')
 
     <!-- hero-dashboard -->
-    <div id="hero-dashboard" class="container">
+    <div id="hero" class="container">
         <div class="mt-4">
-            <img class="gambar-detail-kelas mx-auto" src="{{ $class->url_mobile }}" width="1146px" height="516px" alt=""
-                srcset="">
+            <img class="gambar-detail-kelas" src="{{ $class->url_mobile }}" width="1100px" height="650px">
         </div>
     </div>
     <!-- close-hero-dashboard -->
 
-    <div id="hero-detail" class="container mb-4">
+    <div id="hero-detail" class="container mb-4 mt-2">
         <h1 class="font-weight-bold">{{ $class->class_nama }}</h1>
         <p>{{ $class->class_desc }}</p>
         <div class="profil-mentor">
@@ -27,7 +26,7 @@
                         style="text-decoration: none; color: black">
                         <h5>{{ $class->mentor_nama }} <i class="fas fa-check-circle"></i>
                         </h5>
-                        <h5 class="text-secondary">12 10 2021 - 10.00AM</h5>
+                        <h5 class="text-secondary">12 10 2021 - 10.00 AM</h5>
                     </a>
 
                 </div>

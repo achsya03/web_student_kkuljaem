@@ -52,13 +52,10 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <div  class="plyr__video-embed" id="player">
-                        <iframe src="{{ $data->video[0]->url_video }}" allowfullscreen
-                            allowtransparency
-                            allow="autoplay">
-                        </iframe>
-                    </div>
+                <div class="embed-responsive">
+                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
+                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $data->video[0]->url_video_mobile }}"}]}'>
+                    </video>
 
                     {{-- <iframe src="{{ $data->video[0]->url_video }}" allowfullscreen allowtransparency allow="autoplay">
                         </iframe> --}}
@@ -177,21 +174,29 @@
                 <div class="pilihan-kelas">
                     <div class="card-deck">
                         @foreach ($data->theme as $index => $theme)
-                            @if ($index == 0) <button class="topik-tag" href="#"
-                                    style="background-image: url({{ asset('assets/img/tag-makanan.jpg)') }};">
+                            @if ($index == 0)
+                                <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
+                                    style="background-image: url({{ asset('assets/img/tag-makanan.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
-                                </button>
+                                </a>
                             @elseif ($index == 1)
-                                <button class="topik-tag" href="#"
-                                    style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }};">
+                                <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
+                                    style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
-                                </button>
+                                </a>
                             @elseif ($index == 2)
-                                <button class="topik-tag" href="#"
-                                    style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }};">
+                                <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
+                                    style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
-                                </button>
+                                </a>
+                            @elseif ($index > 2)
+                                <div class="d-flex mt-4">
+                                    <h5 class="text-hastag"><a
+                                            href="{{ route('forum.topik', $theme->topik_uuid) }}">{{ $theme->topik }}</a>
+                                    </h5>
+                                </div>
                             @endif
+
                         @endforeach
                     </div>
                 </div>

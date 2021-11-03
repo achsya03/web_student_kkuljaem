@@ -97,7 +97,7 @@
                     </div>
 
                     <h2 class="px-4">{{ $item->judul_banner }}</h2>
-                    <p class="px-4">{{ $item->url_mobile }}</p>
+                    <p class="px-4">{{ $item->deskripsi }}</p>
                     <button class="btn-gabung" width="300px"
                         onclick="window.location='{{ URL::route('class.index') }}'">
                         Cek Selengkapnya </button>

@@ -185,7 +185,7 @@ h2.text-title {
 /* Footer */
 
 #footer {
-    background-color: #f3f2f2;
+    background-color: #f8f9fa!important;
     padding-top: 50px;
     padding-bottom: 50px;
     width: 100%;

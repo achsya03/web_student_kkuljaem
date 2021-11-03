@@ -39,7 +39,7 @@
                     <div id="hero-promo">
                         <div class="row">
                             <div class="col-lg-12 mx-auto">
-                                <img src="Assets/img/Bannerpromo.png" height="200px" width="100%" alt="" srcset="">
+                                <img src="{{asset('Assets/img/Bannerpromo.png') }}" height="200px" width="100%" alt="" srcset="">
                             </div>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
                                                     <div class="d-flex justify-content-between mb-1 ">
                                                         <!-- profile -->
                                                         <div class="profile-qna">
-                                                            <img src="../Assets/img/avatar.png " alt="Avatar "
+                                                            <img src="{{ asset('assets/img/avatar.png') }} " alt="Avatar "
                                                                 class="float-left mr-3 ">
                                                             <div class="d-flex flex-column mt-2 ">
                                                                 <h6> {{ $item->nama_pengirim }} <img
-                                                                        src="../Assets/img/crown.png " alt="crown "></h6>
+                                                                        src="{{ asset('assets/img/crown.png') }} " alt="crown "></h6>
                                                                 <p>{{ $item->tgl_post }}</p>
                                                             </div>
                                                         </div>
@@ -211,7 +211,7 @@
                             @empty
                                 <div id="hero-comment" class="container mt-3">
                                     <div class="pict-kosong">
-                                        <center><img src="Assets/img/NoItem.png" align=" " alt="" srcset="">
+                                        <center><img src="{{ asset('assets/img/NoItem.png') }}" align=" " alt="" srcset="">
                                         </center>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@
                 <div id="hero-promo" class="container">
                     <div class="row">
                         <div class="col-lg-12 mx-auto banner">
-                            <img src="Assets/img/Bannerpromo.png" height="200px" alt="" srcset="">
+                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" height="200px" alt="" srcset="">
                         </div>
                     </div>
                 </div>

@@ -543,7 +543,7 @@ li.slick-active button:before {
 }
 
 #footer {
-    background-color: #f3f2f2;
+    background-color: #f8f9fa!important;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
@@ -563,5 +563,13 @@ li.slick-active button:before {
     font-weight: bold;
     color: #c4c4c4;
 }
-
+.text-hastag a {
+    font-size: 21px;
+    padding: 7px;
+    background: #ef9c23;
+    border-radius: 5px;
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+}
 
