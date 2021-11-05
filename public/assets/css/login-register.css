@@ -304,3 +304,8 @@ li.slick-active button:before {
     font-weight: bold;
     color: #c4c4c4;
 }
+.text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
+}

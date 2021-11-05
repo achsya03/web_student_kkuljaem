@@ -1,6 +1,4 @@
-.qna-video .dropdown-menu .dropdown-menu-right {
 
-}
 
 .left .embed-responsive {
     height: 425px;
@@ -282,4 +280,9 @@ textarea {
 
 .list-video p.info-jumlah {
     font-size: 13px;
+}
+.text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
 }

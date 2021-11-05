@@ -181,7 +181,7 @@
                         <div class="list-group font-weight-bold align-items-center" href="#">
                             <form action="{{ route('dashboard.noauth') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="mx-auto my-auto text-center"> Keluar </button>
+                                <button type="submit" class="mx-auto my-auto text-center text-keluar"> Keluar </button>
                             </form>
 
 

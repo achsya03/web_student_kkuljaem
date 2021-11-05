@@ -573,3 +573,8 @@ li.slick-active button:before {
     text-decoration: none;
 }
 
+.text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
+}

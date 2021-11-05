@@ -213,3 +213,8 @@ h2.text-title {
 
 
 /* End Footer */
+.text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
+}

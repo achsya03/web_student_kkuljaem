@@ -345,3 +345,8 @@ background-color: #ffc670;
 .fa-search {
     color: gray;
 }
+.text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
+}

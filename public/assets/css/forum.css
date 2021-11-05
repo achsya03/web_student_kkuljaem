@@ -345,3 +345,8 @@ img.banner-promo {
           transform: rotate(360deg);
       }
   }
+  .text-keluar{
+    border: none;
+    background : none;
+    color: #c4c4c4;
+}
