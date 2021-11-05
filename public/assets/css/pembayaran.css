@@ -206,3 +206,12 @@
 .keluar-hover:hover{
     background-color : #c4c4c4;
 }
+.border-notif {
+    border-left: 5px solid #ef9c23;
+    padding-left: 15px;
+}
+
+.non-border-notif {
+    border-left: 5px solid transparent;
+    padding-left: 15px;
+}
