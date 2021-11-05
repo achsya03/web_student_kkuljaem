@@ -578,3 +578,9 @@ li.slick-active button:before {
     background : none;
     color: #c4c4c4;
 }
+.text-keluar:hover{
+    color: #ef9c23;
+}
+.keluar-hover:hover{
+    background-color : #c4c4c4;
+}

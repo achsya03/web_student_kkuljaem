@@ -178,7 +178,7 @@
                         <a class="dropdown-item d-flex text-center" href="{{ route('profil.index') }}">
                             <h6 class="mx-auto my-auto">Pengaturan</h6>
                         </a>
-                        <div class="list-group font-weight-bold align-items-center" href="#">
+                        <div class="list-group font-weight-bold align-items-center keluar-hover" href="#">
                             <form action="{{ route('dashboard.noauth') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="mx-auto my-auto text-center text-keluar"> Keluar </button>
