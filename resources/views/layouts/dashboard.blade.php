@@ -72,29 +72,33 @@
                         href="{{ route('qna.index') }}">QnA</a>
                 </li>
                 <li class="nav-item dropdown no-arrow my-1 mx-2">
+                    @php
+                        
+                    $response = new \GuzzleHttp\Client();
+                    $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
+                        'headers' => [
+                            'Accept' => 'application/json',
+                            'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
+                            'authorization' => 'Bearer ' . session()->get('bearer_token'),
+                        ],
+                    ]);
+                    $responseApi = json_decode($a->getBody()->getContents());
+                    $data = $responseApi->data;
+                    
+                     @endphp
+
                     <a class="nav-link" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-bell" style="color:#ef9c23"></i>
                         <!-- Counter - Alerts -->
+                        @if ($data->number_unread_notif == 0)
+                        @else
                         <span class="badge badge-counter "><i class="fas fa-circle"
-                                style="color:#ef9c23"></i></i></span>
+                            style="color:#ef9c23"></i></i></span>
+                        @endif
                     </a>
                     <!-- Dropdown - Alerts -->
-                    @php
-                        
-                        $response = new \GuzzleHttp\Client();
-                        $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
-                            'headers' => [
-                                'Accept' => 'application/json',
-                                'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
-                                'authorization' => 'Bearer ' . session()->get('bearer_token'),
-                            ],
-                        ]);
-                        $responseApi = json_decode($a->getBody()->getContents());
-                        $data = $responseApi->data;
-                        
-                    @endphp
-
+                   
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
                         <div class="row">
@@ -108,7 +112,7 @@
                             </div>
                         </div>
                         <div class="notif-scroll">
-                            @if ($data->number_unread_notif == 0)
+                            @if ($data->list_notif == null)
                                 <a class="dropdown-item d-flex align-items-center">
                                     <div>
                                         <h5 style="margin-right: 150px; margin-left:150px;">Tidak Ada Notifikasi</h5>
@@ -123,26 +127,21 @@
                                         <input type="hidden" name="id_target" value="{{ $item->uuid_target }}">
                                         <input type="hidden" name="posisi" value="{{ $item->posisi }}">
                                         <button type="submit" class="dropdown-item d-flex align-items-center px-0 ml-4">
-
                                             @if ($item->status == 'unread')
-                                                <div class="mr-3 border-notif">
-
+                                                <div class="px-3 border-notif">
                                                     <div class="icon-circle">
                                                         <i class="far fa-bell" style="color:#fff"></i>
                                                     </div>
                                                 </div>
-
                                             @else
-                                                <div class="mr-3 non-border-notif">
+                                                <div class="px-3 non-border-notif">
 
                                                     {{-- sudahdibaca --}}
-                                                    <div class="icon-read"">
-                                        <i class="    far fa-bell" style="color:#fff"></i>
+                                                    <div class="icon-circle"">
+                                        <i class="far fa-bell" style="color:#fff"></i>
                                                     </div>
                                                 </div>
-
                                             @endif
-
                                             <div>
                                                 <div class="small text-gray-500 font-weight-bold">{{ $item->judul }}
                                                 </div>

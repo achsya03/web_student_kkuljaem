@@ -127,14 +127,14 @@
 
     <div id="hero-kelas" class="container mt-3">
         <div class="tittle-kelas">
-            <h3 class="font-weight-bold"><a href="#"> Kelas Pilihan </a></h3>
+            <h3 class="font-weight-bold"><a href="{{ route('class.index') }}"> Kelas Pilihan </a></h3>
             <p>Kelas terbaik yang direkomendasikan</p>
         </div>
         <div class="kelas-utama">
             <div class="pilihan-kelas">
                 <div class="card-deck">
                     @foreach ($data->class as $item)
-                        <button class="kelas">
+                        <button class="kelas"  onclick="window.location='{{ URL::route('class.detail', $item->kelas_uuid) }}'">
                             <div class="row">
                                 <div class="col-lg-4 ">
                                     <img class="gambar-kelas mx-auto" src="{{ $item->url_web }}" width="160px"
