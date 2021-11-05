@@ -49,6 +49,7 @@ class ProfilController extends Controller
                 $profil = $responseApi->getData()->user;
                 $account = $responseApi->getAccount();                
                 $histori = $responseApiHistori->getData();
+                dd($histori);
                 $policy=$policyApi->getData();
                 $about=$aboutApi->getData();
                 $version=$versionApi->getData();
