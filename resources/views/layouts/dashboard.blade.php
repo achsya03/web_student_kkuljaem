@@ -41,11 +41,11 @@
                 <a href="/">
                     <img src="{{ asset('assets/img/Logo.png') }}" alt="" srcset="" /></a>
             </h1>
-            <form action="{{ route('dashboard.search') }}" method="POST" style="width: 500px;">
+            <form action="{{ route('dashboard.search') }}" method="POST" style="width: 450px;">
                 <div class="input-group border rounded-pill my-1 mr-4 bg-white py-1">
 
                     @csrf
-                    <input type="text" name="keyword" placeholder="Search..." aria-describedby="button-addon3"
+                    <input type="text" name="keyword" placeholder="Pencarian..." aria-describedby="button-addon3"
                         class="form-control ml-3 bg-none border-0">
                     <div class="input-group-append border-0">
                         <button id="button-addon3" type="submit" class="btn btn-link text-success"><i
@@ -57,11 +57,11 @@
             <ul class="nav justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link my-1 mx-2 {{ Request::routeIs('') ? 'active' : '' }}"
-                        href="{{ route('dashboard.index') }}">Home</a>
+                        href="{{ route('dashboard.index') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link my-1 mx-2 {{ Request::routeIs('class') ? 'active' : '' }}"
-                        href="{{ route('class.index') }}">Class</a>
+                        href="{{ route('class.index') }}">Kelas</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link my-1 mx-2 {{ Request::routeIs('forum') ? 'active' : '' }}"
@@ -178,7 +178,7 @@
                         <a class="dropdown-item d-flex text-center" href="{{ route('profil.index') }}">
                             <h6 class="mx-auto my-auto">Pengaturan</h6>
                         </a>
-                        <div class="list-group font-weight-bold" href="#">
+                        <div class="list-group font-weight-bold align-items-center" href="#">
                             <form action="{{ route('dashboard.noauth') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="mx-auto my-auto text-center"> Keluar </button>

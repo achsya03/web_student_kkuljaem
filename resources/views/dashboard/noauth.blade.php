@@ -28,7 +28,7 @@
     <link href="{{ asset('assets/vendor/fontawesome/css/light.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
-    <title>Kkuljaem Korea</title>
+    <title>Kkuljaem Korean</title>
 </head>
 
 <body>
