@@ -87,6 +87,14 @@ class PembayaranController extends Controller
             return redirect()->back()->withErrors($th->getMessage());
         }
     }
+    public function notification($status, $order_id)
+    {
+        if ($status == 'completed' || $status == 'failed') {
+            return view('pembayaran.notification', compact('status','order_id'));
+        } else {
+            return abort(404);
+        }
+    }
 
    
 }
