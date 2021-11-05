@@ -37,15 +37,18 @@
                     <!-- Profile and name -->
                     <div class="profile-akun d-flex justify-content-between align-items-center">
                         <div class="avatar-name">
-                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar " class="float-left mr-3 avatar">
+                            <img src="{{ asset('assets/img/avatar.png') }}" alt="Avatar "
+                                class="float-left mr-3 avatar rounded-circle">
                             <div class="d-flex flex-column mt-4 ">
                                 <h5 class="font-weight-bold">{{ $profil->nama }}</h5>
                                 <p>{{ $profil->email }}</p>
                             </div>
                         </div>
-                        <div class="marker">
-                            <h5 class="font-weight-bold">Akun Premium</h5>
-                        </div>
+                    @if ($account->status_member == 'Non-Member') @else
+                            <div class="marker">
+                                <h5 class="font-weight-bold">Akun Premium</h5>
+                            </div>
+                        @endif
                     </div>
 
                     <!-- Profile and name -->
@@ -89,28 +92,31 @@
                                     <a class=" list-group-item-action" id="list-profile-list" data-toggle="list"
                                         href="#list-ubah-sandi" role="tab" aria-controls="profile"><i
                                             class="fal fa-key mr-3"></i>Ubah Kata Sandi</a>
-                                    <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
-                                        href="#list-langganan" role="tab" aria-controls="messages"><i
-                                            class="fal fa-wallet mr-3"></i>Langganan</a>
-                                    <a class=" list-group-item-action" href="{{ route('pembayaran.index') }}"><i
-                                            class="fal fa-wallet mr-3"></i>Pembayaran</a>
+                                    @if ($account->status_member == 'Non-Member')
+                                        <a class=" list-group-item-action" href="{{ route('pembayaran.index') }}"><i
+                                                class="fal fa-wallet mr-3"></i>Langganan</a>
+                                    @else
+                                        <a class=" list-group-item-action" id="list-messages-list" data-toggle="list"
+                                            href="#list-langganan" role="tab" aria-controls="messages"><i
+                                                class="fal fa-wallet mr-3"></i>Pembayaran</a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-8 right">
                                 <div class="tab-content" id="nav-tabContent">
                                     <!-- List Profile Saya -->
                                     <!-- Banner Promo -->
-                                    {{-- @if ($account->status_member == 'Non-Member') --}}
-                                    <div class="banner">
-                                        <a href="">
-                                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" alt="Banner Promo"
-                                                class="banner-promo mb-3">
-                                        </a>
-                                    </div>
+                                    @if ($account->status_member == 'Non-Member')
+                                        <div class="banner">
+                                            <a href="">
+                                                <img src="{{ asset('assets/img/Bannerpromo.png') }}" alt="Banner Promo"
+                                                    class="banner-promo mb-3">
+                                            </a>
+                                        </div>
 
-                                    {{-- @else
+                                    @else
 
-                                    @endif --}}
+                                    @endif
                                     <!-- End Banner Promo -->
 
                                     <div class="tab-pane fade show active" id="list-profile-saya" role="tabpanel"
@@ -135,8 +141,9 @@
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="tempat-lahir">Tempat Lahir</label>
-                                                <input type="text" name="tempat_lahir" value="{{ $profil->tempat_lahir }}"
-                                                    class="form-control" id="tempat-lahir" placeholder="Your Text">
+                                                <input type="text" name="tempat_lahir"
+                                                    value="{{ $profil->tempat_lahir }}" class="form-control"
+                                                    id="tempat-lahir" placeholder="Your Text">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="tanggal-lahir">Tanggal Lahir</label>
@@ -163,9 +170,9 @@
                                             @csrf
 
                                             <div class="form-group font-weight-bold">
-                                                <label for="sandi-baru">Kata Sandi Lama</label>
+                                                <label for="sandi-lama">Kata Sandi Lama</label>
                                                 <input type="password" name="password_old" class="form-control"
-                                                    id="sandi-baru" placeholder="Masukkan kata sandi Lama Anda">
+                                                    id="sandi-lama" placeholder="Masukkan kata sandi Lama Anda">
                                             </div>
                                             <div class="form-group font-weight-bold">
                                                 <label for="sandi-baru">Kata Sandi Baru</label>
@@ -186,7 +193,7 @@
                                     <!-- Langganan -->
                                     <div class="tab-pane fade show" id="list-langganan" role="tabpanel"
                                         aria-labelledby="list-messages-list">
-                                        <h6 class="font-weight-bold my-4 title"> Langganan</h6>
+                                        <h6 class="font-weight-bold my-4 title"> Riwayat Pembayaran </h6>
                                         <div class="accordion" id="accordionHistory">
                                             @if ($histori == null)
 
@@ -275,7 +282,9 @@
 
             <!-- content lain-lain -->
             <div class="tab-pane fade show" id="lain-lain" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <img src="../Assets/img/banner-promo.png" alt="" class="banner-promo">
+            @if ($account->status_member == 'Member') @else
+                    <img src="{{ asset('assets/img/Bannerpromo.png') }}" alt="" class="banner-promo">
+                @endif
                 <div class="container">
                     <!-- Pengaturan Lain-lain -->
 
@@ -430,17 +439,17 @@
                                     <!-- List About -->
                                     <div class="tab-pane fade show" id="list-about" role="tabpanel"
                                         aria-labelledby="list-messages-list">
-                                        {!!$about->value!!}                                        
+                                        {!! $about->value !!}
                                         <div class="paragraph my-4">
                                             <h6 class="font-weight-bold title-2">Tentang Kami</h6>
                                             @foreach ($testimoni as $testi)
-                                            <div class="testimoni mb-3">
-                                                <p class="p-testimoni">"{{$testi->testimoni}}"
-                                                </p>
-                                                <hr class="line-testimoni">
-                                                <h6 class="text-uppercase">{{$testi->nama}}</h6>
-                                                <p class="detail-user pl-1"> {{$testi->identitas}}</p>
-                                            </div>
+                                                <div class="testimoni mb-3">
+                                                    <p class="p-testimoni">"{{ $testi->testimoni }}"
+                                                    </p>
+                                                    <hr class="line-testimoni">
+                                                    <h6 class="text-uppercase">{{ $testi->nama }}</h6>
+                                                    <p class="detail-user pl-1"> {{ $testi->identitas }}</p>
+                                                </div>
                                             @endforeach
 
                                         </div>
@@ -449,15 +458,15 @@
                                     <!-- List Term & Condition -->
                                     <div class="tab-pane fade show " id="list-term-condition" role="tabpanel"
                                         aria-labelledby="list-messages-list">
-                                        <h6 class="font-weight-bold my-4 title-main">Syarat & Ketentuan</h6>                                       
-                                        {!!$tnc->value!!}                                        
+                                        <h6 class="font-weight-bold my-4 title-main">Syarat & Ketentuan</h6>
+                                        {!! $tnc->value !!}
                                     </div>
                                     <!-- End List Term & Condition -->
                                     <!-- List Privacy & Policy -->
                                     <div class="tab-pane fade show" id="list-privacy-policy" role="tabpanel"
                                         aria-labelledby="list-messages-list">
                                         <h6 class="font-weight-bold my-4 title-main">Ketentuan Privasi</h6>
-                                        {!!$policy->value!!}                                        
+                                        {!! $policy->value !!}
                                     </div>
                                     <!-- End List Privacy & Policy -->
                                 </div>
@@ -469,7 +478,8 @@
                                     <div class="list-group font-weight-bold" id="list-tab" role="tablist">
                                         <form action="{{ route('dashboard.noauth') }}" method="POST">
                                             @csrf
-                                            <button  type="submit" class=" list-group-item-action"> <i class="far fa-file-alt mr-3"></i>Keluar</a> </button>
+                                            <button type="submit" class=" list-group-item-action"> <i
+                                                    class="far fa-file-alt mr-3"></i>Keluar</a> </button>
                                         </form>
                                     </div>
                                 </div>

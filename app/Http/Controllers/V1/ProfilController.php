@@ -46,7 +46,8 @@ class ProfilController extends Controller
             if ($responseApi->message == StatusApiConstant::$failed) {
                 return redirect()->back()->withErrors($responseApi->getInfo());
             } elseif ($responseApi->message == StatusApiConstant::$success) {
-                $profil = $responseApi->getData()->user;                
+                $profil = $responseApi->getData()->user;
+                $account = $responseApi->getAccount();                
                 $histori = $responseApiHistori->getData();
                 $policy=$policyApi->getData();
                 $about=$aboutApi->getData();
@@ -54,7 +55,7 @@ class ProfilController extends Controller
                 $tnc=$tncApi->getData();
                 $testimoni=$testimoniApi->getData();
                
-                return view('profil.index', compact('profil','histori','policy','about','version','tnc','testimoni'));
+                return view('profil.index', compact('account','profil','histori','policy','about','version','tnc','testimoni'));
             }
         // } catch (\Exception $th) {
         //     return redirect()->back()->withErrors($th->getMessage());

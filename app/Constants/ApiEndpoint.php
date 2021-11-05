@@ -73,6 +73,5 @@ class ApiEndpoint
 
     //pembayaran
     public static $packet                       = '/api/user/packet';
-    public static $subs                         = '/api/user/subs';
     public static $subsdetail                   = '/api/user/subs/detail';
 }

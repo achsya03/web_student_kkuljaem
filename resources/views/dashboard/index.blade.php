@@ -116,9 +116,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h5 class="pl-4">Penjelasan</h5>
-                        <p class="p-4">{{ $item->penjelasan }}
-                        </p>
+                        <h5 class="mb-3">Penjelasan</h5>
+                        {!! $item->penjelasan !!}
+                        
                     </div>
                 </div>
             </div>

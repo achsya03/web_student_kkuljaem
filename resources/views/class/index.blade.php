@@ -96,8 +96,8 @@
                                         </button>
                                             @else
                                             <button
-                                            class="kelas">
-                                            <div class="row py-4">
+                                            class="kelas" onclick="window.location='{{ URL::route('class.detail', $children->class_uuid) }}'">
+                                            <div class="row py-4" >
                                                 <div class="col-lg-4">
                                                     <img class="gambar-kelas" src="{{ $children->url_web }}"
                                                         width="160px" height="160px" srcset="">
@@ -151,14 +151,14 @@
 
             <div id="hero-kelas" class="container">
                 <div class="tittle-kelas">
-                    <h3><a href="#">Terakhir Belajar</a></h3>
+                    <h3><a>Terakhir Belajar</a></h3>
                     <p>Lanjutkan belajarmu</p>
                 </div>
                 <div class="kelas-utama mb-3">
                     <div class="pilihan-kelas">
                         <div class="card-deck">
                             @foreach ($history->class_terdaftar as $item)
-                                <button class="kelas">
+                                <button class="kelas" onclick="window.location='{{ URL::route('class.detail', $item->class_uuid) }}'" >
                                     <div class="row py-4">
                                         <div class="col-lg-4">
                                             <img class="gambar-kelas" src="{{ $item->class_url_web }}" width="160px"
@@ -166,7 +166,7 @@
                                         </div>
                                         <div class="col-lg-6 py-6 text-left deskripsi">
                                             <div class="nama-kelas">
-                                                <a href="{{ route('class.detail', $children->class_uuid) }}"
+                                                <a href="{{ route('class.detail', $item->class_uuid) }}"
                                                     style="text-decoration: none; color: black">
                                                     <h5 class="font-weight-bold">{{ $item->class_nama }}</h5>
                                                 </a>
@@ -191,22 +191,22 @@
             </div>
             <div id="hero-kelas" class="container ">
                 <div class="tittle-kelas my-4">
-                    <h3><a href="#"> Kelas Lainnya </a></h3>
+                    <h3><a> Kelas Lainnya </a></h3>
                     <p>Puluhan kelas yang bisa kamu ambil</p>
                 </div>
                 <div class="kelas-utama mb-3">
                     <div class="pilihan-kelas">
                         <div class="card-deck">
                             @foreach ($history->class_tidak_terdaftar as $index => $item)
-                                @if ($index < 6) <button class="kelas">
+                                @if ($index < 6) <button class="kelas" onclick="window.location='{{ URL::route('class.detail', $item->class_uuid) }}'">
                                         <div class="row py-4">
                                             <div class="col-lg-4">
                                                 <img class="gambar-kelas" src="{{ $item->class_url_web }}"
                                                     width="160px" height="160px" srcset="">
                                             </div>
-                                            <div class="col-lg-6 py-6 text-left">
+                                            <div class="col-lg-6 py-6 text-left deskripsi">
                                                 <div class="nama-kelas">
-                                                    <a href="{{ route('class.detail', $children->class_uuid) }}"
+                                                    <a href="{{ route('class.detail', $item->class_uuid) }}"
                                                         style="text-decoration: none; color: black">
                                                         <h5 class="font-weight-bold">{{ $item->class_nama }}</h5>
                                                     </a>

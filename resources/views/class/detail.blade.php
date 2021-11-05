@@ -13,11 +13,11 @@
     </div>
     <!-- close-hero-dashboard -->
 
-    <div id="hero-detail" class="container mb-4 mt-2">
+    <div id="hero-detail" class="container mb-4 mt-4">
         <h1 class="font-weight-bold">{{ $class->class_nama }}</h1>
         <p>{{ $class->class_desc }}</p>
-        <div class="profil-mentor">
-            <div class="row">
+        <div class="profil-mentor mt-4">
+            <div class="row ">
                 <div class="col-lg-1">
                     <img src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
                 </div>
@@ -26,7 +26,7 @@
                         style="text-decoration: none; color: black">
                         <h5>{{ $class->mentor_nama }} <i class="fas fa-check-circle"></i>
                         </h5>
-                        <h5 class="text-secondary">12 10 2021 - 10.00 AM</h5>
+                        <h5 class="text-secondary">Mentor</h5>
                     </a>
 
                 </div>
@@ -199,37 +199,40 @@
     </div>
     <div id="hero-kelas" class="container ">
         <div class="tittle-kelas">
-            <h3><a href="#"> Kelas Lainnya </a></h3>
+            <h3><a href="{{ route('class.index') }}"> Kelas Lainnya </a></h3>
             <p>Lihat kelas lainnya yuk yang tidak kalah menarik!</p>
         </div>
         <div class="kelas-utama">
             <div class="pilihan-kelas">
                 <div class="card-deck">
-                    @foreach ($lain->class_list as $item => $no)
-                        @foreach ($no->classroom as $children => $child)
-                            <button class="kelas">
-                                <div class="row py-4">
-                                    <div class="col-lg-4">
-                                        <img class="gambar-kelas mt-1" src="{{ $child->url_web }}" width="160px"
-                                            height="160px" srcset="">
-                                    </div>
-                                    <div class="col-lg-5 ml-2 text-left deskripsi">
-                                        <div class="nama-kelas">
-                                            <a href="{{ route('class.detail', $child->class_uuid) }}"
-                                                style="text-decoration: none; color: black">
-                                                <h5 class="font-weight-bold">{{ $child->class_nama }}</h5>
-                                            </a>
+                    @foreach ($lain->class_tidak_terdaftar as $index => $item)
+                                @if ($index < 2) <button class="kelas" onclick="window.location='{{ URL::route('class.detail', $item->class_uuid) }}'">
+                                        <div class="row py-4">
+                                            <div class="col-lg-4">
+                                                <img class="gambar-kelas" src="{{ $item->class_url_web }}"
+                                                    width="160px" height="160px" srcset="">
+                                            </div>
+                                            <div class="col-lg-6 py-6 text-left deskripsi">
+                                                <div class="nama-kelas">
+                                                    <a href="{{ route('class.detail', $item->class_uuid) }}"
+                                                        style="text-decoration: none; color: black">
+                                                        <h5 class="font-weight-bold">{{ $item->class_nama }}</h5>
+                                                    </a>
+                                                </div>
+                                                <div class="nama-guru">
+                                                    <h5> {{ $item->mentor_nama }} <i class="fas fa-check-circle"></i>
+                                                    </h5>
+
+                                                </div>
+                                                
+                                                <div class="jumlah-materi">
+                                                    <h5>{{ $item->class_jml_materi }} Materi</h5>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="nama-guru">
-                                            <h5>{{ $child->mentor_nama ?? '-' }} <i class="fas fa-check-circle"></i>
-                                            </h5>
-                                        </div>
-                                        <div class="jumlah-materi">
-                                            <h5>{{ $child->jml_materi }} Materi</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </button> @if ($children == 1) @break @endif @endforeach @if ($item == 0) @break @endif @endforeach
+                                    </button>
+                                @else @endif
+                            @endforeach
                 </div>
             </div>
         </div>
@@ -237,3 +240,4 @@
 
     </div>
 @endsection
+

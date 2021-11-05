@@ -75,7 +75,7 @@ class ClassController extends Controller
             $response = $this->client->getWithAuth($this->apiEndpoint::$classDetail.'?token='.$id);
             $responseApi = new ResponseApi($response);
 
-            $responselainnya = $this->client->getWithAuth($this->apiEndpoint::$class);
+            $responselainnya = $this->client->getWithAuth($this->apiEndpoint::$classHistory);
             $responseApilainnya = new ResponseApi($responselainnya);
             
             if ($responseApi->message == StatusApiConstant::$failed) {
