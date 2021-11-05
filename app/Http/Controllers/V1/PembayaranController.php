@@ -93,10 +93,12 @@ class PembayaranController extends Controller
         }
     }
 
-    public function notification($status, $order_id)
+    public function notification(Request $request)
     {
-        if ($status == 'completed' || $status == 'failed') {
-            return view('pembayaran.notification', compact('status','order_id'));
+        if ($request->status == 'success' || $request->status == 'error' || $request->status == 'pending') {
+            $status = $request->status;
+            $orderId = $request->order_id;
+            return view('pembayaran.notification', compact('status','orderId'));
         } else {
             return abort(404);
         }

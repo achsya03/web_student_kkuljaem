@@ -36,7 +36,7 @@
         </div>
         <div class="col-6 mb-4 ">
             <div id=" pilih-paket" class="ml-auto">
-                <form target="_blank" class="form theme-form pb-5 f1" action="{{ route('pembayaran.langganan') }}" method="post">
+                <form target="_blank" class="form theme-form pb-5 f1" action="{{ route('pembayaran.langganan') }}" method="get">
                     @csrf
 
                     <h3 class="mb-4">Pilihan Paket</h3>

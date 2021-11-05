@@ -122,10 +122,10 @@ Route::group(['prefix' => 'forum'], function () {
     });
     Route::group(['prefix' => 'pembayaran'], function () {
         Route::get('/', [PembayaranController::class, 'index'])->name('pembayaran.index');
-        Route::post('/langganan', [PembayaranController::class, 'langganan'])->name('pembayaran.langganan');
+        Route::get('/langganan', [PembayaranController::class, 'langganan'])->name('pembayaran.langganan');
         Route::post('/pesan-packet', [PembayaranController::class, 'pesan_packet'])->name('pembayaran.pesan-packet');
         Route::get('/sukses', [PembayaranController::class, 'sukses'])->name('pembayaran.sukses');
-        Route::get('/notification/{status}/{order_id}', [PembayaranController::class, 'notification'])->name('pembayaran.notification');
+        Route::get('/notification', [PembayaranController::class, 'notification'])->name('pembayaran.notification');
     });
 
     Route::get('/delete_notif/{id}', [DashboardController::class, 'delete_notif'])->name('delete_notif');

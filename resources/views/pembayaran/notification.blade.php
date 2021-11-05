@@ -19,7 +19,7 @@
             <div class="vertical-alignment-helper">
                 <div class="modal-dialog vertical-align-center" role="document">
                     <div class="modal-content" id="detail-pesanan">
-                        @if ($status == 'completed')
+                        @if ($status == 'success')
                         <div class="text-center">
                             <i class="far fa-check-circle fa-5x" style="color: green;"></i>
                         </div>
@@ -29,7 +29,7 @@
                             </h2>
                         </div>
                         @endif
-                        @if ($status == 'failed')
+                        @if ($status == 'error')
                         <div class="text-center">
                             <i class="fas fa-times-circle fa-5x" style="color: red;"></i>
                         </div>
@@ -39,7 +39,18 @@
                             </h3>
                         </div>
                         @endif
-                        <a class="text-center" href="{{route('dashboard.index')}}"><button class="btn btn-pesan mt-4">Kembali ke Halaman Utama</button></a>
+                        @if ($status == 'pending')
+                        <div class="text-center">
+                            <i class="fas fa-exclamation-circle fa-5x" style="color: orange;"></i>
+                        </div>
+                        <div class="text-center mt-3">
+                            <h3>
+                                Segera lakukan pembayaran
+                            </h3>
+                        </div>
+                        @endif
+                        <a class="text-center" href="{{route('dashboard.index')}}"><button
+                                class="btn btn-pesan mt-4">Kembali ke Halaman Utama</button></a>
                     </div>
                 </div>
             </div>
