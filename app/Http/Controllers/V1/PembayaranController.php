@@ -38,28 +38,33 @@ class PembayaranController extends Controller
 
     public function langganan(Request $request)
     {
-        //   dd($request->all());
-        
         try {
             $clientService = new Client;
-            $url = $this->apiEndpoint::$subsdetail.'?token='.$request->token;
-            // dd(json_encode($request->all()));
+            $url = $this->apiEndpoint::$subs.'?token='.$request->token;
+            if (!$request->referal) {
+                $dataReferal = array('referal' => "-");
+            } else {
+                $dataReferal = $request->referal;
+            }
            
-            $response = $clientService->getWithAuth($url);
+            // $response = $clientService->getWithAuth($url);
+            $response = $clientService->post($url,$dataReferal);
             $responseApi = new ResponseApi($response);
-            //  dd($response);
+            // dd($response);
             if ($response->message == StatusApiConstant::$failed) {
-                return redirect()->route('pembayaran.index')->with('failed', $response->error);
+                // dd($response);
+                // return redirect()->route('pembayaran.index')->with('failed', $response->error);
+                return redirect()->route('pembayaran.index')->withErrors(['msg' => $response->error]);
             } elseif ($response->message == StatusApiConstant::$success) { 
                 $packets = $responseApi->getData();  
                 $token=    $request->token;        
-                $referal=    $request->referal;        
-                return view('pembayaran.pesan', compact('packets','token','referal'));
+                return view('pembayaran.pesan', compact('packets','token','dataReferal'));
             }
         } catch (\Exception $th) {
             return redirect()->back()->withErrors($th->getMessage());
         }
     }
+
     public function pesan_packet(Request $request)
     {
         //   dd($request->all());
@@ -87,6 +92,7 @@ class PembayaranController extends Controller
             return redirect()->back()->withErrors($th->getMessage());
         }
     }
+
     public function notification($status, $order_id)
     {
         if ($status == 'completed' || $status == 'failed') {
