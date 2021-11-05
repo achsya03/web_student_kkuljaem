@@ -48,8 +48,8 @@ class ProfilController extends Controller
             } elseif ($responseApi->message == StatusApiConstant::$success) {
                 $profil = $responseApi->getData()->user;
                 $account = $responseApi->getAccount();                
-                $histori = $responseApiHistori->getData();
-                dd($histori);
+                $histori = $responseApiHistori->getDataWeb();
+                // dd($histori);
                 $policy=$policyApi->getData();
                 $about=$aboutApi->getData();
                 $version=$versionApi->getData();

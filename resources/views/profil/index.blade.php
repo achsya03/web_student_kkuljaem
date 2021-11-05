@@ -198,7 +198,7 @@
                                             @if ($histori == null)
 
                                             @else
-                                                @foreach ($histori as $history)
+                                                @foreach ($histori->detail as $history)
                                                     <div class="card mb-3">
                                                         <div class="card-header" id="headingOne">
                                                             <h2 class="mb-0">

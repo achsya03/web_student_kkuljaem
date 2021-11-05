@@ -1,4 +1,4 @@
-@extends('layouts.dashboard') 
+@extends('layouts.dashboard')
 @section('css')
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
 @endsection
@@ -118,7 +118,7 @@
                     <div class="modal-body">
                         <h5 class="mb-3">Penjelasan</h5>
                         {!! $item->penjelasan !!}
-                        
+
                     </div>
                 </div>
             </div>
@@ -134,7 +134,8 @@
             <div class="pilihan-kelas">
                 <div class="card-deck">
                     @foreach ($data->class as $item)
-                        <button class="kelas"  onclick="window.location='{{ URL::route('class.detail', $item->kelas_uuid) }}'">
+                        <button class="kelas"
+                            onclick="window.location='{{ URL::route('class.detail', $item->kelas_uuid) }}'">
                             <div class="row">
                                 <div class="col-lg-4 ">
                                     <img class="gambar-kelas mx-auto" src="{{ $item->url_web }}" width="160px"
@@ -211,19 +212,45 @@
                 <div class="profil-comentar">
                     <div class="row">
                         <div class="col-lg-1">
-                            <img class="rounded-circle" src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
+                            @if (@!isset($item->foto_pengirim))
+                                <img class="rounded-circle" src="{{ asset('assets/img/profile-1.png') }}" alt="Profile">
+                            @else
+                                @if ($item->stat_pengirim == 'data complete' && $item->jenis_kelamin == 'L')
+                                    <img class="rounded-circle" src="{{ asset('assets/img/non_member_l.png') }}"
+                                        width="70px" height="70px" alt="Profile">
+                                @elseif ($item->stat_pengirim == 'data complete' && $item->jenis_kelamin == 'P')
+                                    <img class="rounded-circle" src="{{ asset('assets/img/non_member_p.png') }}"
+                                        width="70px" height="70px" alt="Profile">
+                                @elseif ($item->stat_pengirim == 'member data complete' && $item->jenis_kelamin == 'P')
+                                    <img class="rounded-circle" src="{{ asset('assets/img/member_p.png') }}" width="70px"
+                                        height="70px" alt="Profile">
+                                @elseif ($item->stat_pengirim == 'member data complete' && $item->jenis_kelamin == 'L')
+                                    <img class="rounded-circle" src="{{ asset('assets/img/member_l.png') }}" width="70px"
+                                        height="70px" alt="Profile">
+                                @elseif ($item->stat_pengirim == 'admin-mentor')
+                                    <img class="rounded-circle" src="{{ $item->foto_pengirim }}" width="70px"
+                                        height="70px" alt="Profile">
+                                @else
+                                    <img class="rounded-circle" src="{{ asset('assets/img/non_member_new.png') }}"
+                                        width="70px" height="70px" alt="Profile">
+                                @endif
+                            @endif
                         </div>
                         <div class="col-lg-10">
-                        <h5>{{ $item->nama_pengirim }} @if ($account->status_member == 'Non-Member') @else
-                                    <img src="{{ asset('assets/img/crown_user.png') }}" alt="Profile">
+                            <h5>{{ $item->nama_pengirim }}
+                                @if ($item->stat_pengirim == 'admin-mentor')
+                                    <i class="fas fa-check-circle"></i>
+                                @elseif($item->stat_pengirim == 'member data complete')
+                                <img src="{{ asset('assets/img/crown_user.png') }}" alt="Profile">
+                                @else
+                                    
                                 @endif
                             </h5>
                             <h6>{{ date('d m Y - H.i', strtotime($item->tgl_post)) }}</h6>
                         </div>
                     </div>
                 </div>
-                <h4>{{ $item->tema }}</h4>
-                <h6><a href="#">#LifeStyle</a></h6>
+                <h6 class="mt-3"><a href="#">#{{ $item->tema }}e</a></h6>
                 <p>{{ $item->deskripsi }}</p>
                 @if (@!isset($item->gambar))
                 @else

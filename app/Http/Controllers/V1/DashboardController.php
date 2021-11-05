@@ -49,6 +49,7 @@ class DashboardController extends Controller
                     
                     $account = $responseApi->getAccount();
                     $data = $responseApi->getData();
+                    
                     // dd($data);
                     return view('dashboard.index', compact('data','account'));
                 }

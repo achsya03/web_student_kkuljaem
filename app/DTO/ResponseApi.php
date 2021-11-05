@@ -12,6 +12,7 @@ class ResponseApi
         $this->message = $response->message ?? null;
         $this->info = $response->info ?? null;
         $this->data = $response->data ?? null;
+        $this->data_web = $response->data_web ?? null;
         $this->account = $response->account ?? null;
         $this->error = $response->error ?? null;
         $this->forum_pagination = $response->forum_pagination ?? null;
@@ -30,6 +31,9 @@ class ResponseApi
 
     public function getData() {
         return $this->data;
+    }
+    public function getDataWeb() {
+        return $this->data_web;
     }
     public function getAccount() {
         return $this->account;
