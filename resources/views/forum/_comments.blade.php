@@ -60,7 +60,7 @@
                 <!-- end hamburger dot -->
             </div>
             <h5>{{ $forum->judul }}</h5>
-            <h6 class="text-tag ">#{{ $forum->tema }}</h6>
+            <h6 class="text-tag">#{{ $forum->tema }}</h6>
             <p>{{ $forum->deskripsi }}
             </p>
             @if (@!isset($forum->gambar))

@@ -208,7 +208,7 @@
     <div id="hero-comment" class="container mt-3">
         @foreach ($data->post as $item)
 
-            <div class="komentar">
+            <div class="komentar" onclick="window.location='{{ URL::route('forum.detail', $item->post_uuid) }}'">
                 <div class="profil-comentar">
                     <div class="row">
                         <div class="col-lg-1">
@@ -250,26 +250,39 @@
                         </div>
                     </div>
                 </div>
-                <h6 class="mt-3"><a href="#">#{{ $item->tema }}e</a></h6>
+                <h6 class="mt-3" style="color: #ef9c23;">#{{ $item->tema }}</h6>
                 <p>{{ $item->deskripsi }}</p>
                 @if (@!isset($item->gambar))
                 @else
                     <div class="pict-comentar">
                         <div class="card-deck">
                             @foreach ($item->gambar as $gambaritem)
-                                <img class="rounded" src="{{ $gambaritem->url_gambar }}" width="150px"
+                                <img class="rounded ml-3" src="{{ $gambaritem->url_gambar }}" width="auto"
                                     height="120px" alt="">
                             @endforeach
                         </div>
                     </div>
                 @endif
-                <div class="like-comment">
-                    <div class="row">
+                <div class="d-flex mt-3 like-comment ">
+                    @if ($item->user_like == 'True')
+                    <a href="{{ route('forum.unlike_post', $item->post_uuid) }}" style="text-decoration: none" class="btn">
+                        <i class="fas fa-heart active" style="color: red"></i>
+                    </a>
+                    @elseif($item->user_like=='False')
+                    <a href="{{ route('forum.like_post', $item->post_uuid) }}" style="text-decoration: none" class="btn">
                         <i class="far fa-heart"></i>
-                        <h7>{{ $item->jml_like }} Suka </h7>
-                        <i class="far fa-comment-alt-dots"> </i>
-                        <h7>{{ $item->jml_komen }} Comments</h7>
-                    </div>
+                    </a>
+                    @endif
+                    <p class="ml-1 mr-4 mt-2 ">{{ $item->jml_like }} Suka</p>
+    
+                    <a href="{{ route('forum.detail', $item->post_uuid) }}" style="text-decoration: none" class="btn">
+                        <div class="d-flex">
+                            <i class="far fa-comment-alt fa-flip-horizontal mt-1 mr-2"></i>
+                            <p class="ml-2">{{ $item->jml_komen }} Comments</p>
+                        </div>
+                    </a>
+    
+    
                 </div>
             </div>
         @endforeach
