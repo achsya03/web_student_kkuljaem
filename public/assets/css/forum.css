@@ -105,7 +105,7 @@ img.banner-promo {
 }
 
 .comment-forum .img-comment {
-    width: 200px;
+    width: auto;
     height: 120px;
     filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.16));
     border-radius: 10px;
@@ -255,8 +255,8 @@ img.banner-promo {
 }
 
 .img-comment {
-    width: 65px;
-    height: 65px;
+    width: auto;
+    height: 120px;
 }
 
 .form-send {

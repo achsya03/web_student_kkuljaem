@@ -180,7 +180,7 @@
                 <!-- Form Qna -->
                 @if ($account->status_member == 'Non-Member')
                 @else
-                    <div class="form-pengisian mt-4 p-4">
+                    <div class="form-pengisian mt-4 p-4 mb-3">
                         <h4 class="font-weight-bold mb-3">Ajukan Pertanyaan</h4>
                         <form action="{{ route('class.qnaVideo.process') }}" method="POST">
                             @csrf
@@ -210,7 +210,7 @@
                                     <!-- profile -->
                                     <div class="profile-qna">
                                         <img src="
-                         @if ($item->stat_pengirim == 'member data complete' &&
+                                   @if ($item->stat_pengirim == 'member data complete' &&
                                         $item->jenis_kelamin == 'L')
                                         {{ asset('assets/img/member_l.png') }}
                                     @elseif($item->stat_pengirim=='member data complete' && $item->jenis_kelamin=='P')
@@ -223,11 +223,19 @@
                                         {{ asset('assets/img/non_member_new.png') }}
                                     @else
                                         {{ asset('assets/img/avatar.png') }}
-                @endif
-                " alt="Avatar "
-                class="float-left mr-3 rounded-circle  img-detail-comment">
+                                    @endif
+                                    " alt="Avatar "
+                                    class="float-left mr-3 rounded-circle  img-detail-comment" width="80px" height="80px">
                 <div class="d-flex flex-column mt-2 ">
-                    <h6> {{ $item->nama_pengirim }} <img src="{{ asset('assets/img/crown.png') }}" alt="crown "></h6>
+                    <h6> {{ $item->nama_pengirim }}
+                        @if ($item->stat_pengirim == 'admin-mentor')
+                            <i class="fas fa-check-circle"></i>
+                        @elseif($item->stat_pengirim == 'member data complete')
+                            <img src="{{ asset('assets/img/crown_user.png') }}" alt="Profile">
+                        @else
+
+                        @endif
+                    </h6>
                     <p>{{ $item->tgl_post }}</p>
                 </div>
             </div>
@@ -263,7 +271,7 @@
     </div>
     <!-- end profile and hamburger -->
 
-    <h5>{{ $item->deskripsi }}</h5>
+    <h5 class="mt-3">{{ $item->deskripsi }}</h5>
     <div class="d-flex">
         <h6 class="text-tag ml-1"> {{ $item->video_judul }}</h6>
 
@@ -289,7 +297,7 @@
             <i class="far fa-comment-alt-dots fa-flip-horizontal mr-2 my-auto "></i>
         </button>
 
-        <a href="{{ route('class.detail_qna', $item->post_uuid) }}" style="text-decoration: none">
+        <a class="d-flex" href="{{ route('class.detail_qna', $item->post_uuid) }}" style="text-decoration: none">
             <p class="my-auto ">{{ $item->jml_komen }} Comments</p>
         </a>
     </div>

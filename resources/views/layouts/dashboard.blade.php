@@ -254,10 +254,15 @@
                 infinite: true,
                 dots: true,
                 autoplay: true,
-                autoplaySpeed: 800,
+                autoplaySpeed: 1000,
             });
         });
     </script>
+    <script type=”text/javascript”>
+        $(function() {
+        $('.fancybox-effects-d').lightBox();
+        });
+        </script>
     @yield('page-js')
 </body>
 

@@ -257,8 +257,9 @@
                     <div class="pict-comentar">
                         <div class="card-deck">
                             @foreach ($item->gambar as $gambaritem)
+                            <a class="fancybox-effects-d" href="{{ $gambaritem->url_gambar }}" title="Pict"> 
                                 <img class="rounded ml-3" src="{{ $gambaritem->url_gambar }}" width="auto"
-                                    height="120px" alt="">
+                                    height="120px" alt=""></a>
                             @endforeach
                         </div>
                     </div>
@@ -322,3 +323,4 @@
         </script>
     @endforeach
 @endsection
+
