@@ -31,6 +31,15 @@
     <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-functions.js"></script>
+    <link rel="manifest" href="manifest.json">
+
     @yield('css')
 </head>
 
@@ -74,18 +83,18 @@
                 <li class="nav-item dropdown no-arrow my-1 mx-2">
                     @php
                         
-                    $response = new \GuzzleHttp\Client();
-                    $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
-                        'headers' => [
-                            'Accept' => 'application/json',
-                            'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
-                            'authorization' => 'Bearer ' . session()->get('bearer_token'),
-                        ],
-                    ]);
-                    $responseApi = json_decode($a->getBody()->getContents());
-                    $data = $responseApi->data;
-                    
-                     @endphp
+                        $response = new \GuzzleHttp\Client();
+                        $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
+                            'headers' => [
+                                'Accept' => 'application/json',
+                                'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
+                                'authorization' => 'Bearer ' . session()->get('bearer_token'),
+                            ],
+                        ]);
+                        $responseApi = json_decode($a->getBody()->getContents());
+                        $data = $responseApi->data;
+                        
+                    @endphp
 
                     <a class="nav-link" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -93,12 +102,12 @@
                         <!-- Counter - Alerts -->
                         @if ($data->number_unread_notif == 0)
                         @else
-                        <span class="badge badge-counter "><i class="fas fa-circle"
-                            style="color:#ef9c23"></i></i></span>
+                            <span class="badge badge-counter "><i class="fas fa-circle"
+                                    style="color:#ef9c23"></i></i></span>
                         @endif
                     </a>
                     <!-- Dropdown - Alerts -->
-                   
+
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
                         <div class="row">
@@ -138,7 +147,7 @@
 
                                                     {{-- sudahdibaca --}}
                                                     <div class="icon-circle"">
-                                        <i class="far fa-bell" style="color:#fff"></i>
+                                        <i class=" far fa-bell" style="color:#fff"></i>
                                                     </div>
                                                 </div>
                                             @endif
@@ -250,19 +259,111 @@
     <script src="https://cdn.jsdelivr.net/gh/CDNSFree2/PrismJS@latest/prism.min.js"></script>
     <script>
         $(document).ready(function() {
+            var url = '{{ env('BASE_URL_API') }}';
+            var bearer = '{{ Session::get('bearer_token') }}';
             $('.slider').slick({
                 infinite: true,
                 dots: true,
                 autoplay: true,
-                autoplaySpeed: 1000,
+                autoplaySpeed: 800,
+            });
+            const firebaseConfig = {
+                apiKey: "AIzaSyCOCndwu1sUu8w2FDALq_mTkw7XsZsLKaE",
+                authDomain: "kkuljaem-korean-810c1.firebaseapp.com",
+                projectId: "kkuljaem-korean-810c1",
+                storageBucket: "kkuljaem-korean-810c1.appspot.com",
+                messagingSenderId: "435982918944",
+                appId: "1:435982918944:web:a16f995018ca6d46fee345",
+                measurementId: "G-FD7DWRZ36Y"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+            const messaging = firebase.messaging();
+            messaging
+                .requestPermission()
+                .then(function() {
+                    //MsgElem.innerHTML = "Notification permission granted." 
+                    console.log("Notification permission granted.");
+
+                    // get the token in the form of promise
+                    return messaging.getToken()
+                })
+                .then(function(token) {
+                    // print the token on the HTML page     
+                    console.log(token);
+                    request = $.ajax({
+                        url: url + "/api/user/notification/update",
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + bearer);
+                        },
+                        header: {
+                            "Accept": "application/json",
+                        },
+                        crossDomain: true,
+                        dataType: "json",
+                        type: "post",
+                        data: {
+                            device_id: token
+                        },
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    });
+
+                })
+                .catch(function(err) {
+                    console.log("Unable to get permission to notify.", err);
+                });
+
+            messaging.onMessage(function(payload) {
+                console.log(payload);
+                var notify;
+                notify = new Notification(payload.notification.title, {
+                    body: payload.notification.body,
+                    icon: payload.notification.icon,
+                    tag: "Dummy"
+                });
+                console.log(payload.notification);
+            });
+
+            //firebase.initializeApp(config);
+            var database = firebase.database().ref().child("/users/");
+
+            database.on('value', function(snapshot) {
+                renderUI(snapshot.val());
+            });
+
+            // On child added to db
+            database.on('child_added', function(data) {
+                console.log("Comming");
+                if (Notification.permission !== 'default') {
+                    var notify;
+
+                    notify = new Notification('CodeWife - ' + data.val().username, {
+                        'body': data.val().message,
+                        'icon': 'bell.png',
+                        'tag': data.getKey()
+                    });
+                    notify.onclick = function() {
+                        alert(this.tag);
+                    }
+                } else {
+                    alert('Please allow the notification first');
+                }
+            });
+
+            self.addEventListener('notificationclick', function(event) {
+                event.notification.close();
             });
         });
     </script>
+
     <script type=”text/javascript”>
         $(function() {
-        $('.fancybox-effects-d').lightBox();
+            $('.fancybox-effects-d').lightBox();
         });
-        </script>
+    </script>
     @yield('page-js')
 </body>
 
