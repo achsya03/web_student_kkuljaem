@@ -104,8 +104,6 @@
                                     </div>
                                 </div>
                                 <!-- end hamburger dot -->
-
-
                             @endif
 
                         </div>
