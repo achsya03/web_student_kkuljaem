@@ -52,8 +52,10 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
+                <div style="background:transparent;opacity:0.5;height:370px;width:730px;position:absolute;display: block;z-index: 5;">
+                </div>
                 <div class="embed-responsive">
-                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
+                    <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
                         data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $data->video[0]->url_video_mobile }}"}]}'>
                     </video>
 

@@ -109,20 +109,23 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
-                <div class="embed-responsive">
-                    {{-- <div class="plyr__video-embed" id="player">
+                <div style="background:transparent;opacity:0.5;height:370px;width:730px;position:absolute;display: block;z-index: 5;">
+                </div>
+                    <div class="embed-responsive">
+                        {{-- <div class="plyr__video-embed" id="player">
                         <iframe
                             src="{{ $data->video[0]->url_video }}"
                             allowfullscreen allowtransparency allow="autoplay">
                         </iframe>
                     </div> --}}
-                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
-                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.google.com/watch?aaa=qwertyui&v=ggblIcjpuN4"}]}'>
-                    </video>
-                    {{-- <video id='my-video' controls controlsList="nodownload" preload='auto'>
+                        <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
+                            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.google.com/watch?aaa=qwertyui&v=ggblIcjpuN4"}]}'>
+                        </video>
+                        {{-- <video id='my-video' controls controlsList="nodownload" preload='auto'>
                         <source src='{{ $data->video[0]->url_video }}' type='video/mp4'> --}}
-                    {{-- </video> --}}
-                </div>
+                        {{-- </video> --}}
+                    </div>
+                
             </div>
             <div class="col-lg-4 button-video">
                 <div class="button-pelajaran">
@@ -203,11 +206,17 @@
             <div class="d-flex">
                 <div class="col-4 logo justify-content-center d-flex align-items-center">
                     <div class="row">
-                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i class="icon fab fa-instagram"></i></a> 
-                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i class="icon fab fa-youtube"></i></a> 
-                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i class="icon fas fa-globe-asia"></i></a> 
-                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i class="icon fab fa-tiktok"></i></a> 
-                        <a class="text-dark" href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i class="icon fab fa-whatsapp"></i></a> 
+                        <a class="text-dark" href="https://www.instagram.com/kkuljaemkorean/"><i
+                                class="icon fab fa-instagram"></i></a>
+                        <a class="text-dark" href="https://www.youtube.com/channel/UCN1OeEpWXav3ME1K068H-JA"><i
+                                class="icon fab fa-youtube"></i></a>
+                        <a class="text-dark" href="https://kkuljaemkorean.com/"><i
+                                class="icon fas fa-globe-asia"></i></a>
+                        <a class="text-dark" href="https://www.tiktok.com/@kkuljaemkorean"><i
+                                class="icon fab fa-tiktok"></i></a>
+                        <a class="text-dark"
+                            href="https://api.whatsapp.com/send/?phone=6283804749226&text&app_absent=0"><i
+                                class="icon fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-4 justify-content-center d-flex align-items-center">

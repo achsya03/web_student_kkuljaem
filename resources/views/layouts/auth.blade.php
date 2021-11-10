@@ -36,7 +36,7 @@
             <nav class="navbar-menu navbar-expand-sm">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link my-auto " href="#">
+                        <a class="nav-link my-auto " href="https://kkuljaemkorean.com/">
                 Tentang <i class="fal fa-question-circle my-auto"></i>
             </a>
                     </li>

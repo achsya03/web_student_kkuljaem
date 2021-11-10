@@ -21,8 +21,10 @@
                         <div class="tab-content" id="nav-tabContent">
                             <!-- List Nilai Kami -->
                             <div class="tab-pane fade show active">
+                                <div style="background:transparent;opacity:0.5;height:370px;width:730px;position:relative;display: block;z-index: 5;">
+                                </div>
                                 <div class="embed-responsive">
-                                    <video id="vid1" class="video-js vjs-default-skin" controls width="760px" height="400px"
+                                    <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
                                         data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "{{ $class->url_video_mobile }}"}]}'>
                                     </video>
                                     {{-- <iframe class="embed-responsive-item" src="{{ $class->url_video }}" allowfullscreen></iframe> --}}
