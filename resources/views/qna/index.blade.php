@@ -143,7 +143,7 @@
                                                             <div class="d-flex flex-column mt-2 ">
                                                                 <h6> {{ $item->nama_pengirim }} <img
                                                                         src="{{ asset('assets/img/crown.png') }} " alt="crown "></h6>
-                                                                <p>{{ $item->tgl_post }}</p>
+                                                                <p>{{ date('d.m.Y - H.i A', strtotime($item->tgl_post)) }}</p>
                                                             </div>
                                                         </div>
                                                         <!-- end profile -->
@@ -297,7 +297,7 @@
                                 <div class="d-flex flex-column mt-2 ">
                                     <h6>{{ $forum->nama_pengirim }}<img src="{{ asset('assets/img/crown.png') }}"
                                             alt="crown "></h6>
-                                    <p>{{ date('d m Y - H.i', strtotime($forum->tgl_post)) }}</p>
+                                    <p>{{ date('d.m.Y - H.i A', strtotime($forum->tgl_post)) }}</p>
 
                                 </div>
                             </div>

@@ -37,7 +37,7 @@
             @endif
         </h6>
         <p class="mt-2">
-            {{ date('d m Y - H.i', strtotime($index->tgl_post)) }}
+            {{ date('d.m.Y - H.i A', strtotime($index->tgl_post)) }}
         </p>
 
     </div>

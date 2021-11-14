@@ -35,7 +35,7 @@
             @else
 
             @endif
-            <p class="mt-2">{{ date('d m Y - H.i', strtotime($forum->tgl_post)) }}
+            <p class="mt-2">{{ date('d.m.Y - H.i A', strtotime($forum->tgl_post)) }}
             </p>
 
     </div>

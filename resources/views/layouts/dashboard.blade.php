@@ -158,7 +158,7 @@
                                             </div>
                                             <div>
                                                 <h6 class="p-3 mb-0">
-                                                    {{ date('d m Y - H.i', strtotime($item->tgl_notif)) ?? '' }}
+                                                    {{ $item->tgl_notif }}
                                                 </h6>
                                             </div>
 

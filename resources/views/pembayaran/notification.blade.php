@@ -49,7 +49,7 @@
                             </h3>
                         </div>
                         @endif
-                        <a class="text-center" href="{{route('dashboard.index')}}"><button
+                        <a class="text-center" href="{{route('dashboard.noauth')}}"><button
                                 class="btn btn-pesan mt-4">Kembali ke Halaman Utama</button></a>
                     </div>
                 </div>

@@ -50,7 +50,7 @@
                     class="float-left mr-3 rounded-circle  img-detail-comment">
                 <div class="d-flex flex-column mt-2 ">
                     <h6>{{$item->nama_pengirim}}<img src="{{ asset('assets/img/crown.png') }}" alt="crown "></h6>
-                    <p>{{ date('d m Y - H.i', strtotime($item->tgl_post)) }}</p>
+                    <p>{{ date('d.m.Y - H.i A', strtotime($item->tgl_post)) }}</p>
 
                 </div>
             </div>
@@ -146,7 +146,7 @@
                         class="float-left mr-3 rounded-circle  img-detail-comment">
                     <div class="d-flex flex-column mt-2 ">
                         <h6>{{$value->comment_nama}} <img src="{{asset('assets/img/blue-check.png') }}" alt="crown "></h6>
-                        <p>{{ date('d m Y - H.i', strtotime($value->comment_tgl)) }}</p>
+                        <p>{{ date('d.m.Y - H.i A', strtotime($value->comment_tgl)) }}</p>
                     </div>
                 </div>
                 <!-- hamburger dot -->

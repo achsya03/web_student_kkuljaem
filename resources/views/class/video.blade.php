@@ -238,7 +238,7 @@
 
                         @endif
                     </h6>
-                    <p>{{ $item->tgl_post }}</p>
+                    <p>{{ date('d.m.Y - H.i A', strtotime($item->tgl_post)) }}</p>
                 </div>
             </div>
             <!-- end profile -->

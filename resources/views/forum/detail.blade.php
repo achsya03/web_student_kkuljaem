@@ -60,7 +60,7 @@
 
                 @endif
             </h6>
-            <p>{{ date('d m Y - H.i', strtotime($item->tgl_post)) }}</p>
+            <p>{{ date('d.m.Y - H.i A', strtotime($item->tgl_post)) }}</p>
 
         </div>
     </div>

@@ -89,7 +89,7 @@
                         <div class="col-lg-10">
                             <h5>{{ $forum->nama_pengirim }} <img src="{{ asset('assets/img/crown_user.png') }}"
                                     alt="Profile"></h5>
-                            <h6>{{ date('d m Y - H.i', strtotime($forum->tgl_post)) }}</h6>
+                            <h6>{{ date('d.m.Y - H.i A', strtotime($forum->tgl_post)) }}</h6>
                         </div>
                         </div>
                     </div>                    
@@ -137,7 +137,7 @@
                         <div class="col-lg-10">
                             <h5>{{ $qna->nama_pengirim }} <img src="{{ asset('assets/img/crown_user.png') }}"
                                     alt="Profile"></h5>
-                            <h6>{{ date('d m Y - H.i', strtotime($qna->tgl_post)) }}</h6>
+                            <h6>{{ date('d.m.Y - H.i A', strtotime($qna->tgl_post)) }}</h6>
                         </div>
                         </div>
                     </div>                    
