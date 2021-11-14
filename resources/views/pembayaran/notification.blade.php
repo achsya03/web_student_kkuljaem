@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('dashboard.noauth')
 
 @section('css')
 <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
