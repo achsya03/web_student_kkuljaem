@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::group(['middleware' => 'cors'], function () {
     // Home
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -27,19 +26,21 @@ Route::group(['middleware' => 'cors'], function () {
     // Search
 
 
-    // Auth
-    Route::get('/login', [AuthController::class, 'login'])->name('login.index');
-    Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
-    Route::get('/register', [AuthController::class, 'register'])->name('register.index');
-    Route::get('/register-2', [AuthController::class, 'register_2'])->name('register.register-2');
-    Route::get('/register-3', [AuthController::class, 'register_3'])->name('register.register-3'); // berhasil verifikasi
-    Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
-    Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
-    Route::post('/forgotProcess', [AuthController::class, 'forgotProcess'])->name('forgot.forgotProcess');
-    Route::get('/change-success', [AuthController::class, 'change_success'])->name('change-success.index'); // Kata Sandi berhasil Diubah
-    Route::get('/change-password', [AuthController::class, 'change_password'])->name('change-password.index'); // Imput New Password
-    Route::post('/change-password-process', [AuthController::class, 'change_password_process'])->name('change-password.process');
-    Route::get('/notification', [PembayaranController::class, 'notification'])->name('pembayaran.notification');
+     // Auth
+     Route::get('/login', [AuthController::class, 'login'])->name('login.index');
+     Route::post('/login', [AuthController::class, 'loginProcess'])->name('login.process');
+     Route::get('/register', [AuthController::class, 'register'])->name('register.index');
+     Route::get('/register-2', [AuthController::class, 'register_2'])->name('register.register-2'); 
+     Route::get('/register-3', [AuthController::class, 'register_3'])->name('register.register-3'); // berhasil verifikasi
+     Route::post('/register', [AuthController::class, 'registerProcess'])->name('register.process');
+     Route::get('/forgot', [AuthController::class, 'forgot'])->name('forgot.index');
+     Route::post('/forgotProcess', [AuthController::class, 'forgotProcess'])->name('forgot.forgotProcess');
+     Route::get('/change-success', [AuthController::class, 'change_success'])->name('change-success.index'); // Kata Sandi berhasil Diubah
+     Route::get('/change-password', [AuthController::class, 'change_password'])->name('change-password.index'); // Imput New Password
+     Route::post('/change-password-process', [AuthController::class, 'change_password_process'])->name('change-password.process');
+     
+
+
 });
 
 
@@ -56,7 +57,7 @@ Route::group(['middleware' => 'authtoken', 'cors'], function () {
         Route::get('/finish_video/{id}', [ClassController::class, 'finish_video'])->name('class.finish_video');
         Route::get('/quiz-intro/{judul}/{id}', function ($judul, $id) {
             $judul = urldecode($judul);
-            return view('quiz.index', compact('judul', 'id'));
+            return view('quiz.index', compact('judul','id'));
         })->name('class.quiz-intro');
         Route::get('/latihan-intro/{id}', function ($id) {
             return view('latihan.index', compact('id'));
@@ -93,37 +94,44 @@ Route::group(['middleware' => 'authtoken', 'cors'], function () {
         Route::get('/unlike_post/{id}', [QnaController::class, 'unlike_post'])->name('qna.unlike_post');
         Route::get('/like_comment/{id}', [QnaController::class, 'like_comment'])->name('qna.like_comment');
         Route::get('/unlike_comment/{id}', [QnaController::class, 'unlike_comment'])->name('qna.unlike_comment');
-    });
+});
 
-    Route::group(['prefix' => 'forum'], function () {
-        Route::get('/', [ForumController::class, 'index'])->name('forum.index');
-        Route::get('/topik/{id}', [ForumController::class, 'topik'])->name('forum.topik');
-        Route::get('/detail/{id}', [ForumController::class, 'detail'])->name('forum.detail');
-        Route::post('/create_post', [ForumController::class, 'create_post'])->name('forum.create_post');
-        Route::post('/create_comment', [ForumController::class, 'create_comment'])->name('forum.create_comment');
-        Route::get('/delete/{id}', [ForumController::class, 'delete'])->name('forum.delete');
-        Route::post('/alert_post', [ForumController::class, 'alert_post'])->name('forum.alert_post');
-        Route::get('/delete_post_theme', [ForumController::class, 'delete_post_theme'])->name('forum.delete_post_theme');
-        Route::post('/alert_post_theme', [ForumController::class, 'alert_post_theme'])->name('forum.alert_post_theme');
-        Route::post('/delete_comment', [ForumController::class, 'delete_comment'])->name('forum.delete_comment');
-        Route::post('/alert_comment', [ForumController::class, 'alert_comment'])->name('forum.alert_comment');
-        Route::get('/like_post/{id}', [ForumController::class, 'like_post'])->name('forum.like_post');
-        Route::get('/unlike_post/{id}', [ForumController::class, 'unlike_post'])->name('forum.unlike_post');
-    });
+Route::group(['prefix' => 'forum'], function () {
+    Route::get('/', [ForumController::class, 'index'])->name('forum.index');
+    Route::get('/topik/{id}', [ForumController::class, 'topik'])->name('forum.topik');
+    Route::get('/detail/{id}', [ForumController::class, 'detail'])->name('forum.detail');
+    Route::post('/create_post', [ForumController::class, 'create_post'])->name('forum.create_post');
+    Route::post('/create_comment', [ForumController::class, 'create_comment'])->name('forum.create_comment');
+    Route::get('/delete/{id}', [ForumController::class, 'delete'])->name('forum.delete');
+    Route::post('/alert_post', [ForumController::class, 'alert_post'])->name('forum.alert_post');
+    Route::get('/delete_post_theme', [ForumController::class, 'delete_post_theme'])->name('forum.delete_post_theme');
+    Route::post('/alert_post_theme', [ForumController::class, 'alert_post_theme'])->name('forum.alert_post_theme');
+    Route::post('/delete_comment', [ForumController::class, 'delete_comment'])->name('forum.delete_comment');
+    Route::post('/alert_comment', [ForumController::class, 'alert_comment'])->name('forum.alert_comment');
+    Route::get('/like_post/{id}', [ForumController::class, 'like_post'])->name('forum.like_post');
+    Route::get('/unlike_post/{id}', [ForumController::class, 'unlike_post'])->name('forum.unlike_post');
+
+});
 
     Route::group(['prefix' => 'profil'], function () {
         Route::get('/', [ProfilController::class, 'index'])->name('profil.index');
         Route::post('/update_profil', [ProfilController::class, 'update'])->name('profil.update_profil');
         Route::post('/change_password', [ProfilController::class, 'change_password'])->name('profil.change_password');
         Route::post('/logout', [ProfilController::class, 'logout'])->name('dashboard.noauth');
+        
     });
     Route::group(['prefix' => 'pembayaran'], function () {
         Route::get('/', [PembayaranController::class, 'index'])->name('pembayaran.index');
         Route::get('/langganan', [PembayaranController::class, 'langganan'])->name('pembayaran.langganan');
         Route::post('/pesan-packet', [PembayaranController::class, 'pesan_packet'])->name('pembayaran.pesan-packet');
         Route::get('/sukses', [PembayaranController::class, 'sukses'])->name('pembayaran.sukses');
+        Route::get('/notification', [PembayaranController::class, 'notification'])->name('pembayaran.notification');
     });
 
     Route::get('/delete_notif/{id}', [DashboardController::class, 'delete_notif'])->name('delete_notif');
     Route::post('/read_notif/{id}', [DashboardController::class, 'read_notif'])->name('read_notif');
+    
 });
+
+
+
