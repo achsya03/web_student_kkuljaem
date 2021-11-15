@@ -81,7 +81,7 @@
                 infinite: true,
                 dots: true,
                 autoplay: true,
-                autoplaySpeed: 1000,
+                autoplaySpeed: 5000,
             });
         });
     </script>
