@@ -19,18 +19,12 @@
         {{$errors->first()}}
     </div>
     @endif
-    <div class="row ">
+    <div class="row">
         <div class="col-6">
-            <div class="content-berlangganan">
-                <h2 class="font-weight-bold ">Jadi Member Premium</h2>
-                <p class="p-berlangganan">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et eu, diam lacus,
-                    turpis non. Eget malesuada tortor at leo. Est aliquam.</p>
-                <div class="title-content-langganan">
-                    <h4 class="">Keuntungan Menjadi Member Premium</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <ul>
-                        <li>Id arcu tristique id elementum enim, nisl orci ac dis. </li>
-                    </ul>
+            <div class="row align-items-center">
+                <div class="content-berlangganan">
+                    <h2 class="font-weight-bold ">Tak Terbatas dengan Premium</h2>
+                    <p class="p-berlangganan">Nikmati seluruh fitur lengkap Kkuljaem Korean App dengan berlangganan akun Premium</p>
                 </div>
             </div>
         </div>
@@ -38,7 +32,6 @@
             <div id=" pilih-paket" class="ml-auto">
                 <form target="_blank" class="form theme-form pb-5 f1" action="{{ route('pembayaran.langganan') }}" method="get">
                     @csrf
-
                     <h3 class="mb-4">Pilihan Paket</h3>
                     @foreach ($packets as $packet)
                     <label class="radio-pembayaran">{{ $packet->lama_paket }} Bulan

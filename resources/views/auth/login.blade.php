@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('title')
-Kkuljaem Korea | Login
+Kkuljarm Korean | Login
 @endsection
 
 @section('content')
@@ -10,18 +10,18 @@ Kkuljaem Korea | Login
       <div class="col-lg-7 justify-content-center slider">
         <div class="col-lg-12 mx-auto banner">
           <img src="assets/img/Property1.png" height="auto" alt="" srcset="">
-          <h1>Metode Belajar Yang Seru</h1>
-          <p>Belajar tidak harus menegangkan dan menyulitkan</p>
+          <h1>Belajar dengan Fleksibel</h1>
+          <p>Ikuti kelasnya, uji kemampuanmu, dan tanyakan materi yang tidak kamu pahami kapan saja!</p>
         </div>
         <div class="col-lg-12 mx-auto banner justify-content-center">
           <img src="assets/img/Property2.png" height="auto" alt="" srcset="">
-          <h1>Asah Kemampuanmu</h1>
-          <p>Belajar Bahasa Korea makin seru dengan berbagai fitur di dalam satu aplikasi</p>
+          <h1>Berdiskusi Bersama</h1>
+          <p>Dapatkan dan bagikan informasi seputar studi dan hobi di Korea Selatan dalam forum</p>
         </div>
         <div class="col-lg-12 mx-auto banner">
           <img src="assets/img/Property3.png" height="auto" alt="" srcset="">
-          <h1>Mari Mulai Semua</h1>
-          <p>bergabung lah dengan komunitas belajar bahasa Korea No. 1 Indonesia</p>
+          <h1>Siap?</h1>
+          <p>Mari mulai perjalanan bahasa Koreamu dengan Kkuljaem Korean!</p>
         </div>
       </div>
       <div class="col-lg-5 justify-content-center log-in">

@@ -70,7 +70,7 @@
     </div>
     <h5 class="font-weight-bold">{{ $item->judul }}</h5>
     <h6 class="text-tag">#{{ $item->tema }}</h6>
-    <p>{{ $item->deskripsi }}</p>
+    <p>{!! nl2br($item->deskripsi) !!}</p>
     @if (@!isset($item->gambar))
     @else
         <div class="card-deck">

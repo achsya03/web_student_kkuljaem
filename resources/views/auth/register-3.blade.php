@@ -18,9 +18,6 @@
             </p>
            
             <a class="d-flex align-items-center justify-content-center btn btn-masuk mb-4" href="{{ route('login.index') }}">Masuk dengan Browser </a>
-            
-            <button type="submit" class="btn-masuk-browser">Masuk dengan Aplikasi</button>
-
         </div>
 
     </div>
