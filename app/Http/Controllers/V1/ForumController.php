@@ -99,7 +99,6 @@ class ForumController extends Controller
                             return view('forum._postings', ['forum_user' => $forum_user, 'total_page_user' => $total_page_user, 'account' => $account, 'pageNumberUser' => $pageNumberUser, 'pageUser' => $pageUser])->render();
                         }
                     }
-                    // dd($forums);
                     return view('forum.index', compact('forums', 'total_page_forum', 'themes', 'forum_user', 'account', 'pageNumber', 'page', 'pageNumberUser', 'pageUser', 'total_page_user', 'forum_user_count'));
                 }
             } catch (\Exception $th) {
@@ -192,6 +191,7 @@ class ForumController extends Controller
                 $data = $responseApi->getData();
                 $account = $responseApi->getAccount();
                 $themes = $responseApitheme->getData()->theme;
+                // dd($themes);
                 return view('forum.topik', compact('data', 'id', 'themes', 'account'));
             }
         } catch (\Exception $th) {

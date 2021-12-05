@@ -120,7 +120,6 @@
                     <div class="modal-body">
                         <h5 class="mb-3">Penjelasan</h5>
                         {!! $item->penjelasan !!}
-
                     </div>
                 </div>
             </div>

@@ -3,8 +3,6 @@
 @section('css')
     <link href="{{ asset('assets/css/home.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/forum.css') }}" rel="stylesheet" />
-
-
 @endsection
 
 @section('title')
@@ -62,36 +60,16 @@
 
         <!-- Hastag -->
 
-        <div class="
-                    container hastag">
+        <div class="container hastag">
                 <div class="kelas-utama">
                     <div class="pilihan-kelas">
                         <div class="container">
                             <div class="card-deck">
                                 @foreach ($themes as $index => $theme)
-                                    @if ($index == 0)
-                                        <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag"
-                                            style="background-image: url({{ asset('assets/img/tag-makanan.jpg)') }}; text-decoration: none">
+                                        <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag mb-2"
+                                            style="background-image: url({{ asset('assets/img/tag-'.$theme->judul.'.jpg)') }}; text-decoration: none">
                                             <h3 class="text-white">#{{ $theme->judul }}</h3>
                                         </a>
-                                    @elseif ($index == 1)
-                                        <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag"
-                                            style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
-                                            <h3 class="text-white">#{{ $theme->judul }}</h3>
-                                        </a>
-                                    @elseif ($index == 2)
-                                        <a href="{{ route('forum.topik', $theme->theme_uuid) }}" class="topik-tag"
-                                            style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }}; text-decoration: none">
-                                            <h3 class="text-white">#{{ $theme->judul }}</h3>
-                                        </a>
-                                    @elseif ($index > 2)
-                                        <div class="d-flex mt-4">
-                                            <h5 class="text-hastag"><a
-                                                    href="{{ route('forum.topik', $theme->theme_uuid) }}">{{ $theme->judul }}</a>
-                                            </h5>
-                                        </div>
-                                    @endif
-
                                 @endforeach
                             </div>
                         </div>
