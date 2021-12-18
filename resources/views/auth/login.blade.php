@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('title')
-Kkuljarm Korean | Login
+Kkuljaem Korean | Login
 @endsection
 
 @section('content')
