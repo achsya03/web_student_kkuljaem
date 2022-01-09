@@ -22,7 +22,6 @@ h6 {
 #main {
     height: 90%;
     padding-bottom: 30px;
-    margin-top: 130px;
 }
 
 #header {
@@ -543,7 +542,7 @@ li.slick-active button:before {
 }
 
 #footer {
-    background-color: #f8f9fa!important;
+    background-color: #f8f9fa !important;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
@@ -573,14 +572,57 @@ li.slick-active button:before {
     text-decoration: none;
 }
 
-.text-keluar{
+.text-keluar {
     border: none;
-    background : none;
+    background: none;
     color: #c4c4c4;
 }
-.text-keluar:hover{
+.text-keluar:hover {
     color: #ef9c23;
 }
-.keluar-hover:hover{
-    background-color : #c4c4c4;
+.keluar-hover:hover {
+    background-color: #c4c4c4;
 }
+
+@media screen and (max-width: 500px) {
+    .banner img {
+        border-radius: 20px;
+        width: 100%;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #hero-pelajaran .video {
+        height: 350px;
+        width: 400px;
+        border: 50%;
+        border-radius: 15px;
+    }
+    .kelas-utama .pilihan-kelas .card-deck .gambar-kelas {
+        
+        margin-left :0;
+    }
+}
+@media screen and (max-width: 1500px) {
+    #footer .inner .col-4 {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    #footer .logo {
+      padding-left: 0%;
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    #footer .logo a .icon{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    #footer .copyright{
+      display: none;
+    }
+  }

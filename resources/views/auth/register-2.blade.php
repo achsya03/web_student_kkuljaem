@@ -27,7 +27,7 @@
       <div class="col-lg-5 justify-content-center log-in d-flex flex-column">
           <div class="register-cek">
               <h2 class="title-register-cek">Berhasil! Tinggal selangkah lagi untuk Anda</h2>
-              <p>Kami telah mengirimkan email ke</p>
+              <p>Kami telah mengirimkan email </p>
               <p class="email-user">
               @if (session('email'))
                   {{session('email')}}

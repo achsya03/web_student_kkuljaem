@@ -44,163 +44,173 @@
 </head>
 
 <body>
-    <header id="header" class="bg-light fixed-top position-fixed">
-        <div class="container d-flex align-items-center">
-            <h1 class="logo mr-auto my-auto">
-                <a href="/">
+    <header id="header">
+            <nav class="navbar navbar-expand-lg navbar-light container">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('assets/img/Logo.png') }}" alt="" srcset="" /></a>
-            </h1>
-            <form action="{{ route('dashboard.search') }}" method="POST" style="width: 450px;">
-                <div class="input-group border rounded-pill my-1 mr-4 bg-white py-1">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse j" id="navbarSupportedContent">
+                    <form action="{{ route('dashboard.search') }}" method="POST" style="width: 450px;">
+                        <div class="input-group border rounded-pill my-1 mr-4 bg-white py-1">
 
-                    @csrf
-                    <input type="text" name="keyword" placeholder="Pencarian..." aria-describedby="button-addon3"
-                        class="form-control ml-3 bg-none border-0">
-                    <div class="input-group-append border-0">
-                        <button id="button-addon3" type="submit" class="btn btn-link text-success"><i
-                                class="fa fa-search"></i></button>
-                    </div>
-
-                </div>
-            </form>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link my-1 mx-2 {{ Request::routeIs('') ? 'active' : '' }}"
-                        href="{{ route('dashboard.index') }}">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link my-1 mx-2 {{ Request::routeIs('class') ? 'active' : '' }}"
-                        href="{{ route('class.index') }}">Kelas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link my-1 mx-2 {{ Request::routeIs('forum') ? 'active' : '' }}"
-                        href="{{ route('forum.index') }}">Forum</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link my-1 mx-2 {{ Request::routeIs('qna') ? 'active' : '' }}"
-                        href="{{ route('qna.index') }}">QnA</a>
-                </li>
-                <li class="nav-item dropdown no-arrow my-1 mx-2">
-                    @php
-                        
-                        $response = new \GuzzleHttp\Client();
-                        $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
-                            'headers' => [
-                                'Accept' => 'application/json',
-                                'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
-                                'authorization' => 'Bearer ' . session()->get('bearer_token'),
-                            ],
-                        ]);
-                        $responseApi = json_decode($a->getBody()->getContents());
-                        $data = $responseApi->data;
-                        
-                    @endphp
-
-                    <a class="nav-link" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="far fa-bell" style="color:#ef9c23"></i>
-                        <!-- Counter - Alerts -->
-                        @if ($data->number_unread_notif == 0)
-                        @else
-                            <span class="badge badge-counter "><i class="fas fa-circle"
-                                    style="color:#ef9c23"></i></i></span>
-                        @endif
-                    </a>
-                    <!-- Dropdown - Alerts -->
-
-                    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                        aria-labelledby="alertsDropdown">
-                        <div class="row">
-                            <div class="col-lg-5 ml-4 p-3">
-                                <h6>Notifikasi</h6>
+                            @csrf
+                            <input type="text" name="keyword" placeholder="Pencarian..."
+                                aria-describedby="button-addon3" class="form-control ml-3 bg-none border-0">
+                            <div class="input-group-append border-0">
+                                <button id="button-addon3" type="submit" class="btn btn-link text-success"><i
+                                        class="fa fa-search"></i></button>
                             </div>
-                            <div class="col-lg-6 justify-content-end mr-2 py-3 px-4">
-                                <h6 class="text-right">
-                                    Baru <span>({{ $data->number_unread_notif }})</span>
-                                </h6>
-                            </div>
+
                         </div>
-                        <div class="notif-scroll">
-                            @if ($data->list_notif == null)
-                                <a class="dropdown-item d-flex align-items-center">
-                                    <div>
-                                        <h5 style="margin-right: 150px; margin-left:150px;">Tidak Ada Notifikasi</h5>
+                    </form>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link my-1 mx-2 {{ Request::routeIs('') ? 'active' : '' }}"
+                                href="{{ route('dashboard.index') }}">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-1 mx-2 {{ Request::routeIs('class') ? 'active' : '' }}"
+                                href="{{ route('class.index') }}">Kelas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link my-1 mx-2 {{ Request::routeIs('forum') ? 'active' : '' }}"
+                                href="{{ route('forum.index') }}">Forum</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link my-1 mx-2 {{ Request::routeIs('qna') ? 'active' : '' }}"
+                                href="{{ route('qna.index') }}">QnA</a>
+                        </li>
+                        <li class="nav-item dropdown no-arrow my-1 mx-2">
+                            @php
+                                
+                                $response = new \GuzzleHttp\Client();
+                                $a = $response->request('GET', 'https://kkuljaem-api-new-3-ft4mz.ondigitalocean.app/api/user/notification', [
+                                    'headers' => [
+                                        'Accept' => 'application/json',
+                                        'user-uuid' => '9993367b6505470fa2d1fad8c3990754',
+                                        'authorization' => 'Bearer ' . session()->get('bearer_token'),
+                                    ],
+                                ]);
+                                $responseApi = json_decode($a->getBody()->getContents());
+                                $data = $responseApi->data;
+                                
+                            @endphp
+
+                            <a class="nav-link" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-bell" style="color:#ef9c23"></i>
+                                <!-- Counter - Alerts -->
+                                @if ($data->number_unread_notif == 0)
+                                @else
+                                    <span class="badge badge-counter "><i class="fas fa-circle"
+                                            style="color:#ef9c23"></i></i></span>
+                                @endif
+                            </a>
+                            <!-- Dropdown - Alerts -->
+
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <div class="row">
+                                    <div class="col-lg-5 ml-4 p-3">
+                                        <h6>Notifikasi</h6>
                                     </div>
-                                </a>
-                            @else
-                                @foreach ($data->list_notif as $item)
-
-                                    <form action="{{ route('read_notif', $item->uuid_notif) }}" method="POST"
-                                        class="d-flex">
-                                        @csrf
-                                        <input type="hidden" name="id_target" value="{{ $item->uuid_target }}">
-                                        <input type="hidden" name="posisi" value="{{ $item->posisi }}">
-                                        <button type="submit" class="dropdown-item d-flex align-items-center px-0 ml-4">
-                                            @if ($item->status == 'unread')
-                                                <div class="px-3 border-notif">
-                                                    <div class="icon-circle">
-                                                        <i class="far fa-bell" style="color:#fff"></i>
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="px-3 non-border-notif">
-
-                                                    {{-- sudahdibaca --}}
-                                                    <div class="icon-circle"">
-                                        <i class=" far fa-bell" style="color:#fff"></i>
-                                                    </div>
-                                                </div>
-                                            @endif
+                                    <div class="col-lg-6 justify-content-end mr-2 py-3 px-4">
+                                        <h6 class="text-right">
+                                            Baru <span>({{ $data->number_unread_notif }})</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="notif-scroll">
+                                    @if ($data->list_notif == null)
+                                        <a class="dropdown-item d-flex align-items-center">
                                             <div>
-                                                <div class="small text-gray-500 font-weight-bold">{{ $item->judul }}
+                                                <h5 style="margin-right: 150px; margin-left:150px;">Tidak Ada Notifikasi
+                                                </h5>
+                                            </div>
+                                        </a>
+                                    @else
+                                        @foreach ($data->list_notif as $item)
+
+                                            <form action="{{ route('read_notif', $item->uuid_notif) }}" method="POST"
+                                                class="d-flex">
+                                                @csrf
+                                                <input type="hidden" name="id_target"
+                                                    value="{{ $item->uuid_target }}">
+                                                <input type="hidden" name="posisi" value="{{ $item->posisi }}">
+                                                <button type="submit"
+                                                    class="dropdown-item d-flex align-items-center px-0 ml-4">
+                                                    @if ($item->status == 'unread')
+                                                        <div class="px-3 border-notif">
+                                                            <div class="icon-circle">
+                                                                <i class="far fa-bell" style="color:#fff"></i>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <div class="px-3 non-border-notif">
+
+                                                            {{-- sudahdibaca --}}
+                                                            <div class="icon-circle"">
+                                        <i class="  far fa-bell" style="color:#fff"></i>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                    <div>
+                                                        <div class="small text-gray-500 font-weight-bold">
+                                                            {{ $item->judul }}
+                                                        </div>
+                                                        <h6 class="mb-0">{{ $item->deskripsi }}</h6>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="p-3 mb-0">
+                                                            {{ $item->tgl_notif }}
+                                                        </h6>
+                                                    </div>
+
+                                                </button>
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <i class="far fa-trash ml-2 mr-5 btn-delete-notif"
+                                                        onclick="window.location='{{ URL::route('delete_notif', $item->uuid_notif) }}'"
+                                                        style="color:#ef9c23"></i>
                                                 </div>
-                                                <h6 class="mb-0">{{ $item->deskripsi }}</h6>
-                                            </div>
-                                            <div>
-                                                <h6 class="p-3 mb-0">
-                                                    {{ $item->tgl_notif }}
-                                                </h6>
-                                            </div>
+                                            </form>
 
-                                        </button>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <i class="far fa-trash ml-2 mr-5 btn-delete-notif"
-                                                onclick="window.location='{{ URL::route('delete_notif', $item->uuid_notif) }}'"
-                                                style="color:#ef9c23"></i>
-                                        </div>
-                                    </form>
+                                        @endforeach
+                                    @endif
 
-                                @endforeach
-                            @endif
-
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link dropdown" href="#" id="deletedropdowm" role="button" data-toggle="dropdown">
-                        <img class="img-profile rounded-circle" src="
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link dropdown" href="#" id="deletedropdowm" role="button"
+                                data-toggle="dropdown">
+                                <img class="img-profile rounded-circle" src="
                         {{ asset('assets/img/avatar.png') }}
                         ">
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="delete">
-                        <a class="dropdown-item d-flex text-center" href="{{ route('profil.index') }}">
-                            <h6 class="mx-auto my-auto">Pengaturan</h6>
-                        </a>
-                        <div class="list-group font-weight-bold align-items-center keluar-hover" href="#">
-                            <form action="{{ route('dashboard.noauth') }}" method="POST">
-                                @csrf
-                                <button type="submit" class="mx-auto my-auto text-center text-keluar"> Keluar </button>
-                            </form>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="delete">
+                                <a class="dropdown-item d-flex text-center" href="{{ route('profil.index') }}">
+                                    <h6 class="mx-auto my-auto">Pengaturan</h6>
+                                </a>
+                                <div class="list-group font-weight-bold align-items-center keluar-hover" href="#">
+                                    <form action="{{ route('dashboard.noauth') }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="mx-auto my-auto text-center text-keluar"> Keluar
+                                        </button>
+                                    </form>
 
 
-                        </div>
-                    </div>
-                    {{-- <a class="nav-link" href="{{ route('profil.index') }}">
+                                </div>
+                            </div>
+                            {{-- <a class="nav-link" href="{{ route('profil.index') }}">
                         <img class="img-profile rounded-circle" src="{{ asset('assets/img/profile.png') }}">
                     </a> --}}
-                </li>
-            </ul>
-        </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
     </header>
 
     <div id="main">

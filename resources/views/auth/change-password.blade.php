@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-7 justify-content-center slider">
             <div class="col-lg-12 mx-auto banner">
-                <img src=".assets/img/Property1.png" height="auto" alt="" srcset="">
+                <img src="assets/img/Property1.png" height="auto" alt="" srcset="">
                 <h1>Metode Belajar Yang Seru</h1>
                 <p>Belajar tidak harus menegangkan dan menyulitkan</p>
             </div>

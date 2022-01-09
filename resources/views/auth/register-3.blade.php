@@ -7,12 +7,12 @@
 @section('content')
 <div id="hero-register" class="container selamat">
     <div class="content-register d-flex justify-content-center">
-        <div class="flex-column" style="width: 60%;">
+        <div class="flex-column">
             <div class="img-register text-center mb-4">
                 <img src="{{asset('assets/img/Logo-register.png')}}" alt="Logo">
             </div>
             <h2 class="font-weight-bold pt-4">Selamat Akun Anda Berhasil dibuat</h2>
-            <p>Kamu telah terdaftar dengan email  <p class="email-user">@if (session('email'))
+            <p>Kamu telah terdaftar sebagai pengguna Kkuljaem Korean<p class="email-user">@if (session('email'))
                 {{session('email')}}
             @endif  </p>
             </p>
