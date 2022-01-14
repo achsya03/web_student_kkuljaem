@@ -298,6 +298,7 @@ li.slick-active button:before {
   #hero-login .slick-slider {
     max-height: 350px;
     max-width: 350px;
+    margin-top: 100px;
     margin-right: auto;
     margin-left: auto;
     display: block;

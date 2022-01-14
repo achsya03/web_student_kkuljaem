@@ -29,37 +29,33 @@
     <link href="{{ asset('assets/vendor/fontawesome/css/regular.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/vendor/fontawesome/css/all.min.css') }}" rel="stylesheet" />
     <title>Kkuljaem Korean</title>
+
 </head>
 
 <body>
-    <header id="header" class="bg-light fixed-top">
-        <div class="container d-flex align-items-center">
-            <h1 class="logo mr-auto my-auto">
-                <a href="#">
-                    <img src="{{ asset('assets/img/Logo.png') }}" alt="" srcset="" /></a>
-            </h1>
-            <form class="pr-4 mr-4" style="width: 700px;">
-                <div class="input-group border rounded-pill my-1 mr-4 bg-white py-2">
-                    <input type="search" placeholder="Search..." aria-describedby="button-addon3"
-                        class="form-control ml-3 bg-none border-0">
-                    <div class="input-group-append border-0">
-                        <button id="button-addon3" type="button" class="btn btn-link text-success"><i
-                                class="fa fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link my-1 mx-2" href="{{ route('register.index') }}">Daftar</a>
-                </li>
-                <li class="nav-item btn-login">
-                    <a class="nav-link my-1 mx-2 " href="{{ route('login.index') }}">
-                        <h7>Login</h7>
-                    </a>
-                </li>
+    <header id="header">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('assets/img/Logo.png') }}" alt="" srcset="" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse j" id="navbarSupportedContent">
 
-            </ul>
-        </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link my-1 mx-2" href="{{ route('register.index') }}">Daftar</a>
+                    </li>
+                    <li class="nav-item btn-login">
+                        <a class="nav-link my-1 mx-2 " href="{{ route('login.index') }}">
+                            <h7>Login</h7>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <div id="main">
@@ -109,23 +105,14 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
-                <div style="background:transparent;opacity:0.5;height:370px;width:730px;position:absolute;display: block;z-index: 5;">
+                <div class="security">
                 </div>
-                    <div class="embed-responsive">
-                        {{-- <div class="plyr__video-embed" id="player">
-                        <iframe
-                            src="{{ $data->video[0]->url_video }}"
-                            allowfullscreen allowtransparency allow="autoplay">
-                        </iframe>
-                    </div> --}}
-                        <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
-                            data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.google.com/watch?aaa=qwertyui&v=ggblIcjpuN4"}]}'>
-                        </video>
-                        {{-- <video id='my-video' controls controlsList="nodownload" preload='auto'>
-                        <source src='{{ $data->video[0]->url_video }}' type='video/mp4'> --}}
-                        {{-- </video> --}}
-                    </div>
-                
+                <div class="embed-responsive">
+                    <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
+                        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.google.com/watch?aaa=qwertyui&v=ggblIcjpuN4"}]}'>
+                    </video>
+                </div>
+
             </div>
             <div class="col-lg-4 button-video">
                 <div class="button-pelajaran">

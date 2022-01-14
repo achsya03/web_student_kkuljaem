@@ -39,7 +39,7 @@
                     <div id="hero-promo">
                         <div class="row">
                             <div class="col-lg-12 mx-auto">
-                                <img src="{{asset('Assets/img/Bannerpromo.png') }}" height="200px" width="100%" alt="" srcset="">
+                                <img src="{{asset('Assets/img/Bannerpromo.png') }}" height="auto" width="100%" alt="" srcset="">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                 <!-- Pilih Kelas -->
                 <div class="container">
                     <div class="row pilih-kelas">
-                        <div class="col-4 p-0">
+                        <div class="col-4 p-0 daftar-kelas">
                             <div class="left">
                                 <div class="form-group px-3 pt-3 pb-2 ">
                                     <label for="list-kelas">Level</label>
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8 p-0">
+                        <div class="col-8 p-0 daftar-qna">
                             <div class="container right">
                                 <div id="parent">
                                     @forelse ($qna as $item)
@@ -139,7 +139,7 @@
                                                             {{ asset('assets/img/avatar.png') }}                                                          
                                                             @endif
                                                             " alt="Avatar "
-                                                                class="float-left mr-3 rounded-circle">
+                                                                class="float-left mr-3 rounded-circle profile-member">
                                                             <div class="d-flex flex-column mt-2 ">
                                                                 <h6> {{ $item->nama_pengirim }} <img
                                                                         src="{{ asset('assets/img/crown.png') }} " alt="crown "></h6>
@@ -149,7 +149,7 @@
                                                         <!-- end profile -->
 
                                                         <!-- hamburger dot -->
-                                                        < <div class="dropdown show hamburger-dot ">
+                                                         <div class="dropdown show hamburger-dot ">
                                                             <a class="btn dropdown" href="#" id="deletedropdowm"
                                                                 role="button" data-toggle="dropdown">
                                                                 <img src="{{ asset('assets/img/3dot.png') }}" alt="">
@@ -262,7 +262,7 @@
                 <div id="hero-promo" class="container">
                     <div class="row">
                         <div class="col-lg-12 mx-auto">
-                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" width="100%" height="200px" alt=""
+                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" width="100%" height="auto" alt=""
                                 srcset="">
                         </div>
                     </div>

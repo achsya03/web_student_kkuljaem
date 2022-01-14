@@ -40,7 +40,7 @@
                 <div id="hero-promo" class="container">
                     <div class="row">
                         <div class="col-lg-12 mx-auto">
-                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" width="100%" height="200px" alt=""
+                            <img src="{{ asset('assets/img/Bannerpromo.png') }}" width="100%" height="auto" alt=""
                                 srcset="">
                         </div>
                     </div>

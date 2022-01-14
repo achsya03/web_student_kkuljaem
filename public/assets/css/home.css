@@ -103,7 +103,8 @@ h6 {
 
 .hangeul-scroll {
     width: 100%;
-    height: 400px;
+    height: auto;
+    max-height: 400px;
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
@@ -156,7 +157,7 @@ h6 {
 .banner img {
     border-radius: 20px;
     width: 100%;
-    height: 443px;
+    height: auto;
 }
 
 .banner h1 {
@@ -212,7 +213,8 @@ h6 {
     height: 55px;
     color: #fff;
     width: 300px;
-    margin: 20px 250px 20px 250px;
+    margin: auto;
+    margin-bottom: 20px;
 }
 
 .btn-word {
@@ -583,46 +585,213 @@ li.slick-active button:before {
 .keluar-hover:hover {
     background-color: #c4c4c4;
 }
+.security {
+    background: transparent;
+    opacity: 0.5;
+    height: 370px;
+    width: 730px;
+    position: absolute;
+    display: block;
+    z-index: 5;
+}
+.banner-marketing {
+    width: 100%;
+    height: auto;
+}
+.pencarian {
+    width: 100%;
+    margin: auto;
+}
 
 @media screen and (max-width: 500px) {
+    .like-comment {
+        display: flex;
+    }
+    .btn-like {
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .jumlah-like {
+        width: fit-content;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .kolom-komentar {
+        display: flex;
+    }
+    .jumlah-komentar {
+        margin: auto;
+    }
+    .profil-comentar .row .col-lg-1 {
+        width: fit-content;
+    }
+    .profil-comentar .row .col-lg-10 {
+        width: auto;
+    }
+    .banner-marketing {
+        width: -webkit-fill-available;
+        height: auto;
+    }
+    .btn-modal-word {
+        margin: auto;
+        width: 350px;
+    }
+    .suara-hangeul {
+        width: auto;
+        margin: auto;
+    }
+    .btn-gabung {
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .security {
+        display: none;
+    }
     .banner img {
         border-radius: 20px;
         width: 100%;
-        height: 200px;
+        height: auto;
     }
-}
-
-@media screen and (max-width: 500px) {
     #hero-pelajaran .video {
-        height: 350px;
-        width: 400px;
+        height: 230px;
         border: 50%;
         border-radius: 15px;
     }
+    #hero-pelajaran .button-video .hangeul-scroll .btn-word .col-lg-4 {
+        width: 100px;
+        margin-left: auto;
+    }
+    #hero-pelajaran .button-video .hangeul-scroll {
+        height: auto;
+        max-height: 400px;
+    }
     .kelas-utama .pilihan-kelas .card-deck .gambar-kelas {
-        
-        margin-left :0;
+        margin-left: 0;
+    }
+    .container .banner-promo {
+        width: 100%;
+    }
+    .pencarian {
+        width: 100%;
+    }
+    .modal-dialog .modal-lg {
+        width: 350px;
+        margin: auto;
+    }
+    .modal-dialog .modal-lg .btn-modal-word {
+        margin: auto;
+        height: 100px;
+    }
+    .modal-dialog .modal-lg.btn-modal-word .col-lg-4 {
+        width: auto;
+    }
+    .topik-tag {
+        width: 100%;
+        height: auto;
+        display: flex;
+        margin-right: auto;
+    }
+    #footer .inner .col-4 {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    #footer .logo {
+        padding-left: 0%;
+    }
+    #footer .logo a .icon {
+        display: none;
+    }
+
+    #footer .copyright {
+        display: none;
     }
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1500px) and (min-width: 500px) {
+    .like-comment {
+        display: flex;
+    }
+    .modal-dialog .modal-lg .btn-modal-word {
+        margin: auto;
+        height: 100px;
+    }
+    .modal-dialog .modal-lg.btn-modal-word .col-lg-4 {
+        width: auto;
+    }
+    .btn-like {
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .jumlah-like {
+        width: fit-content;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .kolom-komentar {
+        display: flex;
+    }
+    .jumlah-komentar {
+        margin: auto;
+    }
+    .profil-comentar .row .col-lg-1 {
+        width: fit-content;
+    }
+    .profil-comentar .row .col-lg-10 {
+        width: auto;
+    }
+    #hero-pelajaran .button-video .hangeul-scroll .btn-word .col-lg-4 {
+        width: 100px;
+        margin-left: auto;
+    }
+    .topik-tag {
+        margin-right: auto;
+        margin-bottom: 10px;
+        width: 47%;
+        height: auto;
+    }
+    .container .banner-promo {
+        width: 100%;
+    }
     #footer .inner .col-4 {
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
     }
-  }
-  @media screen and (max-width: 1500px) {
     #footer .logo {
-      padding-left: 0%;
+        padding-left: 0%;
     }
-  }
-  @media screen and (max-width: 1500px) {
-    #footer .logo a .icon{
-      display: none;
+    #footer .logo a .icon {
+        display: none;
     }
-  }
-  @media screen and (max-width: 1500px) {
-    #footer .copyright{
-      display: none;
+
+    #footer .copyright {
+        display: none;
     }
-  }
+}
+@media screen and (max-width: 1000px) {
+    #hero-promo .banner img {
+        height: auto;
+    }
+    .kelas-utama .pilihan-kelas .card-deck .col-lg-4 {
+        width: 170px;
+    }
+    .kelas-utama .pilihan-kelas .card-deck .kelas {
+        width: 170px;
+        margin: 0;
+    }
+    .gambar-detail-kelas {
+        height: 200px;
+        width: 400px;
+    }
+    .modal-content {
+        width: 100%;
+        margin: auto;
+    }
+    .pencarian {
+        width: 100%;
+    }
+}

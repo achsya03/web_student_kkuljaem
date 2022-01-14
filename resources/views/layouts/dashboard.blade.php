@@ -53,7 +53,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse j" id="navbarSupportedContent">
-                    <form action="{{ route('dashboard.search') }}" method="POST" style="width: 450px;">
+                    <form class="pencarian" action="{{ route('dashboard.search') }}" method="POST">
                         <div class="input-group border rounded-pill my-1 mr-4 bg-white py-1">
 
                             @csrf

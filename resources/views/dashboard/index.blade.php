@@ -33,7 +33,7 @@
                         data-dismiss="modal">&times;</button>
                     <div class="modal-body">
 
-                        <img src="{{ $item->url_web }}" class="mt-2" width="750px" height="300px" alt="">
+                        <img src="{{ $item->url_web }}" class="mt-2 banner-marketing"  alt="">
                     </div>
 
                     <h2 class="px-4">{{ $item->judul_banner }}</h2>
@@ -52,7 +52,7 @@
     <div id="hero-pelajaran" class="container ">
         <div class="row">
             <div class="col-lg-8 video">
-                <div style="background:transparent;opacity:0.5;height:370px;width:730px;position:absolute;display: block;z-index: 5;">
+                <div class="security">
                 </div>
                 <div class="embed-responsive">
                     <video id="vid1" class="video-js vjs-default-skin" controls width="730px" height="400px"
@@ -103,7 +103,7 @@
                                     <p>{{ $item->hangeul }}</p>
                                     <h1>({{ $item->pelafalan }})</h1>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-4 suara-hangeul">
                                     <div>
                                         <audio id="player-sound{{ $item->kata_uuid }}">
                                             <source src="{{ $item->url_pengucapan }}" type="audio/mp3">
@@ -178,17 +178,17 @@
                         @foreach ($data->theme as $index => $theme)
                             @if ($index == 0)
                                 <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
-                                    style="background-image: url({{ asset('assets/img/tag-makanan.jpg)') }}; text-decoration: none">
+                                    style="background-image: url({{ asset('assets/img/tag-Kenalan.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
                                 </a>
                             @elseif ($index == 1)
                                 <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
-                                    style="background-image: url({{ asset('assets/img/tag-artis.jpg)') }}; text-decoration: none">
+                                    style="background-image: url({{ asset('assets/img/tag-Lifestyle.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
                                 </a>
                             @elseif ($index == 2)
                                 <a href="{{ route('forum.topik', $theme->topik_uuid) }}" class="topik-tag"
-                                    style="background-image: url({{ asset('assets/img/tag-aktor.jpg)') }}; text-decoration: none">
+                                    style="background-image: url({{ asset('assets/img/tag-KDrama.jpg)') }}; text-decoration: none">
                                     <h3 class="text-white">#{{ $theme->topik }}</h3>
                                 </a>
                             @elseif ($index > 2)

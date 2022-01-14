@@ -437,6 +437,9 @@ li.slick-active button:before {
     border-left: 5px solid transparent;
     padding-left: 15px;
 }
+.pencarian {
+    width: 450px;
+}
 
 
 @media screen and (max-width: 500px) {
@@ -462,6 +465,9 @@ li.slick-active button:before {
     }
     .modal-content {
         width: 400px;
+    }
+    .pencarian {
+        width: auto;
     }
     
 }

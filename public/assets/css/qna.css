@@ -365,3 +365,30 @@ background-color: #ffc670;
     border-left: 5px solid transparent;
     padding-left: 15px;
 }
+@media screen and (max-width: 500px) {
+.daftar-kelas{
+    flex: none;
+    max-width: none;
+    margin: auto;
+}
+.daftar-qna{
+    flex: none;
+    max-width: none;
+    margin: auto;
+}
+
+.daftar-qna .profile-qna .profile-member{
+    width: 50px;
+    height: 50px;
+}
+.daftar-qna .profile-qna h6{
+    width: max-content;
+}
+.daftar-qna .profile-qna p{
+    width: max-content;
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
+    padding-left: 5px;
+    padding-right: 5px ;
+}
+}
