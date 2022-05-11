@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'cors'], function () {
     // Home
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-
+   //domment
     // Search
 
 
