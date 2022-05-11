@@ -14,7 +14,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        URL::forceScheme('http');
     }
 
     /**
@@ -24,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        URL::forceScheme('http');
+        if (env('APP_ENV') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
     }
 }
